@@ -1,0 +1,18 @@
+Module build failed: ReferenceError: [BABEL]
+ERROR in ./public/js/app.js
+Module build failed: ReferenceError: [BABEL]
+/Users/vladimirfernandes/Documents/Web/projects/porfolio/public/js/app.js: Unknown option: direct.presets
+
+
+http://stackoverflow.com/questions/33630696/react-0-14-error-module-build-failed-referenceerror-babel-node-modules
+
+Solution:
+Installation
+
+$ npm install babel-preset-stage-0
+
+Usage
+
+Add the following line to your .babelrc file:
+
+{"presets": ["stage-0"] }
