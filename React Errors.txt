@@ -1,3 +1,4 @@
+1- ERROR:
 Module build failed: ReferenceError: [BABEL]
 ERROR in ./public/js/app.js
 Module build failed: ReferenceError: [BABEL]
@@ -16,3 +17,15 @@ Usage
 Add the following line to your .babelrc file:
 
 {"presets": ["stage-0"] }
+
+
+
+2- ERROR:
+  Error: Cannot find module 'babel-runtime/core-js/object/keys'
+  Error: Cannot find module 'babel-runtime/core-js/json/stringify'
+
+SOLUTION
+npm install babel-runtime@5.3.0
+ADD
+https://github.com/babel/gulp-babel/issues/50
+npm i

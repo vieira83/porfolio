@@ -4,7 +4,7 @@ reactDom= require( 'react-dom'),
 createBrowserHistory = require('history/lib/createBrowserHistory'),
 
 //routes
-routes = require( './routes');
+routes = require( '../../routes');
 
 const Routes = (
   <Router history={history}>

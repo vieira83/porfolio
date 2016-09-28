@@ -1,5 +1,5 @@
-// app-server.js
-require('babel-register')({
+// app-server.j/
+require('babel-core/register')({
    presets: [ 'es2015', 'react' ]
 });
 var React = require('react'),
@@ -17,7 +17,7 @@ const app = express()
 app.engine('html', hogan)
 app.set('views', __dirname + '/views')
 app.use('/', express.static(__dirname + '/public/'))
-app.set('port', (process.env.PORT || 3000))
+app.set('port', (process.env.PORT || 3005))
 
 app.get('*',(req, res) => {
 
