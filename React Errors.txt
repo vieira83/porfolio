@@ -1,22 +1,22 @@
 1- ERROR:
-Module build failed: ReferenceError: [BABEL]
-ERROR in ./public/js/app.js
-Module build failed: ReferenceError: [BABEL]
-/Users/vladimirfernandes/Documents/Web/projects/porfolio/public/js/app.js: Unknown option: direct.presets
+  Module build failed: ReferenceError: [BABEL]
+  ERROR in ./public/js/app.js
+  Module build failed: ReferenceError: [BABEL]
+  /Users/vladimirfernandes/Documents/Web/projects/porfolio/public/js/app.js: Unknown option: direct.presets
 
 
-http://stackoverflow.com/questions/33630696/react-0-14-error-module-build-failed-referenceerror-babel-node-modules
+  http://stackoverflow.com/questions/33630696/react-0-14-error-module-build-failed-referenceerror-babel-node-modules
 
-Solution:
-Installation
+  Solution:
+    Installation
 
-$ npm install babel-preset-stage-0
+    $ npm install babel-preset-stage-0
 
-Usage
+    Usage
 
-Add the following line to your .babelrc file:
+    Add the following line to your .babelrc file:
 
-{"presets": ["stage-0"] }
+    {"presets": ["stage-0"] }
 
 
 
@@ -24,8 +24,22 @@ Add the following line to your .babelrc file:
   Error: Cannot find module 'babel-runtime/core-js/object/keys'
   Error: Cannot find module 'babel-runtime/core-js/json/stringify'
 
-SOLUTION
-npm install babel-runtime@5.3.0
-ADD
-https://github.com/babel/gulp-babel/issues/50
-npm i
+  SOLUTION:
+    if you using babel core, in order to use babel register, make sure you change the require file to reflect that
+      require('babel-core/register')
+    Also: install babel-runtime
+    https://github.com/babel/gulp-babel/issues/50
+
+    npm install babel-runtime@5.3.0
+    ADD
+    npm i
+
+
+3- Error: Invariant Violation: Element type is invalid
+
+  Solutions:
+    https://github.com/jedireza/hapi-react-views/issues/44
+    when using require to import , make sure you call the imoort with the export module name,
+    Use default for react packages
+
+    ex: const Layout = require('./layout.jsx').default;

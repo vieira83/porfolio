@@ -1,16 +1,15 @@
 // app-server.j/
-require('babel-core/register')({
-   presets: [ 'es2015', 'react' ]
-});
 var React = require('react'),
 reactRouter = require( 'react-router'),
+ReactDOMServer = require('react-dom/server'),
+RoutingContext = require('react-router').RoutingContext,
+match = require('react-router').match,
 // RoutingContext = require('react-router/es6/RoutingContext'),
-// ReactDOMServer = require('react-dom.dist.server'),
 express = require('express'),
 hogan = require('hogan-express'),
 
 // Routes
-routes = require('./routes');
+routes = require('./public/routes');
 
 // Express
 const app = express()
@@ -20,23 +19,30 @@ app.use('/', express.static(__dirname + '/public/'))
 app.set('port', (process.env.PORT || 3005))
 
 app.get('*',(req, res) => {
-
-  reactRouter.match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-
-    // const reactMarkup = ReactDOMServer.renderToStaticMarkup(<RoutingContext {...renderProps}/>)
+console.log("--- Initializing ---");
+  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    console.log("Rendering");
+    //RoutingContext is an undocumented feature and will be replaced by RouterContext in v2.0.0.
+    //Its role is to synchronously render the route component.
+    //It is simply a wrapper around your component which inject context properties such as history, location and params.
+    const reactMarkup = ReactDOMServer.renderToStaticMarkup(React.createElement(RoutingContext, renderProps))
     //
-    // res.locals.reactMarkup = reactMarkup
+    res.locals.reactMarkup = reactMarkup
 
     if (error) {
       res.status(500).send(error.message)
+      console.error(error.message);
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+      console.error("redirect location");
     } else if (renderProps) {
 
       // Success!
+      console.info("rendering index.html");
       res.status(200).render('index.html')
 
     } else {
+      console.error("404 Unable to render");
       res.status(404).render('index.html')
     }
   })

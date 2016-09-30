@@ -47,35 +47,36 @@
   \******************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./public/js/app.js */1);
+	module.exports = __webpack_require__(/*! ./public/app.js */1);
 
 
 /***/ },
 /* 1 */
-/*!**************************!*\
-  !*** ./public/js/app.js ***!
-  \**************************/
+/*!***********************!*\
+  !*** ./public/app.js ***!
+  \***********************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var React = __webpack_require__(/*! react */ 2),
-	    Router = __webpack_require__(/*! react-router */ 159),
-	    reactDom = __webpack_require__(/*! react-dom */ 208),
-	    createBrowserHistory = __webpack_require__(/*! history/lib/createBrowserHistory */ 209),
-	
+	    Router = __webpack_require__(/*! react-router */ 159).default,
+	    ReactDOM = __webpack_require__(/*! react-dom */ 208),
+	    createBrowserHistory = __webpack_require__(/*! history/lib/createBrowserHistory */ 209);
 	
 	//routes
-	routes = __webpack_require__(/*! ../../routes */ 210);
+	var AllRoutes = __webpack_require__(/*! ./routes */ 210);
 	
 	var Routes = React.createElement(
 	  Router,
-	  { history: history },
-	  routes
+	  { history: createBrowserHistory() },
+	  AllRoutes
 	);
 	
-	var app = document.getElementByID('app-container');
-	reactDom.render(routes, app); // similar to ReactDOM.render
+	var app = document.getElementById('app-container');
+	console.log("tes front");
+	
+	ReactDOM.render(Routes, app); // similar to ReactDOM.render
 	
 	
 	// import React from 'react';
@@ -25051,9 +25052,9 @@
 
 /***/ },
 /* 210 */
-/*!*******************!*\
-  !*** ./routes.js ***!
-  \*******************/
+/*!**************************!*\
+  !*** ./public/routes.js ***!
+  \**************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25087,6 +25088,7 @@
 	/* RESEARCH
 	  Class ES6
 	*/
+	debugger;
 	
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -25101,6 +25103,7 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      document.body.className = '';
+	      debugger;
 	    }
 	  }, {
 	    key: 'render',

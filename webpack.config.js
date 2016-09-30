@@ -10,7 +10,7 @@ if(process.env.NODE_ENV === 'development'){
 module.exports = {
   devtool: 'eval',
   entry: [
-    './public/js/app.js'
+    './public/app.js'
   ],
   output: {
     path: __dirname + '/public/js',
