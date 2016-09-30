@@ -2,6 +2,9 @@
 require('babel-core/register')({
    presets: [ 'es2015', 'react' ]
 });
+require.extensions['.css'] = () => {
+  return;
+};
 var React = require('react'),
 reactRouter = require( 'react-router'),
 ReactDOMServer = require('react-dom/server'),

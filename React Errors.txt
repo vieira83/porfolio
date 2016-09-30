@@ -69,7 +69,7 @@
 
 
 6 - ERROR:  Cannot resolve module 'loader' in /Users/vladimirfernandes/Documents/Web/projects/porfolio/public
-    "Cannot resolve module" for CSS files 
+    "Cannot resolve module" for CSS files
 
   SOLUTION:
     https://github.com/webpack/webpack/issues/1470
@@ -83,3 +83,31 @@
 
   SOLUTION:
     http://stackoverflow.com/questions/33528060/reactjs-router-match-callback-parameters-are-always-undefined
+
+
+8- ERROR: Loading external CSS:
+  SyntaxError: /Users/vladimirfernandes/Documents/Web/projects/porfolio/public/css/porfolio.css: Unexpected token (1:0)
+    > 1 | .porfolio-link {
+        | ^
+      2 |   background: orange;
+      3 |   color:#fff;
+      4 | }
+
+
+    import './css/porfolio.css';// this will cause errors when running npm run dev
+
+  SOLUTION:
+    1- https://github.com/webpack/webpack/issues/1754
+      The workaround was the following one:
+
+      require('babel-core/register')({
+        presets: ['es2015', 'react']
+      });
+      require.extensions['.scss'] = () => {
+        return;
+      };
+      require.extensions['.css'] = () => {
+        return;
+      };
+
+    2- use Isomorphic Tools to handle server rendering issues:
