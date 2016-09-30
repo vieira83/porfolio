@@ -13,3 +13,13 @@ SERVER RENDERING WITH REACT Router:
 How to use Webpack with React and Bootstrap:
   https://react-bootstrap.github.io/getting-started.html
   https://medium.com/@victorleungtw/how-to-use-webpack-with-react-and-bootstrap-b94d33765970#.sjlaaqlpd
+
+  Best:
+  https://github.com/mtscout6/react-bootstrap-getting-started/blob/step-3-solution/src/HeaderNavigation.js
+
+GUIDE TO STYLING:
+  1- Style keys are camelCased in order to be consistent with accessing the properties on DOM
+  https://facebook.github.io/react/tips/inline-styles.html
+
+webpack-isomorphic-tools:
+  https://github.com/halt-hammerzeit/webpack-isomorphic-tools

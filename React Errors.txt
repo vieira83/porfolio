@@ -54,3 +54,32 @@
 
     //serverHtml: renderToString(<RoutingContext {...renderProps} />)
     serverHtml: ReactDOM.renderToString(React.createElement(RoutingContext, renderProps))
+
+
+
+5 - ERROR:  Location did not match any routes
+  browser.js:49 Warning: Location "/contact" did not match any routes
+
+  SOLUTION:
+    https://github.com/ReactTraining/react-router/issues/2117
+    Make sure to instantiate the history:
+    import { createHistory } from 'history';
+    let history = new createHashHistory();
+
+
+
+6 - ERROR:  Cannot resolve module 'loader' in /Users/vladimirfernandes/Documents/Web/projects/porfolio/public
+    "Cannot resolve module" for CSS files 
+
+  SOLUTION:
+    https://github.com/webpack/webpack/issues/1470
+    npm install --save-dev style-loader
+    npm install --save-dev css-loader
+    webpack config make sure it's set to: test: /\.css$/, loader: "style!css"//use loader npm and style
+
+
+7- ERROR: Router
+  Reactjs router match callback parameters are always undefined
+
+  SOLUTION:
+    http://stackoverflow.com/questions/33528060/reactjs-router-match-callback-parameters-are-always-undefined
