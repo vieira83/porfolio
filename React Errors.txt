@@ -4,19 +4,12 @@
   Module build failed: ReferenceError: [BABEL]
   /Users/vladimirfernandes/Documents/Web/projects/porfolio/public/js/app.js: Unknown option: direct.presets
 
-
-  http://stackoverflow.com/questions/33630696/react-0-14-error-module-build-failed-referenceerror-babel-node-modules
-
-  Solution:
+  SOLUTION:
+    http://stackoverflow.com/questions/33630696/react-0-14-error-module-build-failed-referenceerror-babel-node-modules
     Installation
-
     $ npm install babel-preset-stage-0
-
-    Usage
-
     Add the following line to your .babelrc file:
-
-    {"presets": ["stage-0"] }
+      {"presets": ["stage-0"] }
 
 
 
@@ -35,11 +28,29 @@
     npm i
 
 
-3- Error: Invariant Violation: Element type is invalid
+3- ERROR: Invariant Violation: Element type is invalid
 
-  Solutions:
+  SOLUTION:
     https://github.com/jedireza/hapi-react-views/issues/44
     when using require to import , make sure you call the imoort with the export module name,
     Use default for react packages
 
     ex: const Layout = require('./layout.jsx').default;
+
+
+
+4- ERROR:
+  Syntax Error: Unexpected token < while using renderToString(<RoutingContext {…renderProps} />
+  SyntaxError: Unexpected token <
+
+  SOLUTION:
+    http://stackoverflow.com/questions/34074064/syntax-error-unexpected-token-while-using-rendertostringroutingcontext
+    So I fixed the issue by making few changes to the above code
+
+    I removed the following line as it is not required
+
+    require('babel/register');
+    Then instead of transpiling app.js via babel, I just changed the JSX tag with React.createElement() as below:
+
+    //serverHtml: renderToString(<RoutingContext {...renderProps} />)
+    serverHtml: ReactDOM.renderToString(React.createElement(RoutingContext, renderProps))

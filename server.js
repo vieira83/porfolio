@@ -1,4 +1,7 @@
 // app-server.j/
+require('babel-core/register')({
+   presets: [ 'es2015', 'react' ]
+});
 var React = require('react'),
 reactRouter = require( 'react-router'),
 ReactDOMServer = require('react-dom/server'),
@@ -9,7 +12,7 @@ express = require('express'),
 hogan = require('hogan-express'),
 
 // Routes
-routes = require('./public/routes');
+routes = require('./public/routes').default;
 
 // Express
 const app = express()
@@ -19,30 +22,34 @@ app.use('/', express.static(__dirname + '/public/'))
 app.set('port', (process.env.PORT || 3005))
 
 app.get('*',(req, res) => {
-console.log("--- Initializing ---");
+  console.log("--- Initializing Routing---");
+  console.log (req.url);
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-    console.log("Rendering");
+    console.log("--- Start Rendering --- ");
     //RoutingContext is an undocumented feature and will be replaced by RouterContext in v2.0.0.
+    //https://github.com/ReactTraining/react-router/blob/master/docs/guides/ServerRendering.md
     //Its role is to synchronously render the route component.
     //It is simply a wrapper around your component which inject context properties such as history, location and params.
     const reactMarkup = ReactDOMServer.renderToStaticMarkup(React.createElement(RoutingContext, renderProps))
     //
     res.locals.reactMarkup = reactMarkup
-
+    console.log("--- renderProps");
+    console.log (renderProps);
     if (error) {
       res.status(500).send(error.message)
       console.error(error.message);
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-      console.error("redirect location");
+      console.error("=> redirect location");
     } else if (renderProps) {
 
       // Success!
-      console.info("rendering index.html");
+      console.info("=> rendering index.html");
       res.status(200).render('index.html')
 
     } else {
-      console.error("404 Unable to render");
+      //Means Route didn't match anything
+      console.error("=> 404 Unable to render");
       res.status(404).render('index.html')
     }
   })
