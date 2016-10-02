@@ -111,3 +111,28 @@
       };
 
     2- use Isomorphic Tools to handle server rendering issues:
+
+
+9- ERROR in ./public/img/main.jpg
+  Module parse failed: /Users/vladimirfernandes/Documents/Web/projects/porfolio/public/img/main.jpg Unexpected character '�' (1:0)
+  You may need an appropriate loader to handle this file type.
+  SyntaxError: Unexpected character '�' (1:0)
+
+  SOLUTION:
+    http://stackoverflow.com/questions/31549268/webpack-css-loader-not-finding-images-within-url-reference-in-an-external-styl
+
+    1- 	{ test: /.(jpe?g|gif|png)$/, loader: 'file-loader?emitFile=false&name=[path][name].[ext]' }]
+
+    2- Run your webpack again.
+
+    3- Append all the background: url('~/../somePath/toImage.png');
+      / - Site root
+      ~/ - Root directory of the application
+      The difference is that if you site is:
+        http://example.com
+        And you have an application myapp on:
+
+        http://example.com/mydir/myapp
+        / will return the root of the site (http://example.com),
+
+        ~/ will return the root of the application (http://example.com/mydir/).

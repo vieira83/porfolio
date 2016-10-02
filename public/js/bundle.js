@@ -69,7 +69,7 @@
 	
 	var React = __webpack_require__(/*! react */ 6),
 	    ReactDOM = __webpack_require__(/*! react-dom */ 320),
-	    createBrowserHistory = __webpack_require__(/*! history */ 343).createHistory,
+	    createBrowserHistory = __webpack_require__(/*! history */ 344).createHistory,
 	    history = new createBrowserHistory();
 	
 	//routes
@@ -24934,7 +24934,7 @@
 	    value: function render() {
 	      var styleApp = {
 	        color: 'white',
-	        backgroundColor: '#F6B33C'
+	        backgroundColor: '#f1f1f1'
 	      };
 	      return _react2.default.createElement(
 	        'div',
@@ -24946,7 +24946,7 @@
 	            _Nav2.default,
 	            null,
 	            _react2.default.createElement(
-	              _NavItem2.default,
+	              'li',
 	              { style: styleApp },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
@@ -24955,7 +24955,7 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _NavItem2.default,
+	              'li',
 	              { className: 'porfolio-link' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
@@ -24964,7 +24964,7 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _NavItem2.default,
+	              'li',
 	              { className: 'porfolio-link' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
@@ -24973,7 +24973,7 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _NavItem2.default,
+	              'li',
 	              { className: 'porfolio-link' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
@@ -24982,7 +24982,7 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              _NavItem2.default,
+	              'li',
 	              { className: 'porfolio-link' },
 	              _react2.default.createElement(
 	                _reactRouter.Link,
@@ -24992,11 +24992,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Vladimir Fernandes'
-	        ),
+	        _react2.default.createElement(Jumbotron, null),
 	        this.props.children
 	      );
 	    }
@@ -25027,11 +25023,6 @@
 	          'h2',
 	          null,
 	          'Home'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          'Some home page content'
 	        )
 	      );
 	    }
@@ -25040,8 +25031,55 @@
 	  return Home;
 	}(_react.Component);
 	
-	var About = function (_Component3) {
-	  _inherits(About, _Component3);
+	var Jumbotron = function (_Component3) {
+	  _inherits(Jumbotron, _Component3);
+	
+	  function Jumbotron() {
+	    _classCallCheck(this, Jumbotron);
+	
+	    return _possibleConstructorReturn(this, (Jumbotron.__proto__ || Object.getPrototypeOf(Jumbotron)).apply(this, arguments));
+	  }
+	
+	  _createClass(Jumbotron, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'home-jumbotron' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Jumbotron'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'porfolio-text' },
+	          'Full Stack Developer',
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'porfolio-name' },
+	            'Vladimir Fernandes'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'overlay' },
+	          'Vlad'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'porfolio-image' },
+	          '  '
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Jumbotron;
+	}(_react.Component);
+	
+	var About = function (_Component4) {
+	  _inherits(About, _Component4);
 	
 	  function About() {
 	    _classCallCheck(this, About);
@@ -25072,8 +25110,8 @@
 	  return About;
 	}(_react.Component);
 	
-	var Porfolio = function (_Component4) {
-	  _inherits(Porfolio, _Component4);
+	var Porfolio = function (_Component5) {
+	  _inherits(Porfolio, _Component5);
 	
 	  function Porfolio() {
 	    _classCallCheck(this, Porfolio);
@@ -25104,8 +25142,8 @@
 	  return Porfolio;
 	}(_react.Component);
 	
-	var Contact = function (_Component5) {
-	  _inherits(Contact, _Component5);
+	var Contact = function (_Component6) {
+	  _inherits(Contact, _Component6);
 	
 	  function Contact() {
 	    _classCallCheck(this, Contact);
@@ -25136,8 +25174,8 @@
 	  return Contact;
 	}(_react.Component);
 	
-	var NoMatch = function (_Component6) {
-	  _inherits(NoMatch, _Component6);
+	var NoMatch = function (_Component7) {
+	  _inherits(NoMatch, _Component7);
 	
 	  function NoMatch() {
 	    _classCallCheck(this, NoMatch);
@@ -30958,7 +30996,7 @@
 	var content = __webpack_require__(/*! !./../../~/css-loader!./porfolio.css */ 340);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 342)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 343)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -30986,7 +31024,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".porfolio-link {\n  background: orange;\n  color:#fff;\n}\n", ""]);
+	exports.push([module.id, ".porfolio-link {\n  color:#fff;\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 260px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/ocean-view.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-text {\n  height: 200px;\n  width: 100%;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-name{\n  background-color:rgba(0, 0, 0, 0.5);\n  height: 50px;\n  display: block;\n  width: 100%;\n  color: white;\n  position: absolute;\n  bottom: 0;\n}\n.overlay {\n  z-index: 2;\n  height: 260px;\nbackground: rgba(0,0,0,.5);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n", ""]);
 	
 	// exports
 
@@ -31051,7 +31089,8 @@
 
 
 /***/ },
-/* 342 */
+/* 342 */,
+/* 343 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -31306,7 +31345,7 @@
 
 
 /***/ },
-/* 343 */
+/* 344 */
 /*!********************************!*\
   !*** ./~/history/lib/index.js ***!
   \********************************/
@@ -31326,7 +31365,7 @@
 	
 	var _createLocation3 = _interopRequireDefault(_createLocation2);
 	
-	var _createBrowserHistory = __webpack_require__(/*! ./createBrowserHistory */ 344);
+	var _createBrowserHistory = __webpack_require__(/*! ./createBrowserHistory */ 345);
 	
 	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 	
@@ -31350,7 +31389,7 @@
 	
 	exports.useBasename = _useBasename3['default'];
 	
-	var _useBeforeUnload2 = __webpack_require__(/*! ./useBeforeUnload */ 345);
+	var _useBeforeUnload2 = __webpack_require__(/*! ./useBeforeUnload */ 346);
 	
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 	
@@ -31370,13 +31409,13 @@
 	
 	// deprecated
 	
-	var _enableBeforeUnload2 = __webpack_require__(/*! ./enableBeforeUnload */ 346);
+	var _enableBeforeUnload2 = __webpack_require__(/*! ./enableBeforeUnload */ 347);
 	
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 	
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 	
-	var _enableQueries2 = __webpack_require__(/*! ./enableQueries */ 347);
+	var _enableQueries2 = __webpack_require__(/*! ./enableQueries */ 348);
 	
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 	
@@ -31385,7 +31424,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 344 */
+/* 345 */
 /*!***********************************************!*\
   !*** ./~/history/lib/createBrowserHistory.js ***!
   \***********************************************/
@@ -31572,7 +31611,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 4)))
 
 /***/ },
-/* 345 */
+/* 346 */
 /*!******************************************!*\
   !*** ./~/history/lib/useBeforeUnload.js ***!
   \******************************************/
@@ -31692,7 +31731,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 4)))
 
 /***/ },
-/* 346 */
+/* 347 */
 /*!*********************************************!*\
   !*** ./~/history/lib/enableBeforeUnload.js ***!
   \*********************************************/
@@ -31708,7 +31747,7 @@
 	
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 	
-	var _useBeforeUnload = __webpack_require__(/*! ./useBeforeUnload */ 345);
+	var _useBeforeUnload = __webpack_require__(/*! ./useBeforeUnload */ 346);
 	
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 	
@@ -31716,7 +31755,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 347 */
+/* 348 */
 /*!****************************************!*\
   !*** ./~/history/lib/enableQueries.js ***!
   \****************************************/
