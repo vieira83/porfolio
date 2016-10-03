@@ -69,7 +69,7 @@
 	
 	var React = __webpack_require__(/*! react */ 6),
 	    ReactDOM = __webpack_require__(/*! react-dom */ 320),
-	    createBrowserHistory = __webpack_require__(/*! history */ 344).createHistory,
+	    createBrowserHistory = __webpack_require__(/*! history */ 343).createHistory,
 	    history = new createBrowserHistory();
 	
 	//routes
@@ -24896,6 +24896,18 @@
 	
 	var _Button2 = _interopRequireDefault(_Button);
 	
+	var _Grid = __webpack_require__(/*! react-bootstrap/lib/Grid */ 301);
+	
+	var _Grid2 = _interopRequireDefault(_Grid);
+	
+	var _Row = __webpack_require__(/*! react-bootstrap/lib/Row */ 348);
+	
+	var _Row2 = _interopRequireDefault(_Row);
+	
+	var _Col = __webpack_require__(/*! react-bootstrap/lib/Col */ 349);
+	
+	var _Col2 = _interopRequireDefault(_Col);
+	
 	__webpack_require__(/*! ./css/porfolio.css */ 339);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -25023,7 +25035,8 @@
 	          'h2',
 	          null,
 	          'Home'
-	        )
+	        ),
+	        _react2.default.createElement(Services, null)
 	      );
 	    }
 	  }]);
@@ -25174,8 +25187,107 @@
 	  return Contact;
 	}(_react.Component);
 	
-	var NoMatch = function (_Component7) {
-	  _inherits(NoMatch, _Component7);
+	var Services = function (_Component7) {
+	  _inherits(Services, _Component7);
+	
+	  function Services() {
+	    _classCallCheck(this, Services);
+	
+	    return _possibleConstructorReturn(this, (Services.__proto__ || Object.getPrototypeOf(Services)).apply(this, arguments));
+	  }
+	
+	  _createClass(Services, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          _Grid2.default,
+	          null,
+	          _react2.default.createElement(
+	            _Row2.default,
+	            null,
+	            _react2.default.createElement(
+	              _Col2.default,
+	              { sm: 4 },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Heading'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                'Adipisicing ratione incidunt eaque expedita rerum porro inventore. Nihil sit ipsam iure officiis sit eos at quibusdam natus dignissimos natus dolore! Vel doloremque ipsa alias nihil harum laborum necessitatibus rerum?'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                _react2.default.createElement(
+	                  _Button2.default,
+	                  null,
+	                  'View details \xBB'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _Col2.default,
+	              { sm: 4 },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Heading'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                'Sit quia nemo quis enim provident porro eaque accusamus tenetur provident aliquid commodi? Velit nesciunt maiores obcaecati totam praesentium sint vitae exercitationem quaerat maxime iusto et! Consequatur aspernatur sit impedit.'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                _react2.default.createElement(
+	                  _Button2.default,
+	                  null,
+	                  'View details \xBB'
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              _Col2.default,
+	              { sm: 4 },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Heading'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                'Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                _react2.default.createElement(
+	                  _Button2.default,
+	                  null,
+	                  'View details \xBB'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Services;
+	}(_react.Component);
+	
+	var NoMatch = function (_Component8) {
+	  _inherits(NoMatch, _Component8);
 	
 	  function NoMatch() {
 	    _classCallCheck(this, NoMatch);
@@ -30996,7 +31108,7 @@
 	var content = __webpack_require__(/*! !./../../~/css-loader!./porfolio.css */ 340);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 343)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 342)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -31089,8 +31201,7 @@
 
 
 /***/ },
-/* 342 */,
-/* 343 */
+/* 342 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
@@ -31345,7 +31456,7 @@
 
 
 /***/ },
-/* 344 */
+/* 343 */
 /*!********************************!*\
   !*** ./~/history/lib/index.js ***!
   \********************************/
@@ -31365,7 +31476,7 @@
 	
 	var _createLocation3 = _interopRequireDefault(_createLocation2);
 	
-	var _createBrowserHistory = __webpack_require__(/*! ./createBrowserHistory */ 345);
+	var _createBrowserHistory = __webpack_require__(/*! ./createBrowserHistory */ 344);
 	
 	var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 	
@@ -31389,7 +31500,7 @@
 	
 	exports.useBasename = _useBasename3['default'];
 	
-	var _useBeforeUnload2 = __webpack_require__(/*! ./useBeforeUnload */ 346);
+	var _useBeforeUnload2 = __webpack_require__(/*! ./useBeforeUnload */ 345);
 	
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 	
@@ -31409,13 +31520,13 @@
 	
 	// deprecated
 	
-	var _enableBeforeUnload2 = __webpack_require__(/*! ./enableBeforeUnload */ 347);
+	var _enableBeforeUnload2 = __webpack_require__(/*! ./enableBeforeUnload */ 346);
 	
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 	
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 	
-	var _enableQueries2 = __webpack_require__(/*! ./enableQueries */ 348);
+	var _enableQueries2 = __webpack_require__(/*! ./enableQueries */ 347);
 	
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 	
@@ -31424,7 +31535,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 345 */
+/* 344 */
 /*!***********************************************!*\
   !*** ./~/history/lib/createBrowserHistory.js ***!
   \***********************************************/
@@ -31611,7 +31722,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 4)))
 
 /***/ },
-/* 346 */
+/* 345 */
 /*!******************************************!*\
   !*** ./~/history/lib/useBeforeUnload.js ***!
   \******************************************/
@@ -31731,7 +31842,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 4)))
 
 /***/ },
-/* 347 */
+/* 346 */
 /*!*********************************************!*\
   !*** ./~/history/lib/enableBeforeUnload.js ***!
   \*********************************************/
@@ -31747,7 +31858,7 @@
 	
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 	
-	var _useBeforeUnload = __webpack_require__(/*! ./useBeforeUnload */ 346);
+	var _useBeforeUnload = __webpack_require__(/*! ./useBeforeUnload */ 345);
 	
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 	
@@ -31755,7 +31866,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 348 */
+/* 347 */
 /*!****************************************!*\
   !*** ./~/history/lib/enableQueries.js ***!
   \****************************************/
@@ -31776,6 +31887,375 @@
 	var _useQueries2 = _interopRequireDefault(_useQueries);
 	
 	exports['default'] = _deprecate2['default'](_useQueries2['default'], 'enableQueries is deprecated, use useQueries instead');
+	module.exports = exports['default'];
+
+/***/ },
+/* 348 */
+/*!**************************************!*\
+  !*** ./~/react-bootstrap/lib/Row.js ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ 210);
+	
+	var _extends3 = _interopRequireDefault(_extends2);
+	
+	var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ 248);
+	
+	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+	
+	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 249);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ 250);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 286);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 294);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _react = __webpack_require__(/*! react */ 6);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _elementType = __webpack_require__(/*! react-prop-types/lib/elementType */ 295);
+	
+	var _elementType2 = _interopRequireDefault(_elementType);
+	
+	var _bootstrapUtils = __webpack_require__(/*! ./utils/bootstrapUtils */ 302);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var propTypes = {
+	  componentClass: _elementType2['default']
+	};
+	
+	var defaultProps = {
+	  componentClass: 'div'
+	};
+	
+	var Row = function (_React$Component) {
+	  (0, _inherits3['default'])(Row, _React$Component);
+	
+	  function Row() {
+	    (0, _classCallCheck3['default'])(this, Row);
+	    return (0, _possibleConstructorReturn3['default'])(this, _React$Component.apply(this, arguments));
+	  }
+	
+	  Row.prototype.render = function render() {
+	    var _props = this.props;
+	    var Component = _props.componentClass;
+	    var className = _props.className;
+	    var props = (0, _objectWithoutProperties3['default'])(_props, ['componentClass', 'className']);
+	
+	    var _splitBsProps = (0, _bootstrapUtils.splitBsProps)(props);
+	
+	    var bsProps = _splitBsProps[0];
+	    var elementProps = _splitBsProps[1];
+	
+	
+	    var classes = (0, _bootstrapUtils.getClassSet)(bsProps);
+	
+	    return _react2['default'].createElement(Component, (0, _extends3['default'])({}, elementProps, {
+	      className: (0, _classnames2['default'])(className, classes)
+	    }));
+	  };
+	
+	  return Row;
+	}(_react2['default'].Component);
+	
+	Row.propTypes = propTypes;
+	Row.defaultProps = defaultProps;
+	
+	exports['default'] = (0, _bootstrapUtils.bsClass)('row', Row);
+	module.exports = exports['default'];
+
+/***/ },
+/* 349 */
+/*!**************************************!*\
+  !*** ./~/react-bootstrap/lib/Col.js ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends2 = __webpack_require__(/*! babel-runtime/helpers/extends */ 210);
+	
+	var _extends3 = _interopRequireDefault(_extends2);
+	
+	var _objectWithoutProperties2 = __webpack_require__(/*! babel-runtime/helpers/objectWithoutProperties */ 248);
+	
+	var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+	
+	var _classCallCheck2 = __webpack_require__(/*! babel-runtime/helpers/classCallCheck */ 249);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(/*! babel-runtime/helpers/possibleConstructorReturn */ 250);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(/*! babel-runtime/helpers/inherits */ 286);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 294);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _react = __webpack_require__(/*! react */ 6);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _elementType = __webpack_require__(/*! react-prop-types/lib/elementType */ 295);
+	
+	var _elementType2 = _interopRequireDefault(_elementType);
+	
+	var _bootstrapUtils = __webpack_require__(/*! ./utils/bootstrapUtils */ 302);
+	
+	var _StyleConfig = __webpack_require__(/*! ./utils/StyleConfig */ 307);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var propTypes = {
+	  componentClass: _elementType2['default'],
+	
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Extra small devices Phones (<768px)
+	   *
+	   * class-prefix `col-xs-`
+	   */
+	  xs: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Small devices Tablets (≥768px)
+	   *
+	   * class-prefix `col-sm-`
+	   */
+	  sm: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Medium devices Desktops (≥992px)
+	   *
+	   * class-prefix `col-md-`
+	   */
+	  md: _react2['default'].PropTypes.number,
+	  /**
+	   * The number of columns you wish to span
+	   *
+	   * for Large devices Desktops (≥1200px)
+	   *
+	   * class-prefix `col-lg-`
+	   */
+	  lg: _react2['default'].PropTypes.number,
+	  /**
+	   * Hide column
+	   *
+	   * on Extra small devices Phones
+	   *
+	   * adds class `hidden-xs`
+	   */
+	  xsHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Small devices Tablets
+	   *
+	   * adds class `hidden-sm`
+	   */
+	  smHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Medium devices Desktops
+	   *
+	   * adds class `hidden-md`
+	   */
+	  mdHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Hide column
+	   *
+	   * on Large devices Desktops
+	   *
+	   * adds class `hidden-lg`
+	   */
+	  lgHidden: _react2['default'].PropTypes.bool,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-offset-`
+	   */
+	  xsOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-offset-`
+	   */
+	  smOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-offset-`
+	   */
+	  mdOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Move columns to the right
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-offset-`
+	   */
+	  lgOffset: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-push-`
+	   */
+	  xsPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-push-`
+	   */
+	  smPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-push-`
+	   */
+	  mdPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the right
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-push-`
+	   */
+	  lgPush: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Extra small devices Phones
+	   *
+	   * class-prefix `col-xs-pull-`
+	   */
+	  xsPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Small devices Tablets
+	   *
+	   * class-prefix `col-sm-pull-`
+	   */
+	  smPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Medium devices Desktops
+	   *
+	   * class-prefix `col-md-pull-`
+	   */
+	  mdPull: _react2['default'].PropTypes.number,
+	  /**
+	   * Change the order of grid columns to the left
+	   *
+	   * for Large devices Desktops
+	   *
+	   * class-prefix `col-lg-pull-`
+	   */
+	  lgPull: _react2['default'].PropTypes.number
+	};
+	
+	var defaultProps = {
+	  componentClass: 'div'
+	};
+	
+	var Col = function (_React$Component) {
+	  (0, _inherits3['default'])(Col, _React$Component);
+	
+	  function Col() {
+	    (0, _classCallCheck3['default'])(this, Col);
+	    return (0, _possibleConstructorReturn3['default'])(this, _React$Component.apply(this, arguments));
+	  }
+	
+	  Col.prototype.render = function render() {
+	    var _props = this.props;
+	    var Component = _props.componentClass;
+	    var className = _props.className;
+	    var props = (0, _objectWithoutProperties3['default'])(_props, ['componentClass', 'className']);
+	
+	    var _splitBsProps = (0, _bootstrapUtils.splitBsProps)(props);
+	
+	    var bsProps = _splitBsProps[0];
+	    var elementProps = _splitBsProps[1];
+	
+	
+	    var classes = [];
+	
+	    _StyleConfig.DEVICE_SIZES.forEach(function (size) {
+	      function popProp(propSuffix, modifier) {
+	        var propName = '' + size + propSuffix;
+	        var propValue = elementProps[propName];
+	
+	        if (propValue != null) {
+	          classes.push((0, _bootstrapUtils.prefix)(bsProps, '' + size + modifier + '-' + propValue));
+	        }
+	
+	        delete elementProps[propName];
+	      }
+	
+	      popProp('', '');
+	      popProp('Offset', '-offset');
+	      popProp('Push', '-push');
+	      popProp('Pull', '-pull');
+	
+	      var hiddenPropName = size + 'Hidden';
+	      if (elementProps[hiddenPropName]) {
+	        classes.push('hidden-' + size);
+	      }
+	      delete elementProps[hiddenPropName];
+	    });
+	
+	    return _react2['default'].createElement(Component, (0, _extends3['default'])({}, elementProps, {
+	      className: (0, _classnames2['default'])(className, classes)
+	    }));
+	  };
+	
+	  return Col;
+	}(_react2['default'].Component);
+	
+	Col.propTypes = propTypes;
+	Col.defaultProps = defaultProps;
+	
+	exports['default'] = (0, _bootstrapUtils.bsClass)('col', Col);
 	module.exports = exports['default'];
 
 /***/ }
