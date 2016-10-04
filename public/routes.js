@@ -30,19 +30,17 @@ class App extends Component {
     }
     return (
       <div>
-
-          <Navbar>
              <Nav>
-                 <li style = { styleApp }><Link to="/">Home</Link></li>
-                 <li className="porfolio-link"><Link to="/about">About</Link></li>
-                 <li className="porfolio-link"><Link to="/porfolio">Porfolio</Link></li>
-                 <li className="porfolio-link"><Link to="/contact">Contact</Link></li>
-                 <li className="porfolio-link"><Link to="/resources">Resources</Link></li>
+                 <li className="porfolio-link nav-item active" style = { styleApp }><Link to="/">Home</Link></li>
+                 <li className="porfolio-link nav-item"><Link to="/about">About</Link></li>
+                 <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
+                 <li className="porfolio-link nav-item"><Link to="/contact">Contact</Link></li>
+                 <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
+                 <li className="porfolio-link nav-item last"><Link to="/login">Login</Link></li>
              </Nav>
-           </Navbar>
           <Jumbotron></Jumbotron>
-
         { this.props.children }
+        <Footer></Footer>
       </div>
     )
   }
@@ -58,16 +56,28 @@ class Home extends Component {
     )
   }
 }
-
+class Footer extends Component {
+  render(){
+    return (<footer>
+        <div className="">Copyright Vladimir Fernandes</div>
+      </footer>
+    )
+  }
+}
 class Jumbotron extends Component {
   render(){
     return (<div className="home-jumbotron">
-        <h2>Jumbotron</h2>
-        <div className="porfolio-text">
-          Full Stack Developer
-          <span className="porfolio-name">Vladimir Fernandes</span>
+        <div className="porfolio-jumbotron-container">
+          <div className="porfolio-jumbotron-text">
+            <span className="porfolio-jumbotron-name">Vladimir Fernandes</span>
+            <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
+            <div className="porfolio-jumbotron-buttons">
+                <Button>Contact Me</Button>
+                <Button>View Porfolio</Button>
+            </div>
+          </div>
         </div>
-        <div className="overlay">Vlad</div>
+        <div className="overlay"></div>
         <div className="porfolio-image">  </div>
       </div>
     )

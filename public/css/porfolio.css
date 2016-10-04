@@ -1,12 +1,59 @@
+body {
+  background: #fff;
+  color: #000;
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+footer {
+  background: #000;
+  color:#fff;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin:2rem 0 0 0;
+}
+
+
 .porfolio-link {
   color:#fff;
+}
+.nav {
+  background: rgba(0,0,0,.95);
+}
+.nav .nav-item, .nav .nav-item > a {
+  display: inline-block;
+  text-transform: uppercase;;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.nav .nav-item:first-child {
+  margin-left: 5rem;
+}
+.nav .nav-item.last{
+  float: right;
+  margin-right: 5rem;
+}
+.nav .nav-item.active{
+  background:rgba(255,0,0,0.75);
+  border-bottom: 4px solid #ff686c;
+}
+.nav .nav-item.active a {
+  background:rgba(255,0,0,0.75);
+  font-weight: 600;
+}
+.nav .nav-item:hover > a {
+  background:rgba(255,0,0,0.75);
 }
 .home-jumbotron {
   position: relative;
   z-index: 0;
 }
 .porfolio-image {
-  height: 260px;
+  height: 300px;
   width: 100%;
   background-position: 100% 40%;
   background-size: 100%;
@@ -17,26 +64,62 @@
     width: 100%;
 
 }
-.porfolio-text {
-  height: 200px;
+.porfolio-jumbotron-container {
+  height: 250px;
   width: 100%;
+  padding-top:6rem;
   position: relative;
   z-index: 5;
   color: #fff;
   background-repeat: no-repeat;
 }
-.porfolio-name{
-  background-color:rgba(0, 0, 0, 0.5);
-  height: 50px;
+.porfolio-jumbotron-text {
+  width: 50%;
+  margin: 0 auto;
+  background-color:rgba(0, 0, 0, 0.15);
+}
+.porfolio-jumbotron-pos {
+  font-size: 22px;
+  font-weight: 300;
+  text-align: left;
+  line-height: 60px;
+  color: #fff;
+  text-align: center;
+  line-height: 1rem;
+  text-shadow: 0px 3px 0px #000,
+  0px 14px 10px rgba(0,0,0,0.15),
+  0px 24px 2px rgba(0,0,0,0.1),
+  0px 34px 30px rgba(0,0,0,0.1);
+}
+
+.porfolio-jumbotron-name{
+  font-size: 50px;
+  font-weight: 600;
   display: block;
-  width: 100%;
   color: white;
-  position: absolute;
-  bottom: 0;
+  text-align: center;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),
+             2px 8px 15px rgba(0,0,0,0.1),
+             2px 18px 25px rgba(0,0,0,0.1);
+
+
+}
+
+.porfolio-jumbotron-buttons {
+  text-align: center;
+  margin-top: 4rem;
+}
+.porfolio-jumbotron-buttons button {
+  background-color: #E94E1B;
+  margin: 1rem 2rem;
+  color: #fff;
+  padding: 1rem 4rem;
+  font-size: 1.6rem;
+  border: 0;
 }
 .overlay {
   z-index: 2;
-  height: 260px;
+  height: 300px;
 background: rgba(0,0,0,.5);
 position: absolute;
 top: 0;
