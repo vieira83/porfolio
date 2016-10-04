@@ -59,7 +59,7 @@ class Home extends Component {
 class Footer extends Component {
   render(){
     return (<footer>
-        <div className="">Copyright Vladimir Fernandes</div>
+        <div className="">Copyright © 2016 Vladimir Fernandes</div>
       </footer>
     )
   }
