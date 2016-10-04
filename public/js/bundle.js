@@ -25255,7 +25255,7 @@
 	            _Row2.default,
 	            null,
 	            _react2.default.createElement(
-	              'h2',
+	              'h1',
 	              { className: 'porfolio-services-title' },
 	              'Services'
 	            ),
@@ -25265,6 +25265,7 @@
 	              _react2.default.createElement(
 	                'h3',
 	                { className: 'porfolio-services-col-title' },
+	                _react2.default.createElement('span', { className: 'front-end-icon' }),
 	                'Front End Developement'
 	              ),
 	              _react2.default.createElement(
@@ -25288,6 +25289,7 @@
 	              _react2.default.createElement(
 	                'h3',
 	                { className: 'porfolio-services-col-title' },
+	                _react2.default.createElement('span', { className: 'back-end-icon' }),
 	                'Backend Development'
 	              ),
 	              _react2.default.createElement(
@@ -25311,6 +25313,7 @@
 	              _react2.default.createElement(
 	                'h3',
 	                { className: 'porfolio-services-col-title' },
+	                _react2.default.createElement('span', { className: 'web-end-icon' }),
 	                'Web Desgin'
 	              ),
 	              _react2.default.createElement(
@@ -31555,7 +31558,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter {\n  background: #000;\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin:2rem 0 0 0;\n}\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  background: rgba(0,0,0,.95);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.active{\n  background:rgba(255,0,0,0.75);\n  border-bottom: 4px solid #ff686c;\n}\n.nav .nav-item.active a {\n  background:rgba(255,0,0,0.75);\n  font-weight: 600;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,0,0,0.75);\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/ocean-view.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:6rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 50%;\n  margin: 0 auto;\n  background-color:rgba(0, 0, 0, 0.15);\n}\n.porfolio-jumbotron-pos {\n  font-size: 22px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: #fff;\n  text-align: center;\n  line-height: 1rem;\n  text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 50px;\n  font-weight: 600;\n  display: block;\n  color: white;\n  text-align: center;\n  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),\n             2px 8px 15px rgba(0,0,0,0.1),\n             2px 18px 25px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n  margin-top: 4rem;\n}\n.porfolio-jumbotron-buttons button {\n  background-color: #E94E1B;\n  margin: 1rem 2rem;\n  color: #fff;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  border: 0;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\nbackground: rgba(0,0,0,.5);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n\n.porfolio-services-title{\n  text-align: center;\n  margin-top: 2rem;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter {\n  background: #000;\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin:2rem 0 0 0;\n}\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  background: rgba(0,0,0,.95);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.active{\n  background:rgba(255,0,0,0.75);\n  border-bottom: 4px solid #ff686c;\n}\n.nav .nav-item.active a {\n  background:rgba(255,0,0,0.75);\n  font-weight: 600;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,0,0,0.75);\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/ocean-view.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:6rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 50%;\n  margin: 0 auto;\n  background-color:rgba(0, 0, 0, 0.15);\n}\n.porfolio-jumbotron-pos {\n  font-size: 22px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: #fff;\n  text-align: center;\n  line-height: 1rem;\n  text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 50px;\n  font-weight: 600;\n  display: block;\n  color: white;\n  text-align: center;\n  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),\n             2px 8px 15px rgba(0,0,0,0.1),\n             2px 18px 25px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n  margin-top: 4rem;\n}\n.porfolio-jumbotron-buttons button {\n  background-color: #E94E1B;\n  margin: 1rem 2rem;\n  color: #fff;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  border: 0;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\nbackground: rgba(0,0,0,.5);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n\n.porfolio-services-title{\n  text-align: center;\n  margin-top: 2rem;\n  margin-bottom: 3rem;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  background-size: 6rem;\n  padding: 3.5rem;\n  display: inline;\n\n  background-size: 9rem;\npadding: 4.5rem;\ndisplay: inline-block;\ntext-align: center;\nmargin: 1rem 12rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  background-size: 6rem;\n  padding: 3.5rem;\n  display: inline;\n\n  background-size: 9rem;\npadding: 4.5rem;\ndisplay: inline-block;\ntext-align: center;\nmargin: 1rem 12rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  background-size: 6rem;\n  padding: 3.5rem;\n  display: inline;\n  background-size: 9rem;\npadding: 4.5rem;\ndisplay: inline-block;\ntext-align: center;\nmargin: 1rem 12rem;\n}\n", ""]);
 	
 	// exports
 

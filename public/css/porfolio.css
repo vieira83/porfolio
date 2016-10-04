@@ -129,4 +129,52 @@ width: 100%;
 .porfolio-services-title{
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.porfolio-services-col-title {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.front-end-icon {
+  background-image: url("~/../img/icons/tools-icons.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 6rem;
+  padding: 3.5rem;
+  display: inline;
+
+  background-size: 9rem;
+padding: 4.5rem;
+display: inline-block;
+text-align: center;
+margin: 1rem 12rem;
+}
+.back-end-icon {
+  background-image: url("~/../img/icons/database-cloud-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 6rem;
+  padding: 3.5rem;
+  display: inline;
+
+  background-size: 9rem;
+padding: 4.5rem;
+display: inline-block;
+text-align: center;
+margin: 1rem 12rem;
+}
+
+.web-end-icon {
+  background-image: url("~/../img/icons/monitor-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 6rem;
+  padding: 3.5rem;
+  display: inline;
+  background-size: 9rem;
+padding: 4.5rem;
+display: inline-block;
+text-align: center;
+margin: 1rem 12rem;
 }
