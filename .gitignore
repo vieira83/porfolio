@@ -4,3 +4,4 @@ node_modules
 /.ideia
 .git
 /.git
+.DS_Store
