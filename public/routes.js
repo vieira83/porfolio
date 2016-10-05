@@ -71,10 +71,10 @@ class Jumbotron extends Component {
           <div className="porfolio-jumbotron-text">
             <span className="porfolio-jumbotron-name">Vladimir Fernandes</span>
             <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
-            <div className="porfolio-jumbotron-buttons">
-                <Button>Contact Me</Button>
-                <Button>View Porfolio</Button>
-            </div>
+          </div>
+          <div className="porfolio-jumbotron-buttons">
+              <Button>Contact Me</Button>
+              <Button>View Porfolio</Button>
           </div>
         </div>
         <div className="overlay"></div>

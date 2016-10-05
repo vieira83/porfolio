@@ -66,16 +66,17 @@ footer {
 .porfolio-jumbotron-container {
   height: 250px;
   width: 100%;
-  padding-top:6rem;
+  padding-top:4rem;
   position: relative;
   z-index: 5;
   color: #fff;
   background-repeat: no-repeat;
 }
 .porfolio-jumbotron-text {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  background-color:rgba(0, 0, 0, 0.15);
+  height: 105px;
+  background-color:rgba(0, 0, 0, 0.1);
 }
 .porfolio-jumbotron-pos {
   font-size: 22px;
@@ -109,9 +110,9 @@ footer {
   margin-top: 4rem;
 }
 .porfolio-jumbotron-buttons button {
-  background-color: #E94E05;
-  margin: 1rem 2rem;
-  color: #fff;
+  background-color: #fff;
+  margin: 5rem 2rem 2rem 2rem;
+  color: #E94E05;
   padding: 1rem 4rem;
   font-size: 1.6rem;
   border: 0;
