@@ -109,12 +109,15 @@ footer {
   margin-top: 4rem;
 }
 .porfolio-jumbotron-buttons button {
-  background-color: #E94E1B;
+  background-color: #E94E05;
   margin: 1rem 2rem;
   color: #fff;
   padding: 1rem 4rem;
   font-size: 1.6rem;
   border: 0;
+}
+.porfolio-jumbotron-buttons button:hover {
+  background-color: #E94E3A;
 }
 .overlay {
   z-index: 2;
@@ -140,41 +143,39 @@ width: 100%;
   background-image: url("~/../img/icons/tools-icons.svg");
   background-repeat: no-repeat;
   background-position: 0% 50%;
-  background-size: 6rem;
-  padding: 3.5rem;
-  display: inline;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 
-  background-size: 9rem;
-padding: 4.5rem;
-display: inline-block;
-text-align: center;
-margin: 1rem 12rem;
+  background-size: 11rem;
+padding: 5.5rem;
+margin-bottom: 2rem;
 }
 .back-end-icon {
   background-image: url("~/../img/icons/database-cloud-icon.svg");
   background-repeat: no-repeat;
   background-position: 0% 50%;
-  background-size: 6rem;
-  padding: 3.5rem;
-  display: inline;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 
-  background-size: 9rem;
-padding: 4.5rem;
-display: inline-block;
-text-align: center;
-margin: 1rem 12rem;
+  background-size: 11rem;
+padding: 5.5rem;
+margin-bottom: 2rem;
 }
 
 .web-end-icon {
   background-image: url("~/../img/icons/monitor-icon.svg");
   background-repeat: no-repeat;
   background-position: 0% 50%;
-  background-size: 6rem;
-  padding: 3.5rem;
-  display: inline;
-  background-size: 9rem;
-padding: 4.5rem;
-display: inline-block;
-text-align: center;
-margin: 1rem 12rem;
+
+  background-size: 11rem;
+padding: 5.5rem;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+margin-bottom: 2rem;
 }
