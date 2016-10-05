@@ -180,3 +180,12 @@ display: block;
   width: 40%;
 margin-bottom: 2rem;
 }
+.col-sm-4 {
+  background: #FAF4eF;
+    margin-left: 2rem;
+    box-shadow: 2px 2px 4px 0px #DDD;
+    border-radius: 5px;width: 30%;
+}
+.col-sm-4 p {
+  text-align: center;
+}
