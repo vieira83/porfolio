@@ -5,6 +5,9 @@
 */
 import React, { Component } from 'react';
 import { Route, IndexRoute, Link } from 'react-router';
+import {About} from './components/about';
+import {Porfolio} from './components/porfolio';
+import {Contact} from './components/contact';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -30,17 +33,17 @@ class App extends Component {
     }
     return (
       <div>
-             <Nav>
-                 <li className="porfolio-link nav-item active" style = { styleApp }><Link to="/">Home</Link></li>
-                 <li className="porfolio-link nav-item"><Link to="/about">About</Link></li>
-                 <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
-                 <li className="porfolio-link nav-item"><Link to="/contact">Contact</Link></li>
-                 <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
-                 <li className="porfolio-link nav-item last"><Link to="/login">Login</Link></li>
-             </Nav>
-          <Jumbotron></Jumbotron>
+        <Nav>
+           <li className="porfolio-link nav-item active" style = { styleApp }><Link to="/">Home</Link></li>
+           <li className="porfolio-link nav-item"><Link to="/about">About</Link></li>
+           <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
+           <li className="porfolio-link nav-item"><Link to="/contact">Contact</Link></li>
+           <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
+           <li className="porfolio-link nav-item last"><Link to="/login">Login</Link></li>
+        </Nav>
+        <Jumbotron/>
         { this.props.children }
-        <Footer></Footer>
+        <Footer/>
       </div>
     )
   }
@@ -73,8 +76,8 @@ class Jumbotron extends Component {
             <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
           </div>
           <div className="porfolio-jumbotron-buttons">
-              <Button>Contact Me</Button>
-              <Button>View Porfolio</Button>
+              <Link className="btn btn-primary button" to="/contact">Contact Me</Link>
+              <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link>
           </div>
         </div>
         <div className="overlay"></div>
@@ -84,33 +87,6 @@ class Jumbotron extends Component {
   }
 }
 
-class About extends Component {
-  render(){
-    return (<div>
-        <h2>About</h2>
-        <div>Some about page content</div>
-      </div>
-    )
-  }
-}
-class Porfolio extends Component {
-  render(){
-    return (<div>
-        <h2>Work</h2>
-        <div>Some work page content</div>
-      </div>
-    )
-  }
-}
-class Contact extends Component {
-  render(){
-    return (<div>
-        <h2>Contact</h2>
-        <div>Some contact page content</div>
-      </div>
-    )
-  }
-}
 
 class Services extends Component {
   render(){
@@ -119,27 +95,33 @@ class Services extends Component {
           <Row>
             <h1 className="porfolio-services-title">Services</h1>
             <Col sm={4}>
-              <h3 className="porfolio-services-col-title">
-                <span className="front-end-icon"></span>Front End Developement
-              </h3>
-              <p>Adipisicing ratione incidunt eaque expedita rerum porro inventore. Nihil sit ipsam iure officiis sit eos at quibusdam natus dignissimos natus dolore! Vel doloremque ipsa alias nihil harum laborum necessitatibus rerum?</p>
-              <p><Button>View details »</Button></p>
+              <div className="col-main-background">
+                <h3 className="porfolio-services-col-title">
+                  <span className="front-end-icon"></span>Front End Developement
+                </h3>
+                <p>Adipisicing ratione incidunt eaque expedita rerum porro inventore. Nihil sit ipsam iure officiis sit eos at quibusdam natus dignissimos natus dolore! Vel doloremque ipsa alias nihil harum laborum necessitatibus rerum?</p>
+                <p><Button>View details »</Button></p>
+              </div>
             </Col>
             <Col sm={4}>
-              <h3 className="porfolio-services-col-title">
-                <span className="back-end-icon"></span>
-                Backend Development
-              </h3>
-              <p>Sit quia nemo quis enim provident porro eaque accusamus tenetur provident aliquid commodi? Velit nesciunt maiores obcaecati totam praesentium sint vitae exercitationem quaerat maxime iusto et! Consequatur aspernatur sit impedit.</p>
-              <p><Button>View details »</Button></p>
+              <div className="col-main-background">
+                <h3 className="porfolio-services-col-title">
+                  <span className="back-end-icon"></span>
+                  Backend Development
+                </h3>
+                <p>Sit quia nemo quis enim provident porro eaque accusamus tenetur provident aliquid commodi? Velit nesciunt maiores obcaecati totam praesentium sint vitae exercitationem quaerat maxime iusto et! Consequatur aspernatur sit impedit.</p>
+                <p><Button>View details »</Button></p>
+              </div>
             </Col>
             <Col sm={4}>
-              <h3 className="porfolio-services-col-title">
-                <span className="web-end-icon"></span>
-                Web Desgin
-              </h3>
-              <p>Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.</p>
-              <p><Button>View details »</Button></p>
+              <div className="col-main-background">
+                <h3 className="porfolio-services-col-title">
+                  <span className="web-end-icon"></span>
+                  Web Desgin
+                </h3>
+                <p>Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.</p>
+                <p><Button>View details »</Button></p>
+              </div>
             </Col>
           </Row>
         </Grid>

@@ -109,7 +109,7 @@ footer {
   text-align: center;
   margin-top: 4rem;
 }
-.porfolio-jumbotron-buttons button {
+.porfolio-jumbotron-buttons .button {
   background-color: #fff;
   margin: 5rem 2rem 2rem 2rem;
   color: #E94E05;
@@ -130,7 +130,7 @@ left: 0;
 width: 100%;
 }
 
-.porfolio-services-title{
+.porfolio-services-title, .porfolio-about-title, .porfolio-title{
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 3rem;
@@ -180,12 +180,42 @@ display: block;
   width: 40%;
 margin-bottom: 2rem;
 }
-.col-sm-4 {
+.col-main-background {
   background: #FAF4eF;
     margin-left: 2rem;
     box-shadow: 2px 2px 4px 0px #DDD;
-    border-radius: 5px;width: 30%;
+    border-radius: 5px;
+    padding:1rem;
+
 }
-.col-sm-4 p {
+.col-main-background p {
   text-align: center;
+}
+
+.porfolio-section {
+  padding: 2rem 3rem;
+  margin-top: 4rem;
+}
+
+/*About PAGE*/
+.porfolio-about-image-cont{
+  display: block;
+  float: left;
+  line-height: 3rem;
+}
+.porfolio-about-image{
+  background: url("~/../img/vlad.png") no-repeat 100% 0%;
+    width: 90px;
+    height: 100px;
+    display: inline-block;
+    border-radius: 60%;
+    background-size: 90px;
+
+}
+.porfolio-about-description {
+  margin-top: 1rem;
+}
+.col-main-background.about {
+  margin: 2rem 1rem;
+  padding: 2rem 1rem;
 }

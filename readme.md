@@ -23,3 +23,45 @@ GUIDE TO STYLING:
 
 webpack-isomorphic-tools:
   https://github.com/halt-hammerzeit/webpack-isomorphic-tools
+
+
+REACT STATE:
+  To make this all work, we are going to be relying on three APIs that our React Component exposes:
+
+    componentDidMount
+      This method gets called just after our component gets rendered (or mounted as React calls it).
+
+    getInitialState
+      This method runs just before your component gets mounted, and it allows you to modify a component's state object.
+
+    setState
+      This method allows you to update the value of the state object.
+      var LightningCounter = React.createClass({
+        getInitialState: function() {
+          return {
+            strikes: 0
+          };
+        },
+        render: function() {
+          return (
+            <h1>{this.state.strikes}</h1>
+          );
+        }
+      });
+      //The above object that gets returned is set as the initial value for our component's state object. will be:
+        var state = {
+          strikes: 0;
+        }
+      USAGE:
+        var LightningCounter = React.createClass({
+        getInitialState: function() {
+          return {
+            strikes: 0
+          };
+        },
+        render: function() {
+          return (
+            <h1>{this.state.strikes}</h1>
+          );
+        }
+      });
