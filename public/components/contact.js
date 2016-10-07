@@ -20,6 +20,7 @@ export class Contact extends Component {
         <Grid>
           <Row>
             <h1 className="porfolio-title">Contact Me</h1>
+            <h4 className="porfolio-sub-title">Please Fill Out the form to contact me</h4>
             <Col sm={5} className="col-main-background contact">
               <div className="porfolio-contact-map-container">
                   <span className="porfolio-contact-map">

@@ -62,7 +62,8 @@ class Home extends Component {
 class Footer extends Component {
   render(){
     return (<footer>
-        <div className="">Copyright © 2016 Vladimir Fernandes</div>
+        <div className="footer-bar"></div>
+        <div className="copyright">Copyright © 2016 Vladimir Fernandes</div>
       </footer>
     )
   }
@@ -107,9 +108,9 @@ class Services extends Component {
               <div className="col-main-background">
                 <h3 className="porfolio-services-col-title">
                   <span className="back-end-icon"></span>
-                  Backend Development
+                  Back End Development
                 </h3>
-                <p>Sit quia nemo quis enim provident porro eaque accusamus tenetur provident aliquid commodi? Velit nesciunt maiores obcaecati totam praesentium sint vitae exercitationem quaerat maxime iusto et! Consequatur aspernatur sit impedit.</p>
+                <p>Sit quia nemo quis enim provident porro eaque accusamus tenetur provident aliquid commodi? Velit nesciunt maiores obcaecati totam praesentium sint vitae exercitationem quaerat maxime iusto et! Consequatur .</p>
                 <p><Button>View details »</Button></p>
               </div>
             </Col>

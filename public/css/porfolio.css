@@ -8,14 +8,35 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-footer {
+footer .copyright{
   background: #000;
   color:#fff;
   text-align: center;
   font-size: 1.2rem;
   padding: 1rem;
-  margin:2rem 0 0 0;
+  margin: 0;
 }
+footer .footer-bar {
+  height: 100px;
+  margin-top: 2rem;
+  background-color: rgba(255,0,0,0.75);
+}
+
+
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
 
 .porfolio-link {
   color:#fff;
@@ -76,15 +97,14 @@ footer {
   width: 45%;
   margin: 0 auto;
   height: 105px;
-  background-color:rgba(0, 0, 0, 0.6);
+  /*background-color:rgba(0, 0, 0, 0.6);*/
 }
 .porfolio-jumbotron-pos {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
   text-align: left;
   line-height: 60px;
-  color: #bbb;
-  font-variant: small-caps;
+  color: #fff;
   text-align: center;
   line-height: 1rem;
   text-shadow: 0px 3px 0px #000,
@@ -102,6 +122,7 @@ footer {
   text-align: center;
   font-family: fantasy;
   font-variant: small-caps;
+  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.8),
              2px 8px 15px rgba(0,0,0,0.1),
              2px 18px 25px rgba(0,0,0,0.1);
@@ -129,7 +150,7 @@ footer {
 .overlay {
   z-index: 2;
   height: 300px;
-background: rgba(0,0,0,.5);
+background: rgba(0,0,0,.65);
 position: absolute;
 top: 0;
 left: 0;
@@ -139,12 +160,26 @@ width: 100%;
 .porfolio-services-title, .porfolio-about-title, .porfolio-title{
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+.porfolio-sub-title {
+  color: #555;
+  display: block;
+  width: 45%;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 5px solid orange;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 16px;
 }
 .porfolio-services-col-title {
   margin-top: 1rem;
   margin-bottom: 2rem;
   text-align: center;
+}
+.porfolio-services-col-title span {
+  color: rgba(255,0,0,0.75);
 }
 .front-end-icon {
   background-image: url("~/../img/icons/tools-icons.svg");
@@ -187,20 +222,42 @@ display: block;
 margin-bottom: 2rem;
 }
 .col-main-background {
-  background: #FAF4eF;
+  //background: #FAF4eF;
     margin-left: 2rem;
-    box-shadow: 2px 2px 4px 0px #DDD;
-    border-radius: 5px;
+    //box-shadow: 2px 2px 4px 0px #DDD;
+    //border-radius: 5px;
     padding:1rem;
 
 }
-.col-main-background p {
+.col-main-background p, .porfolio-about-text {
   text-align: center;
+  color: #fff;
+  /*opacity: 0.95;
+  background: rgba(255, 104, 45, 0.85);*/
+  opacity: .95;
+background: rgba(0,0,0,0.85);
+  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
+  margin-top: -40px;
+  padding: 1rem;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 45, 0.85);
+  border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
-
+.porfolio-about-text {
+  width: 87%;
+float: right;
+padding: 3rem;
+}
+.col-main-background button {
+  background-color: #E94E3A;
+  color: #fff;
+}
 .porfolio-section {
   padding: 2rem 3rem;
   margin-top: 4rem;
+  background: #E8E8E8;
 }
 
 /*About PAGE*/
@@ -219,9 +276,19 @@ margin-bottom: 2rem;
 
 }
 .porfolio-about-description {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 .col-main-background.about {
-  margin: 2rem 1rem;
+  margin: 0rem 1rem;
   padding: 2rem 1rem;
+}
+.porfolio-site-image img{
+  width: 417px;
+  height: 241px;
+  display: inline-block;
+  background-position: 0% 50%;
+  background-size: 420px;
+  background-repeat: no-repeat;
+  border: 10px solid #fff;
+  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
 }

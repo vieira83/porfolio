@@ -1,61 +1,83 @@
 import React, { Component } from 'react';
 import {Button, Col, Row, Grid} from 'react-bootstrap/lib';
+import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
+
 
 export class Porfolio extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {items: ['hello', 'world', 'click', 'me']};
+  }
   render(){
     return (<div className="porfolio-section porfolio">
           <Grid>
-            <Row>
+            <Row className="row-centered">
               <h1 className="porfolio-title">Porfolio</h1>
-              <Col sm={6}>
+              <h4 className="porfolio-sub-title">Examples of my work on iOS & Android mobile apps</h4>
+              <ReactCSSTransitionGroup transitionName="name" transitionEnterTimeout={500} transitionAppear={true}
+                transitionAppearTimeout={500} transitionLeaveTimeout={300}>
+                <Col sm={5} className="col-centered">
+                  <div className="col-main-background about">
+                      <span className="porfolio-site-image">
+                        <img src="~/../img/por/fanpierboston2.jpg"/>
+                      </span>
+                      <div className="porfolio-porfolio-description">
+                        <p>Fan Pier</p>
+                      </div>
+
+                  </div>
+                </Col>
+              </ReactCSSTransitionGroup>
+              <Col sm={5} className="col-centered">
                 <div className="col-main-background about">
-                    <span className="porfolio-about-image"></span>
+                    <span className="porfolio-site-image">
+                      <img src="~/../img/por/highland.jpg"/>
+                    </span>
                     <div className="porfolio-porfolio-description">
-                      <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
-                    </div>
-                </div>
-              </Col>
-              <Col sm={6}>
-                <div className="col-main-background about">
-                    <span className="porfolio-about-image"></span>
-                    <div className="porfolio-porfolio-description">
-                      <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
+                      <p>Highland</p>
                     </div>
                 </div>
               </Col>
             </Row>
-            <Row>
-            <Col sm={6}>
+            <Row className="row-centered">
+            <Col sm={5} className="col-centered">
               <div className="col-main-background about">
-                  <span className="porfolio-about-image"></span>
+                  <span className="porfolio-site-image">
+                  <img src="~/../img/por/twentytwolibertry.jpg"/></span>
                   <div className="porfolio-porfolio-description">
-                    <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
+                    <p>Twenty Two Liberty </p>
                   </div>
               </div>
             </Col>
-            <Col sm={6}>
+            <Col sm={5} className="col-centered">
               <div className="col-main-background about">
-                  <span className="porfolio-about-image"></span>
+                  <span className="porfolio-site-image">
+                    <img src="~/../img/por/belclarewellesley3.jpg"/>
+                  </span>
                   <div className="porfolio-porfolio-description">
-                    <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
+                    <p>Belclare </p>
                   </div>
               </div>
             </Col>
             </Row>
-            <Row>
-            <Col sm={6}>
+            <Row className="row-centered">
+            <Col sm={5} className="col-centered">
               <div className="col-main-background about">
-                  <span className="porfolio-about-image"></span>
+                  <span className="porfolio-site-image">
+                    <img src="~/../img/por/my_wiser_legacy.png"/>
+                  </span>
                   <div className="porfolio-porfolio-description">
-                    <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
+                    <p>My Wiser Health Legacy</p>
                   </div>
               </div>
             </Col>
-            <Col sm={6}>
+            <Col sm={5} className="col-centered">
               <div className="col-main-background about">
-                  <span className="porfolio-about-image"></span>
+                  <span className="porfolio-site-image">
+                    <img src="~/../img/por/my_wiser_current1.png"/>
+                  </span>
                   <div className="porfolio-porfolio-description">
-                    <p>I have over 2 years of experience working in web development, I have experience working in front-end and back-end development. I have worked with different tools and languages such as Wordpress, HTML/CSS, javascript, Backbone.js, jQuery, PHP, Python, Django, MongoDB, etc, to create responsive and mobile ready web sites/App. </p>
+                    <p> My Wiser Health</p>
                   </div>
               </div>
             </Col>
