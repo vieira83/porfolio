@@ -16,6 +16,11 @@ function FieldGroup (props ) {
 
 export class Contact extends Component {
   render(){
+    var styleMap = {
+      height: '400px',
+      width: '100%',
+      border:'5px solid #fff'
+    }
     return (<div className="porfolio-section contact">
         <Grid>
           <Row>
@@ -24,7 +29,7 @@ export class Contact extends Component {
             <Col sm={5} className="col-main-background contact">
               <div className="porfolio-contact-map-container">
                   <span className="porfolio-contact-map">
-                    MAP
+                      <div style={styleMap} id="map"></div>
                   </span>
               </div>
             </Col>

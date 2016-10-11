@@ -25017,6 +25017,7 @@
 	        ),
 	        _react2.default.createElement(Jumbotron, null),
 	        this.props.children,
+	        _react2.default.createElement(_contact.Contact, null),
 	        _react2.default.createElement(Footer, null)
 	      );
 	    }
@@ -25115,7 +25116,17 @@
 	              { className: 'porfolio-jumbotron-pos' },
 	              'Full Stack Developer'
 	            )
-	          ),
+	          )
+	        ),
+	        _react2.default.createElement('div', { className: 'overlay' }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'porfolio-image' },
+	          '  '
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'porfolio-buttons' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'porfolio-jumbotron-buttons' },
@@ -25130,12 +25141,6 @@
 	              'View Porfolio'
 	            )
 	          )
-	        ),
-	        _react2.default.createElement('div', { className: 'overlay' }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'porfolio-image' },
-	          '  '
 	        )
 	      );
 	    }
@@ -28295,14 +28300,14 @@
 	                  _react2.default.createElement(
 	                    'span',
 	                    { className: 'porfolio-site-image' },
-	                    _react2.default.createElement('img', { src: '~/../img/por/fanpierboston2.jpg' })
+	                    _react2.default.createElement('img', { src: '~/../img/por/fanpierboston.jpg' })
 	                  ),
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'porfolio-porfolio-description' },
 	                    _react2.default.createElement(
 	                      'p',
-	                      null,
+	                      { className: 'porfolio-section-text' },
 	                      'Fan Pier'
 	                    )
 	                  )
@@ -28325,7 +28330,7 @@
 	                  { className: 'porfolio-porfolio-description' },
 	                  _react2.default.createElement(
 	                    'p',
-	                    null,
+	                    { className: 'porfolio-section-text' },
 	                    'Highland'
 	                  )
 	                )
@@ -28351,7 +28356,7 @@
 	                  { className: 'porfolio-porfolio-description' },
 	                  _react2.default.createElement(
 	                    'p',
-	                    null,
+	                    { className: 'porfolio-section-text' },
 	                    'Twenty Two Liberty '
 	                  )
 	                )
@@ -28366,14 +28371,14 @@
 	                _react2.default.createElement(
 	                  'span',
 	                  { className: 'porfolio-site-image' },
-	                  _react2.default.createElement('img', { src: '~/../img/por/belclarewellesley3.jpg' })
+	                  _react2.default.createElement('img', { src: '~/../img/por/belclarewellesley.jpg' })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'porfolio-porfolio-description' },
 	                  _react2.default.createElement(
 	                    'p',
-	                    null,
+	                    { className: 'porfolio-section-text' },
 	                    'Belclare '
 	                  )
 	                )
@@ -28392,14 +28397,14 @@
 	                _react2.default.createElement(
 	                  'span',
 	                  { className: 'porfolio-site-image' },
-	                  _react2.default.createElement('img', { src: '~/../img/por/my_wiser_legacy.png' })
+	                  _react2.default.createElement('img', { src: '~/../img/por/my_wiser_legacy.jpg' })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'porfolio-porfolio-description' },
 	                  _react2.default.createElement(
 	                    'p',
-	                    null,
+	                    { className: 'porfolio-section-text' },
 	                    'My Wiser Health Legacy'
 	                  )
 	                )
@@ -28414,14 +28419,14 @@
 	                _react2.default.createElement(
 	                  'span',
 	                  { className: 'porfolio-site-image' },
-	                  _react2.default.createElement('img', { src: '~/../img/por/my_wiser_current1.png' })
+	                  _react2.default.createElement('img', { src: '~/../img/por/my_wiser_current1.jpg' })
 	                ),
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'porfolio-porfolio-description' },
 	                  _react2.default.createElement(
 	                    'p',
-	                    null,
+	                    { className: 'porfolio-section-text' },
 	                    ' My Wiser Health'
 	                  )
 	                )
@@ -46075,6 +46080,11 @@
 	  _createClass(Contact, [{
 	    key: 'render',
 	    value: function render() {
+	      var styleMap = {
+	        height: '400px',
+	        width: '100%',
+	        border: '5px solid #fff'
+	      };
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'porfolio-section contact' },
@@ -46103,7 +46113,7 @@
 	                _react2.default.createElement(
 	                  'span',
 	                  { className: 'porfolio-contact-map' },
-	                  'MAP'
+	                  _react2.default.createElement('div', { style: styleMap, id: 'map' })
 	                )
 	              )
 	            ),
@@ -46200,7 +46210,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter .copyright{\n  background: #000;\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  height: 100px;\n  margin-top: 2rem;\n  background-color: rgba(255,0,0,0.75);\n}\n\n\n\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  background: rgba(0,0,0,.95);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.active{\n  background:rgba(255,0,0,0.75);\n  border-bottom: 4px solid #ff686c;\n}\n.nav .nav-item.active a {\n  background:rgba(255,0,0,0.75);\n  font-weight: 600;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,0,0,0.75);\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/ocean-view.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 20px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: #fff;\n  text-align: center;\n  line-height: 1rem;\n  text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 50px;\n  font-weight: 600;\n  display: block;\n  color: white;\n  letter-spacing: -2px;\n  text-align: center;\n  font-family: fantasy;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),\n             2px 8px 15px rgba(0,0,0,0.1),\n             2px 18px 25px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n  margin-top: 4rem;\n}\n.porfolio-jumbotron-buttons .button {\n  background-color: #fff;\n  margin: 5rem 2rem 2rem 2rem;\n  color: #E94E05;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  border: 0;\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: #E94E3A;\n  color:#fff;\n}\n\n.overlay {\n  z-index: 2;\n  height: 300px;\nbackground: rgba(0,0,0,.65);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n}\n.porfolio-sub-title {\n  color: #555;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  border-bottom: 5px solid orange;\n  padding-bottom: 1rem;\n  margin-bottom: 2rem;\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n  color: rgba(255,0,0,0.75);\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  //background: #FAF4eF;\n    margin-left: 2rem;\n    //box-shadow: 2px 2px 4px 0px #DDD;\n    //border-radius: 5px;\n    padding:1rem;\n\n}\n.col-main-background p, .porfolio-about-text {\n  text-align: center;\n  color: #fff;\n  /*opacity: 0.95;\n  background: rgba(255, 104, 45, 0.85);*/\n  opacity: .95;\nbackground: rgba(0,0,0,0.85);\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n  margin-top: -40px;\n  padding: 1rem;\n  font-size: 13px;\n  font-weight: bold;\n  border: 1px solid rgba(0, 0, 45, 0.85);\n  border-bottom-left-radius: 2px;\n    border-bottom-right-radius: 2px;\n}\n.porfolio-about-text {\n  width: 87%;\nfloat: right;\npadding: 3rem;\n}\n.col-main-background button {\n  background-color: #E94E3A;\n  color: #fff;\n}\n.porfolio-section {\n  padding: 2rem 3rem;\n  margin-top: 4rem;\n  background: #E8E8E8;\n}\n\n/*About PAGE*/\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 90px;\n    height: 100px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n\n}\n.porfolio-about-description {\n  margin-top: 3rem;\n}\n.col-main-background.about {\n  margin: 0rem 1rem;\n  padding: 2rem 1rem;\n}\n.porfolio-site-image img{\n  width: 417px;\n  height: 241px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n", ""]);
+	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter .copyright{\n  background: rgba(20,0,0,0.85);\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  height: 100px;\n  background-color: rgba(255,69,0,0.75);\n}\n\n\n\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  background: rgba(20,0,0,0.85);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.active{\n  background:rgba(255,0,0,0.75);\n  border-bottom: 4px solid #ff686c;\n}\n.nav .nav-item.active a {\n  background:rgba(255,0,0,0.75);\n  font-weight: 600;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,0,0,0.75);\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/ocean-view.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 20px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: #fff;\n  text-align: center;\n  line-height: 1rem;\n  text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 50px;\n  font-weight: 600;\n  display: block;\n  color: white;\n  letter-spacing: -2px;\n  text-align: center;\n  font-family: fantasy;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),\n             2px 8px 15px rgba(0,0,0,0.1),\n             2px 18px 25px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n}\n.porfolio-jumbotron-buttons .button {\n  background-color: #fff;\n  margin: 2rem;\n  color: #E94E05;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  border: 0;\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: rgba(20,0,0,0.85);\n  color:#fff;\n}\n.porfolio-buttons {\n  background: rgb(198, 68, 57);\n  height: 80px;\n  width: 100%;\n  margin-top: 50px;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\nbackground: rgba(0,0,0,.65);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n}\n.porfolio-sub-title {\n  color: #555;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  border-bottom: 5px solid orange;\n  padding-bottom: 1rem;\n  margin-bottom: 2rem;\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n  color: rgba(255,0,0,0.75);\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  //background: #FAF4eF;\n    margin-left: 2rem;\n    //box-shadow: 2px 2px 4px 0px #DDD;\n    //border-radius: 5px;\n    padding:1rem;\n\n}\n.col-main-background p, .porfolio-about-text {\n  text-align: center;\n  color: #fff;\n  /*opacity: 0.95;\n  background: rgba(255, 104, 45, 0.85);*/\n  opacity: .95;\nbackground: rgba(20,0,0,0.85);\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n  margin-top: 0px;\n  padding: 1rem;\n  font-size: 13px;\n  font-weight: bold;\n  border: 1px solid rgba(0, 0, 45, 0.85);\n  border-bottom-left-radius: 2px;\n  border-bottom-right-radius: 2px;\n}\np.porfolio-section-text {\n      border-radius: 10px;\n  margin-right: 15px;\nmargin-left: 15px;\n}\np.porfolio-about-text {\n  width: 87%;\nfloat: right;\npadding: 3rem;\n}\n.col-main-background button {\n  background-color: #E94E3A;\n  color: #fff;\n}\n.porfolio-section {\n  padding: 2rem 3rem;\n  //background: #E8E8E8;\n  background: rgba(20,0,0,0.25);\n}\n\n/*About PAGE*/\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 90px;\n    height: 100px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n\n}\n.porfolio-about-description {\n  margin-top: 3rem;\n}\n.col-main-background.about {\n  margin: 0rem 1rem;\n  padding: 2rem 1rem;\n}\n.porfolio-site-image{\n  text-align: center;\n  margin: 0 auto;\n  display: block;\n}\n.porfolio-site-image img{\n  width: 350px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n\n.porfolio-contact-form {\n\n}\n.porfolio-contact-form textarea{\n      height: 175px;\n}\n.porfolio-contact-form button {\n  background: rgba(255,69,0,0.75);\n  color: #fff;\n}\n#map {\n  width: 40%;\n  height: 300px;\n}\n", ""]);
 	
 	// exports
 

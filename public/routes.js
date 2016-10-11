@@ -43,6 +43,7 @@ class App extends Component {
         </Nav>
         <Jumbotron/>
         { this.props.children }
+        <Contact/>
         <Footer/>
       </div>
     )
@@ -76,14 +77,18 @@ class Jumbotron extends Component {
             <span className="porfolio-jumbotron-name">Vladimir Fernandes</span>
             <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
           </div>
+
+        </div>
+        <div className="overlay"></div>
+        <div className="porfolio-image">  </div>
+        <div className="porfolio-buttons">
           <div className="porfolio-jumbotron-buttons">
               <Link className="btn btn-primary button" to="/contact">Contact Me</Link>
               <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link>
           </div>
         </div>
-        <div className="overlay"></div>
-        <div className="porfolio-image">  </div>
       </div>
+
     )
   }
 }

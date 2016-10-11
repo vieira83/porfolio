@@ -1,0 +1,247 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'react-addons-css-transition-group',
+1 verbose cli   '--save-dev' ]
+2 info using npm@2.15.9
+3 info using node@v4.6.0
+4 verbose install initial load of /Users/vladimirfernandes/Documents/Web/projects/porfolio/package.json
+5 warn package.json my-porfolio-app@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel/package.json
+7 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-core/package.json
+8 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-loader/package.json
+9 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-plugin-add-module-exports/package.json
+10 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-plugin-transform-assets/package.json
+11 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-es2015/package.json
+12 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-react/package.json
+13 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-stage-0/package.json
+14 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-runtime/package.json
+15 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/bootstrap/package.json
+16 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/cosmicjs/package.json
+17 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/css-loader/package.json
+18 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/events/package.json
+19 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/express/package.json
+20 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/file-loader/package.json
+21 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/flux/package.json
+22 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/history/package.json
+23 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/hogan-express/package.json
+24 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/image-webpack-loader/package.json
+25 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/lodash/package.json
+26 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react/package.json
+27 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group/package.json
+28 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-transition-group/package.json
+29 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-bootstrap/package.json
+30 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-dom/package.json
+31 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-hot-loader/package.json
+32 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-router/package.json
+33 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/style-loader/package.json
+34 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack/package.json
+35 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack-dev-middleware/package.json
+36 verbose installManyTop reading scoped package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack-dev-server/package.json
+37 info package.json events@1.1.1 events is also the name of a node core module.
+38 info package.json image-webpack-loader@2.0.0 No license field.
+39 verbose readDependencies loading dependencies from /Users/vladimirfernandes/Documents/Web/projects/porfolio/package.json
+40 verbose install react-addons-css-transition-group is installed as 15.3.2
+41 silly cache add args [ 'react-addons-css-transition-group', null ]
+42 verbose cache add spec react-addons-css-transition-group
+43 silly cache add parsed spec Result {
+43 silly cache add   raw: 'react-addons-css-transition-group',
+43 silly cache add   scope: null,
+43 silly cache add   name: 'react-addons-css-transition-group',
+43 silly cache add   rawSpec: '',
+43 silly cache add   spec: 'latest',
+43 silly cache add   type: 'tag' }
+44 silly addNamed react-addons-css-transition-group@latest
+45 verbose addNamed "latest" is being treated as a dist-tag for react-addons-css-transition-group
+46 info addNameTag [ 'react-addons-css-transition-group', 'latest' ]
+47 silly mapToRegistry name react-addons-css-transition-group
+48 silly mapToRegistry using default registry
+49 silly mapToRegistry registry https://registry.npmjs.org/
+50 silly mapToRegistry data Result {
+50 silly mapToRegistry   raw: 'react-addons-css-transition-group',
+50 silly mapToRegistry   scope: null,
+50 silly mapToRegistry   name: 'react-addons-css-transition-group',
+50 silly mapToRegistry   rawSpec: '',
+50 silly mapToRegistry   spec: 'latest',
+50 silly mapToRegistry   type: 'tag' }
+51 silly mapToRegistry uri https://registry.npmjs.org/react-addons-css-transition-group
+52 verbose addNameTag registry:https://registry.npmjs.org/react-addons-css-transition-group not in flight; fetching
+53 verbose request uri https://registry.npmjs.org/react-addons-css-transition-group
+54 verbose request no auth needed
+55 info attempt registry request try #1 at 2:04:20 PM
+56 verbose request id ee15b280280731fa
+57 verbose etag "DCU17HTKFD05CHYIEXDSNVKIF"
+58 http request GET https://registry.npmjs.org/react-addons-css-transition-group
+59 http 304 https://registry.npmjs.org/react-addons-css-transition-group
+60 verbose headers { date: 'Fri, 07 Oct 2016 18:04:20 GMT',
+60 verbose headers   via: '1.1 varnish',
+60 verbose headers   'cache-control': 'max-age=300',
+60 verbose headers   etag: '"DCU17HTKFD05CHYIEXDSNVKIF"',
+60 verbose headers   age: '0',
+60 verbose headers   connection: 'keep-alive',
+60 verbose headers   'x-served-by': 'cache-bos8232-BOS',
+60 verbose headers   'x-cache': 'HIT',
+60 verbose headers   'x-cache-hits': '1',
+60 verbose headers   'x-timer': 'S1475863460.419180,VS0,VE422',
+60 verbose headers   vary: 'Accept-Encoding' }
+61 silly get cb [ 304,
+61 silly get   { date: 'Fri, 07 Oct 2016 18:04:20 GMT',
+61 silly get     via: '1.1 varnish',
+61 silly get     'cache-control': 'max-age=300',
+61 silly get     etag: '"DCU17HTKFD05CHYIEXDSNVKIF"',
+61 silly get     age: '0',
+61 silly get     connection: 'keep-alive',
+61 silly get     'x-served-by': 'cache-bos8232-BOS',
+61 silly get     'x-cache': 'HIT',
+61 silly get     'x-cache-hits': '1',
+61 silly get     'x-timer': 'S1475863460.419180,VS0,VE422',
+61 silly get     vary: 'Accept-Encoding' } ]
+62 verbose etag https://registry.npmjs.org/react-addons-css-transition-group from cache
+63 verbose get saving react-addons-css-transition-group to /Users/vladimirfernandes/.npm/registry.npmjs.org/react-addons-css-transition-group/.cache.json
+64 verbose correctMkdir /Users/vladimirfernandes/.npm correctMkdir not in flight; initializing
+65 silly addNameTag next cb for react-addons-css-transition-group with tag latest
+66 silly addNamed react-addons-css-transition-group@15.3.2
+67 verbose addNamed "15.3.2" is a plain semver version for react-addons-css-transition-group
+68 silly cache afterAdd react-addons-css-transition-group@15.3.2
+69 verbose afterAdd /Users/vladimirfernandes/.npm/react-addons-css-transition-group/15.3.2/package/package.json not in flight; writing
+70 verbose correctMkdir /Users/vladimirfernandes/.npm correctMkdir not in flight; initializing
+71 verbose afterAdd /Users/vladimirfernandes/.npm/react-addons-css-transition-group/15.3.2/package/package.json written
+72 silly install resolved [ { name: 'react-addons-css-transition-group',
+72 silly install resolved     version: '15.3.2',
+72 silly install resolved     main: 'index.js',
+72 silly install resolved     repository:
+72 silly install resolved      { type: 'git',
+72 silly install resolved        url: 'git+https://github.com/facebook/react.git' },
+72 silly install resolved     keywords: [ 'react', 'react-addon' ],
+72 silly install resolved     license: 'BSD-3-Clause',
+72 silly install resolved     dependencies: {},
+72 silly install resolved     peerDependencies: { react: '^15.3.2' },
+72 silly install resolved     files: [ 'LICENSE', 'PATENTS', 'README.md', 'index.js' ],
+72 silly install resolved     description: 'This package provides the React CSSTransitionGroup add-on.',
+72 silly install resolved     bugs: { url: 'https://github.com/facebook/react/issues' },
+72 silly install resolved     homepage: 'https://github.com/facebook/react#readme',
+72 silly install resolved     _id: 'react-addons-css-transition-group@15.3.2',
+72 silly install resolved     _shasum: 'd8fa52bec9bb61bdfde8b9e4652b80297cbff667',
+72 silly install resolved     _resolved: 'https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-15.3.2.tgz',
+72 silly install resolved     _from: 'react-addons-css-transition-group@latest',
+72 silly install resolved     scripts: {},
+72 silly install resolved     _npmVersion: '3.10.3',
+72 silly install resolved     _nodeVersion: '6.5.0',
+72 silly install resolved     _npmUser: { name: 'zpao', email: 'paul@oshannessy.com' },
+72 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+72 silly install resolved     dist:
+72 silly install resolved      { shasum: 'd8fa52bec9bb61bdfde8b9e4652b80297cbff667',
+72 silly install resolved        tarball: 'https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-15.3.2.tgz' },
+72 silly install resolved     _npmOperationalInternal:
+72 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+72 silly install resolved        tmp: 'tmp/react-addons-css-transition-group-15.3.2.tgz_1474307192205_0.6588692599907517' },
+72 silly install resolved     directories: {},
+72 silly install resolved     readme: 'ERROR: No README data found!' } ]
+73 info install react-addons-css-transition-group@15.3.2 into /Users/vladimirfernandes/Documents/Web/projects/porfolio
+74 info installOne react-addons-css-transition-group@15.3.2
+75 verbose installOne of react-addons-css-transition-group to /Users/vladimirfernandes/Documents/Web/projects/porfolio not in flight; installing
+76 verbose correctMkdir /Users/vladimirfernandes/.npm/_locks correctMkdir not in flight; initializing
+77 verbose lock using /Users/vladimirfernandes/.npm/_locks/react-addons-css-transit-b2da02333fe15cd0.lock for /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+78 silly install write writing react-addons-css-transition-group 15.3.2 to /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+79 verbose unbuild node_modules/react-addons-css-transition-group
+80 info preuninstall react-addons-css-transition-group@15.3.2
+81 info uninstall react-addons-css-transition-group@15.3.2
+82 verbose unbuild rmStuff react-addons-css-transition-group@15.3.2 from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules
+83 info postuninstall react-addons-css-transition-group@15.3.2
+84 silly gentlyRm /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group is being purged from base /Users/vladimirfernandes/Documents/Web/projects/porfolio
+85 verbose gentlyRm don't care about contents; nuking /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+86 silly vacuum-fs purging /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+87 silly vacuum-fs quitting because other entries in /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules
+88 verbose tar unpack /Users/vladimirfernandes/.npm/react-addons-css-transition-group/15.3.2/package.tgz
+89 verbose tar unpacking to /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+90 silly gentlyRm /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group is being purged
+91 verbose gentlyRm don't care about contents; nuking /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+92 silly gunzTarPerm modes [ '755', '644' ]
+93 silly gunzTarPerm extractEntry package.json
+94 silly gunzTarPerm extractEntry README.md
+95 silly gunzTarPerm extractEntry LICENSE
+96 silly gunzTarPerm extractEntry index.js
+97 silly gunzTarPerm extractEntry PATENTS
+98 verbose write writing to /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group/package.json
+99 info preinstall react-addons-css-transition-group@15.3.2
+100 verbose readDependencies loading dependencies from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group/package.json
+101 silly prepareForInstallMany adding react@^15.3.2 from react-addons-css-transition-group peerDependencies
+102 warn peerDependencies The peer dependency react@^15.3.2 included from react-addons-css-transition-group will no
+103 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+104 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+105 verbose readDependencies loading dependencies from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group/package.json
+106 silly install resolved []
+107 verbose about to build /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+108 info build /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+109 info linkStuff react-addons-css-transition-group@15.3.2
+110 silly linkStuff react-addons-css-transition-group@15.3.2 has /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules as its parent node_modules
+111 verbose linkBins react-addons-css-transition-group@15.3.2
+112 verbose linkMans react-addons-css-transition-group@15.3.2
+113 verbose rebuildBundles react-addons-css-transition-group@15.3.2
+114 info install react-addons-css-transition-group@15.3.2
+115 info postinstall react-addons-css-transition-group@15.3.2
+116 verbose readDependencies loading dependencies from /Users/vladimirfernandes/Documents/Web/projects/porfolio/package.json
+117 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel/package.json
+118 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-core/package.json
+119 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-loader/package.json
+120 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-plugin-add-module-exports/package.json
+121 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-plugin-transform-assets/package.json
+122 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-es2015/package.json
+123 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-react/package.json
+124 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-preset-stage-0/package.json
+125 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/babel-runtime/package.json
+126 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/bootstrap/package.json
+127 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/cosmicjs/package.json
+128 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/css-loader/package.json
+129 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/events/package.json
+130 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/express/package.json
+131 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/file-loader/package.json
+132 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/flux/package.json
+133 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/history/package.json
+134 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/hogan-express/package.json
+135 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/image-webpack-loader/package.json
+136 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/lodash/package.json
+137 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react/package.json
+138 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group/package.json
+139 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-transition-group/package.json
+140 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-bootstrap/package.json
+141 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-dom/package.json
+142 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-hot-loader/package.json
+143 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-router/package.json
+144 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/style-loader/package.json
+145 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack/package.json
+146 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack-dev-middleware/package.json
+147 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/webpack-dev-server/package.json
+148 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/.bin/babel/package.json
+149 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/.bin/babel-external-helpers/package.json
+150 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/.bin/babel-node/package.json
+151 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/.bin/webpack/package.json
+152 verbose targetResolver reading package data from /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/.bin/webpack-dev-server/package.json
+153 verbose already installed skipping react@^15.3.2 /Users/vladimirfernandes/Documents/Web/projects/porfolio
+154 silly install resolved []
+155 verbose unlock done using /Users/vladimirfernandes/.npm/_locks/react-addons-css-transit-b2da02333fe15cd0.lock for /Users/vladimirfernandes/Documents/Web/projects/porfolio/node_modules/react-addons-css-transition-group
+156 verbose validateInstall loading /Users/vladimirfernandes/Documents/Web/projects/porfolio/package.json for validation
+157 verbose stack Error: The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+157 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+157 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+157 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+157 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+157 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+157 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+157 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+157 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+157 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+157 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+158 verbose cwd /Users/vladimirfernandes/Documents/Web/projects/porfolio
+159 error Darwin 15.6.0
+160 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "react-addons-css-transition-group" "--save-dev"
+161 error node v4.6.0
+162 error npm  v2.15.9
+163 error code EPEERINVALID
+164 error peerinvalid The package react@0.14.8 does not satisfy its siblings' peerDependencies requirements!
+164 error peerinvalid Peer react-bootstrap@0.30.5 wants react@>=0.14.0
+164 error peerinvalid Peer react-dom@0.14.8 wants react@^0.14.8
+164 error peerinvalid Peer react-addons-css-transition-group@15.3.2 wants react@^15.3.2
+164 error peerinvalid Peer react-addons-transition-group@15.3.2 wants react@^15.3.2
+165 verbose exit [ 1, true ]

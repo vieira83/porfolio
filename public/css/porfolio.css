@@ -9,7 +9,7 @@ body {
 }
 
 footer .copyright{
-  background: #000;
+  background: rgba(20,0,0,0.85);
   color:#fff;
   text-align: center;
   font-size: 1.2rem;
@@ -18,8 +18,7 @@ footer .copyright{
 }
 footer .footer-bar {
   height: 100px;
-  margin-top: 2rem;
-  background-color: rgba(255,0,0,0.75);
+  background-color: rgba(255,69,0,0.75);
 }
 
 
@@ -42,7 +41,7 @@ footer .footer-bar {
   color:#fff;
 }
 .nav {
-  background: rgba(0,0,0,.95);
+  background: rgba(20,0,0,0.85);
 }
 .nav .nav-item, .nav .nav-item > a {
   display: inline-block;
@@ -132,21 +131,25 @@ footer .footer-bar {
 
 .porfolio-jumbotron-buttons {
   text-align: center;
-  margin-top: 4rem;
 }
 .porfolio-jumbotron-buttons .button {
   background-color: #fff;
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 2rem;
   color: #E94E05;
   padding: 1rem 4rem;
   font-size: 1.6rem;
   border: 0;
 }
 .porfolio-jumbotron-buttons .button:hover {
-  background-color: #E94E3A;
+  background-color: rgba(20,0,0,0.85);
   color:#fff;
 }
-
+.porfolio-buttons {
+  background: rgb(198, 68, 57);
+  height: 80px;
+  width: 100%;
+  margin-top: 50px;
+}
 .overlay {
   z-index: 2;
   height: 300px;
@@ -235,17 +238,22 @@ margin-bottom: 2rem;
   /*opacity: 0.95;
   background: rgba(255, 104, 45, 0.85);*/
   opacity: .95;
-background: rgba(0,0,0,0.85);
+background: rgba(20,0,0,0.85);
   box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
-  margin-top: -40px;
+  margin-top: 0px;
   padding: 1rem;
   font-size: 13px;
   font-weight: bold;
   border: 1px solid rgba(0, 0, 45, 0.85);
   border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
-.porfolio-about-text {
+p.porfolio-section-text {
+      border-radius: 10px;
+  margin-right: 15px;
+margin-left: 15px;
+}
+p.porfolio-about-text {
   width: 87%;
 float: right;
 padding: 3rem;
@@ -256,8 +264,8 @@ padding: 3rem;
 }
 .porfolio-section {
   padding: 2rem 3rem;
-  margin-top: 4rem;
-  background: #E8E8E8;
+  //background: #E8E8E8;
+  background: rgba(20,0,0,0.25);
 }
 
 /*About PAGE*/
@@ -282,13 +290,32 @@ padding: 3rem;
   margin: 0rem 1rem;
   padding: 2rem 1rem;
 }
+.porfolio-site-image{
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
 .porfolio-site-image img{
-  width: 417px;
-  height: 241px;
+  width: 350px;
   display: inline-block;
   background-position: 0% 50%;
   background-size: 420px;
   background-repeat: no-repeat;
   border: 10px solid #fff;
   box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
+}
+
+.porfolio-contact-form {
+
+}
+.porfolio-contact-form textarea{
+      height: 175px;
+}
+.porfolio-contact-form button {
+  background: rgba(255,69,0,0.75);
+  color: #fff;
+}
+#map {
+  width: 40%;
+  height: 300px;
 }

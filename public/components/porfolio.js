@@ -19,10 +19,10 @@ export class Porfolio extends Component {
                 <Col sm={5} className="col-centered">
                   <div className="col-main-background about">
                       <span className="porfolio-site-image">
-                        <img src="~/../img/por/fanpierboston2.jpg"/>
+                        <img src="~/../img/por/fanpierboston.jpg"/>
                       </span>
                       <div className="porfolio-porfolio-description">
-                        <p>Fan Pier</p>
+                        <p className="porfolio-section-text">Fan Pier</p>
                       </div>
 
                   </div>
@@ -34,7 +34,7 @@ export class Porfolio extends Component {
                       <img src="~/../img/por/highland.jpg"/>
                     </span>
                     <div className="porfolio-porfolio-description">
-                      <p>Highland</p>
+                      <p className="porfolio-section-text">Highland</p>
                     </div>
                 </div>
               </Col>
@@ -45,17 +45,17 @@ export class Porfolio extends Component {
                   <span className="porfolio-site-image">
                   <img src="~/../img/por/twentytwolibertry.jpg"/></span>
                   <div className="porfolio-porfolio-description">
-                    <p>Twenty Two Liberty </p>
+                    <p className="porfolio-section-text">Twenty Two Liberty </p>
                   </div>
               </div>
             </Col>
             <Col sm={5} className="col-centered">
               <div className="col-main-background about">
                   <span className="porfolio-site-image">
-                    <img src="~/../img/por/belclarewellesley3.jpg"/>
+                    <img src="~/../img/por/belclarewellesley.jpg"/>
                   </span>
                   <div className="porfolio-porfolio-description">
-                    <p>Belclare </p>
+                    <p className="porfolio-section-text">Belclare </p>
                   </div>
               </div>
             </Col>
@@ -64,20 +64,20 @@ export class Porfolio extends Component {
             <Col sm={5} className="col-centered">
               <div className="col-main-background about">
                   <span className="porfolio-site-image">
-                    <img src="~/../img/por/my_wiser_legacy.png"/>
+                    <img src="~/../img/por/my_wiser_legacy.jpg"/>
                   </span>
                   <div className="porfolio-porfolio-description">
-                    <p>My Wiser Health Legacy</p>
+                    <p className="porfolio-section-text">My Wiser Health Legacy</p>
                   </div>
               </div>
             </Col>
             <Col sm={5} className="col-centered">
               <div className="col-main-background about">
                   <span className="porfolio-site-image">
-                    <img src="~/../img/por/my_wiser_current1.png"/>
+                    <img src="~/../img/por/my_wiser_current1.jpg"/>
                   </span>
                   <div className="porfolio-porfolio-description">
-                    <p> My Wiser Health</p>
+                    <p className="porfolio-section-text"> My Wiser Health</p>
                   </div>
               </div>
             </Col>
