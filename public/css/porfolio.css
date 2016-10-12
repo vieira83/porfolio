@@ -248,6 +248,9 @@ background: rgba(20,0,0,0.85);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+.porfolio-services-section .col-main-background button {
+  width: 100%
+}
 p.porfolio-section-text {
       border-radius: 10px;
   margin-right: 15px;

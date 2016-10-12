@@ -54,7 +54,6 @@ class App extends Component {
 class Home extends Component {
   render(){
     return (<div>
-        <h2>Home</h2>
         <Services></Services>
       </div>
     )
@@ -96,10 +95,11 @@ class Jumbotron extends Component {
 
 class Services extends Component {
   render(){
-    return (<div>
+    return (<div className="porfolio-services-section">
         <Grid>
           <Row>
             <h1 className="porfolio-services-title">Services</h1>
+            <hr/>
             <Col sm={4}>
               <div className="col-main-background">
                 <h3 className="porfolio-services-col-title">
