@@ -44905,6 +44905,10 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
+	var _jquery = __webpack_require__(/*! jquery */ 485);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
 	var _react = __webpack_require__(/*! react */ 6);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -44930,6 +44934,15 @@
 	  }
 	
 	  _createClass(Jumbotron, [{
+	    key: 'navigateToContact',
+	    value: function navigateToContact(event) {
+	      event.preventDefault();
+	      var contactPosition = (0, _jquery2.default)('.porfolio-section.contact').offset(),
+	          body = (0, _jquery2.default)("html, body");
+	
+	      body.stop().animate({ scrollTop: contactPosition.top }, '1800', 'swing');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -44966,8 +44979,8 @@
 	            'div',
 	            { className: 'porfolio-jumbotron-buttons' },
 	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'btn btn-primary button', to: '/contact' },
+	              'a',
+	              { className: 'btn btn-primary button -contact', onClick: this.navigateToContact },
 	              'Contact Me'
 	            ),
 	            _react2.default.createElement(
