@@ -6,3 +6,7 @@
 3- Add jumbotron image
 
 4- Add content text
+
+5- Add scroll to contact us page instead of navigate to
+
+6- Create a function that takes a base component with parameters to be rendered

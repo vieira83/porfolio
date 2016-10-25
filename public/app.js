@@ -1,3 +1,5 @@
+'use strict';
+
 import { Router } from 'react-router';
 var React = require('react'),
 ReactDOM = require( 'react-dom'),

@@ -56,6 +56,9 @@ footer .footer-bar {
   float: right;
   margin-right: 5rem;
 }
+.nav .nav-item.-contact {
+  cursor: pointer;
+}
 .nav .nav-item.active{
   background:rgba(255,0,0,0.75);
   border-bottom: 4px solid #ff686c;
@@ -249,7 +252,7 @@ background: rgba(20,0,0,0.85);
   border-bottom-right-radius: 2px;
 }
 .porfolio-services-section .col-main-background button {
-  width: 100%
+  width: 100%;
 }
 p.porfolio-section-text {
       border-radius: 10px;
@@ -272,6 +275,9 @@ padding: 3rem;
 }
 
 /*About PAGE*/
+.porfolio-section.about , .porfolio-section.porfolio{
+  background-color: #fff;
+}
 .porfolio-about-image-cont{
   display: block;
   float: left;

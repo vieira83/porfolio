@@ -136,3 +136,14 @@
         / will return the root of the site (http://example.com),
 
         ~/ will return the root of the application (http://example.com/mydir/).
+
+
+10- NPM errors:
+  
+  SOlUTION:
+    1- clear npm cache, update npm, fix permission access npmjs
+      https://github.com/npm/npm/wiki/Troubleshooting#try-the-latest-stable-version-of-npm
+
+
+11- jQuery add to React
+  Solution: https://www.npmjs.com/package/jquery

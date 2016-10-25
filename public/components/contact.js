@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 // import Grid from 'react-bootstrap/lib/Grid';
 // import Row from 'react-bootstrap/lib/Row';
@@ -16,7 +18,7 @@ function FieldGroup (props ) {
 
 export class Contact extends Component {
   render(){
-    var styleMap = {
+  var styleMap = {
       height: '400px',
       width: '100%',
       border:'5px solid #fff'

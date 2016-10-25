@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 import {Button, Col, Row, Grid} from 'react-bootstrap/lib';
 import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
@@ -13,7 +15,7 @@ export class Porfolio extends Component {
           <Grid>
             <Row className="row-centered">
               <h1 className="porfolio-title">Porfolio</h1>
-              <h4 className="porfolio-sub-title">Examples of my work on iOS & Android mobile apps</h4>
+              <h4 className="porfolio-sub-title">Examples of my Past Work:</h4>
               <ReactCSSTransitionGroup transitionName="name" transitionEnterTimeout={500} transitionAppear={true}
                 transitionAppearTimeout={500} transitionLeaveTimeout={300}>
                 <Col sm={5} className="col-centered">
