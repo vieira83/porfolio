@@ -4,7 +4,7 @@
   read https://github.com/ReactTraining/react-router
 */
 'use strict';
-
+import $ from "jquery";
 import React, { Component } from 'react';
 import { Route, IndexRoute, Link } from 'react-router';
 import {Home} from './components/home';
@@ -25,13 +25,24 @@ import './css/porfolio.css';
 /* RESEARCH - Class ES6
 */
 class App extends Component {
+  constructor(props) {
+   super(props);
+   this.state = {
+     contactPosition: 0,
+   };
+  }
   componentDidMount(){
     document.body.className='';
   }
+
   navigateToContact(event){
     event.preventDefault();
-    console.log("testing Contact us click");
+    var contactPosition = $('.porfolio-section.contact').offset(),
+      body = $("html, body");
+
+    body.stop().animate({scrollTop:contactPosition.top}, '1800', 'swing');
   }
+
   render(){
     var styleApp = {
       color: 'white',
@@ -45,7 +56,7 @@ class App extends Component {
            <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
            <li className="porfolio-link nav-item -contact" onClick={this.navigateToContact}>Contact</li>
            <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
-           <li className="porfolio-link nav-item last"><Link to="/login">Login</Link></li>
+           <li className="porfolio-link nav-item last login"><Link to="/login">Login</Link></li>
         </Nav>
         <Jumbotron/>
         { this.props.children }

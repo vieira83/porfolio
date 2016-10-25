@@ -2,6 +2,7 @@
 
 import { Router } from 'react-router';
 var React = require('react'),
+$ = require("jquery"),
 ReactDOM = require( 'react-dom'),
 createBrowserHistory = require('history').createHistory,
 history = new createBrowserHistory();

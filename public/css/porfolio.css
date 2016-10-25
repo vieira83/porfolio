@@ -56,15 +56,24 @@ footer .footer-bar {
   float: right;
   margin-right: 5rem;
 }
+.nav .nav-item.login a{
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 5px 15px;
+  /* vertical-align: bottom; */
+  display: block;
+  vertical-align: bottom;
+  background: rgba(20,160,150,0.95);
+}
 .nav .nav-item.-contact {
   cursor: pointer;
 }
 .nav .nav-item.active{
-  background:rgba(255,0,0,0.75);
-  border-bottom: 4px solid #ff686c;
+  background:rgba(255,69,0,0.95);
+  border-bottom: 4px solid rgba(255,0,0,0.75);
 }
 .nav .nav-item.active a {
-  background:rgba(255,0,0,0.75);
+  background:rgba(255,69,0,0.95);
   font-weight: 600;
 }
 .nav .nav-item:hover > a {
@@ -136,9 +145,9 @@ footer .footer-bar {
   text-align: center;
 }
 .porfolio-jumbotron-buttons .button {
-  background-color: #fff;
+  background-color: rgba(255,69,0,0.75);
   margin: 2rem;
-  color: #E94E05;
+  color: #fff;
   padding: 1rem 4rem;
   font-size: 1.6rem;
   border: 0;
@@ -148,7 +157,7 @@ footer .footer-bar {
   color:#fff;
 }
 .porfolio-buttons {
-  background: rgb(198, 68, 57);
+  background: rgba(20,0,0,0.25);
   height: 80px;
   width: 100%;
   margin-top: 50px;
@@ -165,8 +174,15 @@ width: 100%;
 
 .porfolio-services-title, .porfolio-about-title, .porfolio-title{
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: rgba(20,100,150,0.95);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  border-bottom: 5px solid orange;
+  padding-bottom: 2rem;
+  margin: 2rem 20rem;
 }
 .porfolio-sub-title {
   color: #555;
@@ -174,7 +190,6 @@ width: 100%;
   width: 45%;
   text-align: center;
   margin: 0 auto;
-  border-bottom: 5px solid orange;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
   font-size: 16px;
@@ -228,26 +243,31 @@ display: block;
 margin-bottom: 2rem;
 }
 .col-main-background {
-  //background: #FAF4eF;
-    margin-left: 2rem;
-    //box-shadow: 2px 2px 4px 0px #DDD;
-    //border-radius: 5px;
-    padding:1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding:1rem;
 
 }
-.col-main-background p, .porfolio-about-text {
+.col-main-background.services {
+  background: rgba(20,100,150,0.25);
+  margin-bottom: 2rem;
+}
+.porfolio-services-description{
+  padding: 1rem;
+}
+ .porfolio-about-text, .porfolio-section-text {
   text-align: center;
   color: #fff;
   /*opacity: 0.95;
   background: rgba(255, 104, 45, 0.85);*/
   opacity: .95;
-background: rgba(20,0,0,0.85);
+  background: rgba(20,100,150,0.65);
   box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
   margin-top: 0px;
   padding: 1rem;
   font-size: 13px;
   font-weight: bold;
-  border: 1px solid rgba(0, 0, 45, 0.85);
+  border: 1px solid rgba(0, 0, 45, 0.15);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
@@ -255,18 +275,23 @@ background: rgba(20,0,0,0.85);
   width: 100%;
 }
 p.porfolio-section-text {
-      border-radius: 10px;
-  margin-right: 15px;
-margin-left: 15px;
+  margin-right: 1.4rem;
+  margin-left: 1.4rem;
+  cursor: pointer;
+}
+div.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--content {
+  height: 72%;
+  padding: 20px 15px;
 }
 p.porfolio-about-text {
   width: 87%;
-float: right;
-padding: 3rem;
+  float: right;
+  padding: 3rem;
 }
 .col-main-background button {
-  background-color: #E94E3A;
+  background-color: rgba(255,69,0,0.95);
   color: #fff;
+  height: 4rem;
 }
 .porfolio-section {
   padding: 2rem 3rem;
@@ -296,16 +321,21 @@ padding: 3rem;
   margin-top: 3rem;
 }
 .col-main-background.about {
-  margin: 0rem 1rem;
+  margin: 0rem 3rem;
   padding: 2rem 1rem;
 }
+
+/*PORFOLIO SITE PAGE*/
 .porfolio-site-image{
   text-align: center;
   margin: 0 auto;
   display: block;
+  position: relative;
+  width: 350px;
 }
 .porfolio-site-image img{
   width: 350px;
+  height: 238px;
   display: inline-block;
   background-position: 0% 50%;
   background-size: 420px;
@@ -327,4 +357,24 @@ padding: 3rem;
 #map {
   width: 40%;
   height: 300px;
+}
+.porfolio-site-image-overflow {
+  width: 80%;
+}
+.porfolio-site-image-navigation--content {
+  background-color: rgba(0,0,0,0.8);
+  /*background-color: transparent;*/
+  color: #cacaca;
+  height: 0%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  transition: all .25s ease-in-out;
+  width:72%;
+  z-index: 2;
+  zoom: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
