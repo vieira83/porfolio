@@ -21,6 +21,9 @@ footer .footer-bar {
   background-color: rgba(255,69,0,0.75);
 }
 
+body p {
+      font-weight: 300;
+}
 
 
 /* centered columns styles */
@@ -70,14 +73,14 @@ footer .footer-bar {
 }
 .nav .nav-item.active{
   background:rgba(255,69,0,0.95);
-  border-bottom: 4px solid rgba(255,0,0,0.75);
+  border-bottom: 4px solid rgb(255, 255, 0);
 }
 .nav .nav-item.active a {
   background:rgba(255,69,0,0.95);
   font-weight: 600;
 }
 .nav .nav-item:hover > a {
-  background:rgba(255,0,0,0.75);
+  background:rgba(255,69,0,0.75);
 }
 .home-jumbotron {
   position: relative;
@@ -88,7 +91,7 @@ footer .footer-bar {
   width: 100%;
   background-position: 100% 40%;
   background-size: 100%;
-  background-image: url("~/../img/ocean-view.jpg");
+  background-image: url("~/../img/vladi_puertorico.jpg");
   position: absolute;
     top: 0;
     left: 0;
@@ -125,8 +128,8 @@ footer .footer-bar {
 }
 
 .porfolio-jumbotron-name{
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 60px;
+  font-weight: 300;
   display: block;
   color: white;
   letter-spacing: -2px;
@@ -157,10 +160,11 @@ footer .footer-bar {
   color:#fff;
 }
 .porfolio-buttons {
-  background: rgba(20,0,0,0.25);
+  background: rgba(20,0,0,0.1);
   height: 80px;
   width: 100%;
   margin-top: 50px;
+  box-shadow: 3px 0px 2px 0px #000;
 }
 .overlay {
   z-index: 2;
@@ -180,9 +184,10 @@ width: 100%;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 2.8rem;
-  border-bottom: 5px solid orange;
+  border-bottom: 1px solid orange;
   padding-bottom: 2rem;
   margin: 2rem 20rem;
+  font-weight: 300;
 }
 .porfolio-sub-title {
   color: #555;
@@ -266,7 +271,6 @@ margin-bottom: 2rem;
   margin-top: 0px;
   padding: 1rem;
   font-size: 13px;
-  font-weight: bold;
   border: 1px solid rgba(0, 0, 45, 0.15);
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -296,7 +300,7 @@ p.porfolio-about-text {
 .porfolio-section {
   padding: 2rem 3rem;
   //background: #E8E8E8;
-  background: rgba(20,0,0,0.25);
+  background: rgba(20,0,0,0.1);
 }
 
 /*About PAGE*/

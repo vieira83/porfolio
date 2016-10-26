@@ -54,7 +54,7 @@ class App extends Component {
            <li className="porfolio-link nav-item active" style = { styleApp }><Link to="/">Home</Link></li>
            <li className="porfolio-link nav-item"><Link to="/about">About</Link></li>
            <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
-           <li className="porfolio-link nav-item -contact" onClick={this.navigateToContact}>Contact</li>
+           <li className="porfolio-link nav-item -contact" onClick={this.navigateToContact}><a>Contact</a></li>
            <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
            <li className="porfolio-link nav-item last login"><Link to="/login">Login</Link></li>
         </Nav>

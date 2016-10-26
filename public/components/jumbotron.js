@@ -22,11 +22,11 @@ export class Jumbotron extends Component {
 
         </div>
         <div className="overlay"></div>
-        <div className="porfolio-image">  </div>
+        <div className="porfolio-image"></div>
         <div className="porfolio-buttons">
           <div className="porfolio-jumbotron-buttons">
               <a className="btn btn-primary button -contact" onClick={this.navigateToContact}>Contact Me</a>
-              <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link> 
+              <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link>
           </div>
         </div>
       </div>
