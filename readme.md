@@ -20,7 +20,7 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
   https://github.com/mtscout6/react-bootstrap-getting-started/blob/step-3-solution/src/HeaderNavigation.js
 
 ## Styling Guide:
-  1. - Style keys are camelCased in order to be consistent with accessing the properties on DOM
+  1. Style keys are camelCased in order to be consistent with accessing the properties on DOM
   https://facebook.github.io/react/tips/inline-styles.html
 
   2. webpack-isomorphic-tools:
@@ -33,10 +33,35 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
     componentDidMount
       This method gets called just after our component gets rendered (or mounted as React calls it).
 
-    getInitialState
+    _getInitialState_ - for ES5, _this.state_ inside the constructor for ES6
       This method runs just before your component gets mounted, and it allows you to modify a component's state object.
+      The difference between constructor and getInitialState is the difference between ES6 and ES5 itself.
+        getInitialState is used with React.createClass and
+        this.state constructor is used with React.Component.
 
-    setState
+        Hence the question boils down to advantages/disadvantages of using ES6 or ES5.
+
+        ES5
+        var TodoApp = React.createClass({
+          propTypes: {title: PropTypes.string.isRequired},
+          getInitialState () {
+            return {
+              items: []
+            };
+          }
+        });
+
+        ES6
+        class TodoApp extends React.Component {
+          constructor () {
+            super()
+            this.state = {
+              items: []
+            }
+          }
+        });
+
+    _setState_
       This method allows you to update the value of the state object.
       var LightningCounter = React.createClass({
         getInitialState: function() {
@@ -54,7 +79,7 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
         var state = {
           strikes: 0;
         }
-      USAGE:
+      _USAGE_:
         var LightningCounter = React.createClass({
         getInitialState: function() {
           return {
