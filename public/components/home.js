@@ -26,7 +26,7 @@ export class Services extends Component {
                 </h3>
                 <div className="porfolio-services-description">
                   <p>Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.</p>
-                  <p><Button>View details »</Button></p>
+                  {/* <p><Button>View details »</Button></p>*/}
                 </div>
               </div>
             </Col>
@@ -38,7 +38,7 @@ export class Services extends Component {
                 </h3>
                 <div className="porfolio-services-description">
                   <p>Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.</p>
-                  <p><Button>View details »</Button></p>
+                  {/* <p><Button>View details »</Button></p> */}
                 </div>
               </div>
             </Col>
@@ -50,7 +50,7 @@ export class Services extends Component {
                 </h3>
                 <div className="porfolio-services-description">
                   <p>Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.</p>
-                  <p><Button>View details »</Button></p>
+                  {/* <p><Button>View details »</Button></p>*/}
                 </div>
               </div>
             </Col>

@@ -16,7 +16,7 @@ export class Jumbotron extends Component {
     return (<div className="home-jumbotron">
         <div className="porfolio-jumbotron-container">
           <div className="porfolio-jumbotron-text">
-            <span className="porfolio-jumbotron-name">Vladimir Fernandes</span>
+            <span className="porfolio-jumbotron-name">Vladimir <span className="last_name">Fernandes</span></span>
             <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
           </div>
 

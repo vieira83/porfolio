@@ -25,6 +25,9 @@ export class About extends Component {
             <Col sm={11} className="col-main-background about">
               <div className="porfolio-about-skills">
                 <h4>SKILLS:</h4>
+                <div>Responsive Front-end Development
+                  <ul class="intro__list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Performance</li><li>WordPress</li></ul>
+                </div>
               </div>
             </Col>
           </Row>
