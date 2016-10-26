@@ -72,5 +72,5 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
 ## webpack-dev-server and hot loader
 1. install npm install -S webpack-dev-server
 2. - run the command webpack-dev-server --progress --colors --content-base public --inline --hot
-  *- -content-base: folder where it would start
+  * --content-base: folder where it would start
   * --hot: hot loader
