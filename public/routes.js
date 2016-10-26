@@ -45,18 +45,28 @@ class App extends Component {
 
   render(){
     var styleApp = {
-      color: 'white',
-      backgroundColor: '#f1f1f1'
+      fontSize: '1.4rem'
+    }
+    const {history, location} = this.props;
+    const liClasses = "porfolio-link nav-item";
+    console.log(location);
+    console.log(history.isActive("/home"));
+    const isActive = {
+      home: location.pathname ==="/" ? "active" : "",
+      about: location.pathname ==="/about" ? "active" : "",
+      porfolio: location.pathname ==="/porfolio" ? "active" : "",
+      contact: location.pathname ==="/contact" ? "active" : "",
+      resources: location.pathname ==="/resources" ? "active" : ""
     }
     return (
       <div>
         <Nav>
-           <li className="porfolio-link nav-item active" style = { styleApp }><Link to="/">Home</Link></li>
-           <li className="porfolio-link nav-item"><Link to="/about">About</Link></li>
-           <li className="porfolio-link nav-item"><Link to="/porfolio">Porfolio</Link></li>
-           <li className="porfolio-link nav-item -contact" onClick={this.navigateToContact}><a>Contact</a></li>
-           <li className="porfolio-link nav-item"><Link to="/resources">Resources</Link></li>
-           <li className="porfolio-link nav-item last login"><Link to="/login">Login</Link></li>
+           <li className={liClasses + ' '+isActive.home} style = { styleApp }><Link to="/">Home</Link></li>
+           <li className={liClasses + ' '+isActive.about}><Link to="/about">About</Link></li>
+           <li className={liClasses + ' '+isActive.porfolio}><Link to="/porfolio">Porfolio</Link></li>
+           <li className={liClasses + ' -contact '+isActive.contact} onClick={this.navigateToContact}><a>Contact</a></li>
+           <li className={liClasses + ' '+isActive.resources}><Link to="/resources">Resources</Link></li>
+           <li className={liClasses + ' last login '}><Link to="/login">Login</Link></li>
         </Nav>
         <Jumbotron/>
         { this.props.children }
