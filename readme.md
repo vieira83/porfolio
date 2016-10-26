@@ -3,14 +3,11 @@
 * npm start
 * npm run dev
 
-
 https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-guide/
-
 
 ## SERVER rendering with React Router:
   https://medium.com/@arpith/server-rendering-with-react-router-6ad13d71406e#.jl6gufp6i
   https://github.com/ReactTraining/react-router/blob/master/docs/API.md
-
 
 ## How to use Webpack with React and Bootstrap:
   https://react-bootstrap.github.io/getting-started.html
@@ -20,20 +17,32 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
   https://github.com/mtscout6/react-bootstrap-getting-started/blob/step-3-solution/src/HeaderNavigation.js
 
 ## Styling Guide:
-  1. Style keys are camelCased in order to be consistent with accessing the properties on DOM
+  1. Style keys are _camelCased_ in order to be consistent with accessing the properties on DOM
   https://facebook.github.io/react/tips/inline-styles.html
 
   2. webpack-isomorphic-tools:
     https://github.com/halt-hammerzeit/webpack-isomorphic-tools
 
+## REACT PROPRS:
+  Props cannot be changes. To inject a prop:
+    const title = "Welcome"
+    <Header title={title}/>
+    Inside the Header component, add {this.props.title} to show the value
+
 
 ## REACT STATE:
-  To make this all work, we are going to be relying on three APIs that our React Component exposes:
+ _this.state_ - allow to set the initial state and whenever the state changes on a component, the component will automatically update the DOM and render.
+ State should be used only if it has internal value that only affect that component and not the rest of the application
+ * Initial state - inside the constructor: this.state = {name:"Tom"}
+ * Set/Update State - this.setState({name: 'Bob'});
+
+
+ To make this all work, we are going to be relying on three APIs that our React Component exposes:
 
     componentDidMount
       This method gets called just after our component gets rendered (or mounted as React calls it).
 
-    _getInitialState_ - for ES5, _this.state_ inside the constructor for ES6
+    getInitialState - for ES5/ this.state inside the constructor for ES6
       This method runs just before your component gets mounted, and it allows you to modify a component's state object.
       The difference between constructor and getInitialState is the difference between ES6 and ES5 itself.
         getInitialState is used with React.createClass and
@@ -93,6 +102,7 @@ https://www.sitepoint.com/building-a-react-universal-blog-app-a-step-by-step-gui
         }
       });
 
+## React events
 
 ## webpack-dev-server and hot loader
 1. install npm install -S webpack-dev-server
