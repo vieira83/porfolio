@@ -24963,9 +24963,9 @@
 	      var styleApp = {
 	        fontSize: '1.4rem'
 	      };
-	      var _props = this.props,
-	          history = _props.history,
-	          location = _props.location;
+	      var _props = this.props;
+	      var history = _props.history;
+	      var location = _props.location;
 	
 	      var liClasses = "porfolio-link nav-item";
 	      console.log(location);
@@ -25067,17 +25067,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v3.1.1
+	 * jQuery JavaScript Library v3.2.1
 	 * https://jquery.com/
 	 *
 	 * Includes Sizzle.js
 	 * https://sizzlejs.com/
 	 *
-	 * Copyright jQuery Foundation and other contributors
+	 * Copyright JS Foundation and other contributors
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-09-22T22:30Z
+	 * Date: 2017-03-20T18:59Z
 	 */
 	( function( global, factory ) {
 	
@@ -25156,7 +25156,7 @@
 	
 	
 	var
-		version = "3.1.1",
+		version = "3.2.1",
 	
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -25304,11 +25304,11 @@
 	
 					// Recurse if we're merging plain objects or arrays
 					if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
-						( copyIsArray = jQuery.isArray( copy ) ) ) ) {
+						( copyIsArray = Array.isArray( copy ) ) ) ) {
 	
 						if ( copyIsArray ) {
 							copyIsArray = false;
-							clone = src && jQuery.isArray( src ) ? src : [];
+							clone = src && Array.isArray( src ) ? src : [];
 	
 						} else {
 							clone = src && jQuery.isPlainObject( src ) ? src : {};
@@ -25346,8 +25346,6 @@
 		isFunction: function( obj ) {
 			return jQuery.type( obj ) === "function";
 		},
-	
-		isArray: Array.isArray,
 	
 		isWindow: function( obj ) {
 			return obj != null && obj === obj.window;
@@ -25421,10 +25419,6 @@
 		// Microsoft forgot to hump their vendor prefix (#9572)
 		camelCase: function( string ) {
 			return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
-		},
-	
-		nodeName: function( elem, name ) {
-			return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 		},
 	
 		each: function( obj, callback ) {
@@ -27911,6 +27905,13 @@
 	
 	var rneedsContext = jQuery.expr.match.needsContext;
 	
+	
+	
+	function nodeName( elem, name ) {
+	
+	  return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+	
+	};
 	var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 	
 	
@@ -28262,7 +28263,18 @@
 			return siblings( elem.firstChild );
 		},
 		contents: function( elem ) {
-			return elem.contentDocument || jQuery.merge( [], elem.childNodes );
+	        if ( nodeName( elem, "iframe" ) ) {
+	            return elem.contentDocument;
+	        }
+	
+	        // Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
+	        // Treat the template element as a regular one in browsers that
+	        // don't support it.
+	        if ( nodeName( elem, "template" ) ) {
+	            elem = elem.content || elem;
+	        }
+	
+	        return jQuery.merge( [], elem.childNodes );
 		}
 	}, function( name, fn ) {
 		jQuery.fn[ name ] = function( until, selector ) {
@@ -28360,7 +28372,7 @@
 			fire = function() {
 	
 				// Enforce single-firing
-				locked = options.once;
+				locked = locked || options.once;
 	
 				// Execute callbacks for all pending executions,
 				// respecting firingIndex overrides and runtime changes
@@ -28529,7 +28541,7 @@
 		throw ex;
 	}
 	
-	function adoptValue( value, resolve, reject ) {
+	function adoptValue( value, resolve, reject, noValue ) {
 		var method;
 	
 		try {
@@ -28545,9 +28557,10 @@
 			// Other non-thenables
 			} else {
 	
-				// Support: Android 4.0 only
-				// Strict mode functions invoked without .call/.apply get global-object context
-				resolve.call( undefined, value );
+				// Control `resolve` arguments by letting Array#slice cast boolean `noValue` to integer:
+				// * false: [ value ].slice( 0 ) => resolve( value )
+				// * true: [ value ].slice( 1 ) => resolve()
+				resolve.apply( undefined, [ value ].slice( noValue ) );
 			}
 	
 		// For Promises/A+, convert exceptions into rejections
@@ -28557,7 +28570,7 @@
 	
 			// Support: Android 4.0 only
 			// Strict mode functions invoked without .call/.apply get global-object context
-			reject.call( undefined, value );
+			reject.apply( undefined, [ value ] );
 		}
 	}
 	
@@ -28882,7 +28895,8 @@
 	
 			// Single- and empty arguments are adopted like Promise.resolve
 			if ( remaining <= 1 ) {
-				adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject );
+				adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject,
+					!remaining );
 	
 				// Use .then() to unwrap secondary thenables (cf. gh-3000)
 				if ( master.state() === "pending" ||
@@ -28953,15 +28967,6 @@
 		// A counter to track how many items to wait for before
 		// the ready event fires. See #6781
 		readyWait: 1,
-	
-		// Hold (or release) the ready event
-		holdReady: function( hold ) {
-			if ( hold ) {
-				jQuery.readyWait++;
-			} else {
-				jQuery.ready( true );
-			}
-		},
 	
 		// Handle when the DOM is ready
 		ready: function( wait ) {
@@ -29198,7 +29203,7 @@
 			if ( key !== undefined ) {
 	
 				// Support array or space separated string of keys
-				if ( jQuery.isArray( key ) ) {
+				if ( Array.isArray( key ) ) {
 	
 					// If key is an array of keys...
 					// We always set camelCase keys, so remove that.
@@ -29424,7 +29429,7 @@
 	
 				// Speed up dequeue by getting out quickly if this is just a lookup
 				if ( data ) {
-					if ( !queue || jQuery.isArray( data ) ) {
+					if ( !queue || Array.isArray( data ) ) {
 						queue = dataPriv.access( elem, type, jQuery.makeArray( data ) );
 					} else {
 						queue.push( data );
@@ -29801,7 +29806,7 @@
 			ret = [];
 		}
 	
-		if ( tag === undefined || tag && jQuery.nodeName( context, tag ) ) {
+		if ( tag === undefined || tag && nodeName( context, tag ) ) {
 			return jQuery.merge( [ context ], ret );
 		}
 	
@@ -30408,7 +30413,7 @@
 	
 				// For checkbox, fire native event so checked state will be right
 				trigger: function() {
-					if ( this.type === "checkbox" && this.click && jQuery.nodeName( this, "input" ) ) {
+					if ( this.type === "checkbox" && this.click && nodeName( this, "input" ) ) {
 						this.click();
 						return false;
 					}
@@ -30416,7 +30421,7 @@
 	
 				// For cross-browser consistency, don't fire native .click() on links
 				_default: function( event ) {
-					return jQuery.nodeName( event.target, "a" );
+					return nodeName( event.target, "a" );
 				}
 			},
 	
@@ -30693,11 +30698,12 @@
 		rscriptTypeMasked = /^true\/(.*)/,
 		rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 	
+	// Prefer a tbody over its parent table for containing new rows
 	function manipulationTarget( elem, content ) {
-		if ( jQuery.nodeName( elem, "table" ) &&
-			jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
+		if ( nodeName( elem, "table" ) &&
+			nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ) {
 	
-			return elem.getElementsByTagName( "tbody" )[ 0 ] || elem;
+			return jQuery( ">tbody", elem )[ 0 ] || elem;
 		}
 	
 		return elem;
@@ -31227,12 +31233,18 @@
 	
 	function curCSS( elem, name, computed ) {
 		var width, minWidth, maxWidth, ret,
+	
+			// Support: Firefox 51+
+			// Retrieving style before computed somehow
+			// fixes an issue with getting wrong values
+			// on detached elements
 			style = elem.style;
 	
 		computed = computed || getStyles( elem );
 	
-		// Support: IE <=9 only
-		// getPropertyValue is only needed for .css('filter') (#12537)
+		// getPropertyValue is needed for:
+		//   .css('filter') (IE 9 only, #12537)
+		//   .css('--customProperty) (#3144)
 		if ( computed ) {
 			ret = computed.getPropertyValue( name ) || computed[ name ];
 	
@@ -31298,6 +31310,7 @@
 		// except "table", "table-cell", or "table-caption"
 		// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 		rdisplayswap = /^(none|table(?!-c[ea]).+)/,
+		rcustomProp = /^--/,
 		cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 		cssNormalTransform = {
 			letterSpacing: "0",
@@ -31325,6 +31338,16 @@
 				return name;
 			}
 		}
+	}
+	
+	// Return a property mapped along what jQuery.cssProps suggests or to
+	// a vendor prefixed property.
+	function finalPropName( name ) {
+		var ret = jQuery.cssProps[ name ];
+		if ( !ret ) {
+			ret = jQuery.cssProps[ name ] = vendorPropName( name ) || name;
+		}
+		return ret;
 	}
 	
 	function setPositiveNumber( elem, value, subtract ) {
@@ -31387,43 +31410,30 @@
 	
 	function getWidthOrHeight( elem, name, extra ) {
 	
-		// Start with offset property, which is equivalent to the border-box value
-		var val,
-			valueIsBorderBox = true,
+		// Start with computed style
+		var valueIsBorderBox,
 			styles = getStyles( elem ),
+			val = curCSS( elem, name, styles ),
 			isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
 	
-		// Support: IE <=11 only
-		// Running getBoundingClientRect on a disconnected node
-		// in IE throws an error.
-		if ( elem.getClientRects().length ) {
-			val = elem.getBoundingClientRect()[ name ];
+		// Computed unit is not pixels. Stop here and return.
+		if ( rnumnonpx.test( val ) ) {
+			return val;
 		}
 	
-		// Some non-html elements return undefined for offsetWidth, so check for null/undefined
-		// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
-		// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
-		if ( val <= 0 || val == null ) {
+		// Check for style in case a browser which returns unreliable values
+		// for getComputedStyle silently falls back to the reliable elem.style
+		valueIsBorderBox = isBorderBox &&
+			( support.boxSizingReliable() || val === elem.style[ name ] );
 	
-			// Fall back to computed then uncomputed css if necessary
-			val = curCSS( elem, name, styles );
-			if ( val < 0 || val == null ) {
-				val = elem.style[ name ];
-			}
-	
-			// Computed unit is not pixels. Stop here and return.
-			if ( rnumnonpx.test( val ) ) {
-				return val;
-			}
-	
-			// Check for style in case a browser which returns unreliable values
-			// for getComputedStyle silently falls back to the reliable elem.style
-			valueIsBorderBox = isBorderBox &&
-				( support.boxSizingReliable() || val === elem.style[ name ] );
-	
-			// Normalize "", auto, and prepare for extra
-			val = parseFloat( val ) || 0;
+		// Fall back to offsetWidth/Height when value is "auto"
+		// This happens for inline elements with no explicit setting (gh-3571)
+		if ( val === "auto" ) {
+			val = elem[ "offset" + name[ 0 ].toUpperCase() + name.slice( 1 ) ];
 		}
+	
+		// Normalize "", auto, and prepare for extra
+		val = parseFloat( val ) || 0;
 	
 		// Use the active box-sizing model to add/subtract irrelevant styles
 		return ( val +
@@ -31488,10 +31498,15 @@
 			// Make sure that we're working with the right name
 			var ret, type, hooks,
 				origName = jQuery.camelCase( name ),
+				isCustomProp = rcustomProp.test( name ),
 				style = elem.style;
 	
-			name = jQuery.cssProps[ origName ] ||
-				( jQuery.cssProps[ origName ] = vendorPropName( origName ) || origName );
+			// Make sure that we're working with the right name. We don't
+			// want to query the value if it is a CSS custom property
+			// since they are user-defined.
+			if ( !isCustomProp ) {
+				name = finalPropName( origName );
+			}
 	
 			// Gets hook for the prefixed version, then unprefixed version
 			hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
@@ -31527,7 +31542,11 @@
 				if ( !hooks || !( "set" in hooks ) ||
 					( value = hooks.set( elem, value, extra ) ) !== undefined ) {
 	
-					style[ name ] = value;
+					if ( isCustomProp ) {
+						style.setProperty( name, value );
+					} else {
+						style[ name ] = value;
+					}
 				}
 	
 			} else {
@@ -31546,11 +31565,15 @@
 	
 		css: function( elem, name, extra, styles ) {
 			var val, num, hooks,
-				origName = jQuery.camelCase( name );
+				origName = jQuery.camelCase( name ),
+				isCustomProp = rcustomProp.test( name );
 	
-			// Make sure that we're working with the right name
-			name = jQuery.cssProps[ origName ] ||
-				( jQuery.cssProps[ origName ] = vendorPropName( origName ) || origName );
+			// Make sure that we're working with the right name. We don't
+			// want to modify the value if it is a CSS custom property
+			// since they are user-defined.
+			if ( !isCustomProp ) {
+				name = finalPropName( origName );
+			}
 	
 			// Try prefixed name followed by the unprefixed name
 			hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
@@ -31575,6 +31598,7 @@
 				num = parseFloat( val );
 				return extra === true || isFinite( num ) ? num || 0 : val;
 			}
+	
 			return val;
 		}
 	} );
@@ -31674,7 +31698,7 @@
 					map = {},
 					i = 0;
 	
-				if ( jQuery.isArray( name ) ) {
+				if ( Array.isArray( name ) ) {
 					styles = getStyles( elem );
 					len = name.length;
 	
@@ -31812,13 +31836,18 @@
 	
 	
 	var
-		fxNow, timerId,
+		fxNow, inProgress,
 		rfxtypes = /^(?:toggle|show|hide)$/,
 		rrun = /queueHooks$/;
 	
-	function raf() {
-		if ( timerId ) {
-			window.requestAnimationFrame( raf );
+	function schedule() {
+		if ( inProgress ) {
+			if ( document.hidden === false && window.requestAnimationFrame ) {
+				window.requestAnimationFrame( schedule );
+			} else {
+				window.setTimeout( schedule, jQuery.fx.interval );
+			}
+	
 			jQuery.fx.tick();
 		}
 	}
@@ -32045,7 +32074,7 @@
 			name = jQuery.camelCase( index );
 			easing = specialEasing[ name ];
 			value = props[ index ];
-			if ( jQuery.isArray( value ) ) {
+			if ( Array.isArray( value ) ) {
 				easing = value[ 1 ];
 				value = props[ index ] = value[ 0 ];
 			}
@@ -32104,12 +32133,19 @@
 	
 				deferred.notifyWith( elem, [ animation, percent, remaining ] );
 	
+				// If there's more to do, yield
 				if ( percent < 1 && length ) {
 					return remaining;
-				} else {
-					deferred.resolveWith( elem, [ animation ] );
-					return false;
 				}
+	
+				// If this was an empty animation, synthesize a final progress notification
+				if ( !length ) {
+					deferred.notifyWith( elem, [ animation, 1, 0 ] );
+				}
+	
+				// Resolve the animation and report its conclusion
+				deferred.resolveWith( elem, [ animation ] );
+				return false;
 			},
 			animation = deferred.promise( {
 				elem: elem,
@@ -32174,6 +32210,13 @@
 			animation.opts.start.call( elem, animation );
 		}
 	
+		// Attach callbacks from options
+		animation
+			.progress( animation.opts.progress )
+			.done( animation.opts.done, animation.opts.complete )
+			.fail( animation.opts.fail )
+			.always( animation.opts.always );
+	
 		jQuery.fx.timer(
 			jQuery.extend( tick, {
 				elem: elem,
@@ -32182,11 +32225,7 @@
 			} )
 		);
 	
-		// attach callbacks from options
-		return animation.progress( animation.opts.progress )
-			.done( animation.opts.done, animation.opts.complete )
-			.fail( animation.opts.fail )
-			.always( animation.opts.always );
+		return animation;
 	}
 	
 	jQuery.Animation = jQuery.extend( Animation, {
@@ -32237,8 +32276,8 @@
 			easing: fn && easing || easing && !jQuery.isFunction( easing ) && easing
 		};
 	
-		// Go to the end state if fx are off or if document is hidden
-		if ( jQuery.fx.off || document.hidden ) {
+		// Go to the end state if fx are off
+		if ( jQuery.fx.off ) {
 			opt.duration = 0;
 	
 		} else {
@@ -32430,7 +32469,7 @@
 		for ( ; i < timers.length; i++ ) {
 			timer = timers[ i ];
 	
-			// Checks the timer has not already been removed
+			// Run the timer and safely remove it when done (allowing for external removal)
 			if ( !timer() && timers[ i ] === timer ) {
 				timers.splice( i--, 1 );
 			}
@@ -32444,30 +32483,21 @@
 	
 	jQuery.fx.timer = function( timer ) {
 		jQuery.timers.push( timer );
-		if ( timer() ) {
-			jQuery.fx.start();
-		} else {
-			jQuery.timers.pop();
-		}
+		jQuery.fx.start();
 	};
 	
 	jQuery.fx.interval = 13;
 	jQuery.fx.start = function() {
-		if ( !timerId ) {
-			timerId = window.requestAnimationFrame ?
-				window.requestAnimationFrame( raf ) :
-				window.setInterval( jQuery.fx.tick, jQuery.fx.interval );
+		if ( inProgress ) {
+			return;
 		}
+	
+		inProgress = true;
+		schedule();
 	};
 	
 	jQuery.fx.stop = function() {
-		if ( window.cancelAnimationFrame ) {
-			window.cancelAnimationFrame( timerId );
-		} else {
-			window.clearInterval( timerId );
-		}
-	
-		timerId = null;
+		inProgress = null;
 	};
 	
 	jQuery.fx.speeds = {
@@ -32584,7 +32614,7 @@
 			type: {
 				set: function( elem, value ) {
 					if ( !support.radioValue && value === "radio" &&
-						jQuery.nodeName( elem, "input" ) ) {
+						nodeName( elem, "input" ) ) {
 						var val = elem.value;
 						elem.setAttribute( "type", value );
 						if ( val ) {
@@ -33015,7 +33045,7 @@
 				} else if ( typeof val === "number" ) {
 					val += "";
 	
-				} else if ( jQuery.isArray( val ) ) {
+				} else if ( Array.isArray( val ) ) {
 					val = jQuery.map( val, function( value ) {
 						return value == null ? "" : value + "";
 					} );
@@ -33074,7 +33104,7 @@
 								// Don't return options that are disabled or in a disabled optgroup
 								!option.disabled &&
 								( !option.parentNode.disabled ||
-									!jQuery.nodeName( option.parentNode, "optgroup" ) ) ) {
+									!nodeName( option.parentNode, "optgroup" ) ) ) {
 	
 							// Get the specific value for the option
 							value = jQuery( option ).val();
@@ -33126,7 +33156,7 @@
 	jQuery.each( [ "radio", "checkbox" ], function() {
 		jQuery.valHooks[ this ] = {
 			set: function( elem, value ) {
-				if ( jQuery.isArray( value ) ) {
+				if ( Array.isArray( value ) ) {
 					return ( elem.checked = jQuery.inArray( jQuery( elem ).val(), value ) > -1 );
 				}
 			}
@@ -33421,7 +33451,7 @@
 	function buildParams( prefix, obj, traditional, add ) {
 		var name;
 	
-		if ( jQuery.isArray( obj ) ) {
+		if ( Array.isArray( obj ) ) {
 	
 			// Serialize array item.
 			jQuery.each( obj, function( i, v ) {
@@ -33473,7 +33503,7 @@
 			};
 	
 		// If an array was passed in, assume that it is an array of form elements.
-		if ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
+		if ( Array.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {
 	
 			// Serialize the form elements
 			jQuery.each( a, function() {
@@ -33519,7 +33549,7 @@
 					return null;
 				}
 	
-				if ( jQuery.isArray( val ) ) {
+				if ( Array.isArray( val ) ) {
 					return jQuery.map( val, function( val ) {
 						return { name: elem.name, value: val.replace( rCRLF, "\r\n" ) };
 					} );
@@ -34944,13 +34974,6 @@
 	
 	
 	
-	/**
-	 * Gets a window from an element
-	 */
-	function getWindow( elem ) {
-		return jQuery.isWindow( elem ) ? elem : elem.nodeType === 9 && elem.defaultView;
-	}
-	
 	jQuery.offset = {
 		setOffset: function( elem, options, i ) {
 			var curPosition, curLeft, curCSSTop, curTop, curOffset, curCSSLeft, calculatePosition,
@@ -35015,13 +35038,14 @@
 					} );
 			}
 	
-			var docElem, win, rect, doc,
+			var doc, docElem, rect, win,
 				elem = this[ 0 ];
 	
 			if ( !elem ) {
 				return;
 			}
 	
+			// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
 			// Support: IE <=11 only
 			// Running getBoundingClientRect on a
 			// disconnected node in IE throws an error
@@ -35031,20 +35055,14 @@
 	
 			rect = elem.getBoundingClientRect();
 	
-			// Make sure element is not hidden (display: none)
-			if ( rect.width || rect.height ) {
-				doc = elem.ownerDocument;
-				win = getWindow( doc );
-				docElem = doc.documentElement;
+			doc = elem.ownerDocument;
+			docElem = doc.documentElement;
+			win = doc.defaultView;
 	
-				return {
-					top: rect.top + win.pageYOffset - docElem.clientTop,
-					left: rect.left + win.pageXOffset - docElem.clientLeft
-				};
-			}
-	
-			// Return zeros for disconnected and hidden elements (gh-2310)
-			return rect;
+			return {
+				top: rect.top + win.pageYOffset - docElem.clientTop,
+				left: rect.left + win.pageXOffset - docElem.clientLeft
+			};
 		},
 	
 		position: function() {
@@ -35070,7 +35088,7 @@
 	
 				// Get correct offsets
 				offset = this.offset();
-				if ( !jQuery.nodeName( offsetParent[ 0 ], "html" ) ) {
+				if ( !nodeName( offsetParent[ 0 ], "html" ) ) {
 					parentOffset = offsetParent.offset();
 				}
 	
@@ -35117,7 +35135,14 @@
 	
 		jQuery.fn[ method ] = function( val ) {
 			return access( this, function( elem, method, val ) {
-				var win = getWindow( elem );
+	
+				// Coalesce documents and windows
+				var win;
+				if ( jQuery.isWindow( elem ) ) {
+					win = elem;
+				} else if ( elem.nodeType === 9 ) {
+					win = elem.defaultView;
+				}
 	
 				if ( val === undefined ) {
 					return win ? win[ prop ] : elem[ method ];
@@ -35226,7 +35251,16 @@
 		}
 	} );
 	
+	jQuery.holdReady = function( hold ) {
+		if ( hold ) {
+			jQuery.readyWait++;
+		} else {
+			jQuery.ready( true );
+		}
+	};
+	jQuery.isArray = Array.isArray;
 	jQuery.parseJSON = JSON.parse;
+	jQuery.nodeName = nodeName;
 	
 	
 	
@@ -35279,7 +35313,6 @@
 	if ( !noGlobal ) {
 		window.jQuery = window.$ = jQuery;
 	}
-	
 	
 	
 	
@@ -35363,11 +35396,14 @@
 	            _lib.Row,
 	            null,
 	            _react2.default.createElement(
-	              'h1',
-	              { className: 'porfolio-services-title' },
-	              'Services'
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'h1',
+	                { className: 'porfolio-services-title' },
+	                'Services'
+	              )
 	            ),
-	            _react2.default.createElement('hr', null),
 	            _react2.default.createElement(
 	              _lib.Col,
 	              { sm: 4 },
@@ -35387,6 +35423,15 @@
 	                    'p',
 	                    null,
 	                    'Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _react2.default.createElement(
+	                      _lib.Button,
+	                      null,
+	                      'View details \xBB'
+	                    )
 	                  )
 	                )
 	              )
@@ -35410,6 +35455,15 @@
 	                    'p',
 	                    null,
 	                    'Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _react2.default.createElement(
+	                      _lib.Button,
+	                      null,
+	                      'View details \xBB'
+	                    )
 	                  )
 	                )
 	              )
@@ -35433,6 +35487,15 @@
 	                    'p',
 	                    null,
 	                    'Dolor aliquid dolores perferendis repellendus cum! Quam maiores blanditiis cupiditate voluptatibus voluptas aliquid nisi placeat tempora. Rem debitis accusamus pariatur officia corrupti. Architecto fuga reiciendis quos rem hic? Suscipit dignissimos.'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    _react2.default.createElement(
+	                      _lib.Button,
+	                      null,
+	                      'View details \xBB'
+	                    )
 	                  )
 	                )
 	              )
@@ -35899,9 +35962,9 @@
 
 /***/ },
 /* 215 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/fn/object/assign.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/object/assign.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.object.assign */ 216);
@@ -35909,9 +35972,9 @@
 
 /***/ },
 /* 216 */
-/*!********************************************************!*\
-  !*** ./~/core-js/library/modules/es6.object.assign.js ***!
-  \********************************************************/
+/*!******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.object.assign.js ***!
+  \******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.3.1 Object.assign(target, source)
@@ -35921,9 +35984,9 @@
 
 /***/ },
 /* 217 */
-/*!**********************************************!*\
-  !*** ./~/core-js/library/modules/_export.js ***!
-  \**********************************************/
+/*!********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_export.js ***!
+  \********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var global    = __webpack_require__(/*! ./_global */ 218)
@@ -35990,9 +36053,9 @@
 
 /***/ },
 /* 218 */
-/*!**********************************************!*\
-  !*** ./~/core-js/library/modules/_global.js ***!
-  \**********************************************/
+/*!********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_global.js ***!
+  \********************************************************************************/
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -36002,9 +36065,9 @@
 
 /***/ },
 /* 219 */
-/*!********************************************!*\
-  !*** ./~/core-js/library/modules/_core.js ***!
-  \********************************************/
+/*!******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_core.js ***!
+  \******************************************************************************/
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '2.4.0'};
@@ -36012,9 +36075,9 @@
 
 /***/ },
 /* 220 */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_ctx.js ***!
-  \*******************************************/
+/*!*****************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_ctx.js ***!
+  \*****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
@@ -36040,9 +36103,9 @@
 
 /***/ },
 /* 221 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_a-function.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_a-function.js ***!
+  \************************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -36052,9 +36115,9 @@
 
 /***/ },
 /* 222 */
-/*!********************************************!*\
-  !*** ./~/core-js/library/modules/_hide.js ***!
-  \********************************************/
+/*!******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_hide.js ***!
+  \******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var dP         = __webpack_require__(/*! ./_object-dp */ 223)
@@ -36068,9 +36131,9 @@
 
 /***/ },
 /* 223 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_object-dp.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-dp.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var anObject       = __webpack_require__(/*! ./_an-object */ 224)
@@ -36092,9 +36155,9 @@
 
 /***/ },
 /* 224 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_an-object.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_an-object.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(/*! ./_is-object */ 225);
@@ -36105,9 +36168,9 @@
 
 /***/ },
 /* 225 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_is-object.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_is-object.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -36116,9 +36179,9 @@
 
 /***/ },
 /* 226 */
-/*!******************************************************!*\
-  !*** ./~/core-js/library/modules/_ie8-dom-define.js ***!
-  \******************************************************/
+/*!****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_ie8-dom-define.js ***!
+  \****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = !__webpack_require__(/*! ./_descriptors */ 227) && !__webpack_require__(/*! ./_fails */ 228)(function(){
@@ -36127,9 +36190,9 @@
 
 /***/ },
 /* 227 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_descriptors.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_descriptors.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
@@ -36139,9 +36202,9 @@
 
 /***/ },
 /* 228 */
-/*!*********************************************!*\
-  !*** ./~/core-js/library/modules/_fails.js ***!
-  \*********************************************/
+/*!*******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_fails.js ***!
+  \*******************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -36154,9 +36217,9 @@
 
 /***/ },
 /* 229 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_dom-create.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_dom-create.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(/*! ./_is-object */ 225)
@@ -36169,9 +36232,9 @@
 
 /***/ },
 /* 230 */
-/*!****************************************************!*\
-  !*** ./~/core-js/library/modules/_to-primitive.js ***!
-  \****************************************************/
+/*!**************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-primitive.js ***!
+  \**************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
@@ -36189,9 +36252,9 @@
 
 /***/ },
 /* 231 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/_property-desc.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_property-desc.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -36205,9 +36268,9 @@
 
 /***/ },
 /* 232 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/_object-assign.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-assign.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36246,9 +36309,9 @@
 
 /***/ },
 /* 233 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_object-keys.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-keys.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
@@ -36261,9 +36324,9 @@
 
 /***/ },
 /* 234 */
-/*!************************************************************!*\
-  !*** ./~/core-js/library/modules/_object-keys-internal.js ***!
-  \************************************************************/
+/*!**********************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-keys-internal.js ***!
+  \**********************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var has          = __webpack_require__(/*! ./_has */ 235)
@@ -36286,9 +36349,9 @@
 
 /***/ },
 /* 235 */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_has.js ***!
-  \*******************************************/
+/*!*****************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_has.js ***!
+  \*****************************************************************************/
 /***/ function(module, exports) {
 
 	var hasOwnProperty = {}.hasOwnProperty;
@@ -36298,9 +36361,9 @@
 
 /***/ },
 /* 236 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_to-iobject.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-iobject.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// to indexed object, toObject with fallback for non-array-like ES3 strings
@@ -36312,9 +36375,9 @@
 
 /***/ },
 /* 237 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/modules/_iobject.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iobject.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -36325,9 +36388,9 @@
 
 /***/ },
 /* 238 */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_cof.js ***!
-  \*******************************************/
+/*!*****************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_cof.js ***!
+  \*****************************************************************************/
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -36338,9 +36401,9 @@
 
 /***/ },
 /* 239 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/modules/_defined.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_defined.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -36351,9 +36414,9 @@
 
 /***/ },
 /* 240 */
-/*!******************************************************!*\
-  !*** ./~/core-js/library/modules/_array-includes.js ***!
-  \******************************************************/
+/*!****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_array-includes.js ***!
+  \****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// false -> Array#indexOf
@@ -36380,9 +36443,9 @@
 
 /***/ },
 /* 241 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_to-length.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-length.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.15 ToLength
@@ -36394,9 +36457,9 @@
 
 /***/ },
 /* 242 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_to-integer.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-integer.js ***!
+  \************************************************************************************/
 /***/ function(module, exports) {
 
 	// 7.1.4 ToInteger
@@ -36408,9 +36471,9 @@
 
 /***/ },
 /* 243 */
-/*!************************************************!*\
-  !*** ./~/core-js/library/modules/_to-index.js ***!
-  \************************************************/
+/*!**********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-index.js ***!
+  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var toInteger = __webpack_require__(/*! ./_to-integer */ 242)
@@ -36423,9 +36486,9 @@
 
 /***/ },
 /* 244 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_shared-key.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_shared-key.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var shared = __webpack_require__(/*! ./_shared */ 245)('keys')
@@ -36436,9 +36499,9 @@
 
 /***/ },
 /* 245 */
-/*!**********************************************!*\
-  !*** ./~/core-js/library/modules/_shared.js ***!
-  \**********************************************/
+/*!********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_shared.js ***!
+  \********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var global = __webpack_require__(/*! ./_global */ 218)
@@ -36450,9 +36513,9 @@
 
 /***/ },
 /* 246 */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_uid.js ***!
-  \*******************************************/
+/*!*****************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_uid.js ***!
+  \*****************************************************************************/
 /***/ function(module, exports) {
 
 	var id = 0
@@ -36463,9 +36526,9 @@
 
 /***/ },
 /* 247 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/_enum-bug-keys.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_enum-bug-keys.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports) {
 
 	// IE 8- don't enum bug keys
@@ -36475,27 +36538,27 @@
 
 /***/ },
 /* 248 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_object-gops.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-gops.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 /***/ },
 /* 249 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_object-pie.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-pie.js ***!
+  \************************************************************************************/
 /***/ function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 /***/ },
 /* 250 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_to-object.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_to-object.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
@@ -36565,14 +36628,14 @@
 	
 	var _symbol2 = _interopRequireDefault(_symbol);
 	
-	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj; };
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
 	  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
 	} : function (obj) {
-	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+	  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
 	};
 
 /***/ },
@@ -36586,9 +36649,9 @@
 
 /***/ },
 /* 255 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/fn/symbol/iterator.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/symbol/iterator.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.string.iterator */ 256);
@@ -36597,9 +36660,9 @@
 
 /***/ },
 /* 256 */
-/*!**********************************************************!*\
-  !*** ./~/core-js/library/modules/es6.string.iterator.js ***!
-  \**********************************************************/
+/*!********************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.string.iterator.js ***!
+  \********************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36622,9 +36685,9 @@
 
 /***/ },
 /* 257 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_string-at.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_string-at.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var toInteger = __webpack_require__(/*! ./_to-integer */ 242)
@@ -36647,9 +36710,9 @@
 
 /***/ },
 /* 258 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_iter-define.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iter-define.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36725,36 +36788,36 @@
 
 /***/ },
 /* 259 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/modules/_library.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_library.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = true;
 
 /***/ },
 /* 260 */
-/*!************************************************!*\
-  !*** ./~/core-js/library/modules/_redefine.js ***!
-  \************************************************/
+/*!**********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_redefine.js ***!
+  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(/*! ./_hide */ 222);
 
 /***/ },
 /* 261 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_iterators.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iterators.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = {};
 
 /***/ },
 /* 262 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_iter-create.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iter-create.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36773,9 +36836,9 @@
 
 /***/ },
 /* 263 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/_object-create.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-create.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
@@ -36823,9 +36886,9 @@
 
 /***/ },
 /* 264 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_object-dps.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-dps.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var dP       = __webpack_require__(/*! ./_object-dp */ 223)
@@ -36844,18 +36907,18 @@
 
 /***/ },
 /* 265 */
-/*!********************************************!*\
-  !*** ./~/core-js/library/modules/_html.js ***!
-  \********************************************/
+/*!******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_html.js ***!
+  \******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(/*! ./_global */ 218).document && document.documentElement;
 
 /***/ },
 /* 266 */
-/*!*********************************************************!*\
-  !*** ./~/core-js/library/modules/_set-to-string-tag.js ***!
-  \*********************************************************/
+/*!*******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_set-to-string-tag.js ***!
+  \*******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var def = __webpack_require__(/*! ./_object-dp */ 223).f
@@ -36868,9 +36931,9 @@
 
 /***/ },
 /* 267 */
-/*!*******************************************!*\
-  !*** ./~/core-js/library/modules/_wks.js ***!
-  \*******************************************/
+/*!*****************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_wks.js ***!
+  \*****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var store      = __webpack_require__(/*! ./_shared */ 245)('wks')
@@ -36887,9 +36950,9 @@
 
 /***/ },
 /* 268 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_object-gpo.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-gpo.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
@@ -36908,9 +36971,9 @@
 
 /***/ },
 /* 269 */
-/*!*******************************************************!*\
-  !*** ./~/core-js/library/modules/web.dom.iterable.js ***!
-  \*******************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/web.dom.iterable.js ***!
+  \*****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ./es6.array.iterator */ 270);
@@ -36929,9 +36992,9 @@
 
 /***/ },
 /* 270 */
-/*!*********************************************************!*\
-  !*** ./~/core-js/library/modules/es6.array.iterator.js ***!
-  \*********************************************************/
+/*!*******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.array.iterator.js ***!
+  \*******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36971,18 +37034,18 @@
 
 /***/ },
 /* 271 */
-/*!**********************************************************!*\
-  !*** ./~/core-js/library/modules/_add-to-unscopables.js ***!
-  \**********************************************************/
+/*!********************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_add-to-unscopables.js ***!
+  \********************************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(){ /* empty */ };
 
 /***/ },
 /* 272 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_iter-step.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iter-step.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports) {
 
 	module.exports = function(done, value){
@@ -36991,9 +37054,9 @@
 
 /***/ },
 /* 273 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/modules/_wks-ext.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_wks-ext.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.f = __webpack_require__(/*! ./_wks */ 267);
@@ -37009,9 +37072,9 @@
 
 /***/ },
 /* 275 */
-/*!**********************************************!*\
-  !*** ./~/core-js/library/fn/symbol/index.js ***!
-  \**********************************************/
+/*!********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/symbol/index.js ***!
+  \********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.symbol */ 276);
@@ -37022,9 +37085,9 @@
 
 /***/ },
 /* 276 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/es6.symbol.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.symbol.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37265,9 +37328,9 @@
 
 /***/ },
 /* 277 */
-/*!********************************************!*\
-  !*** ./~/core-js/library/modules/_meta.js ***!
-  \********************************************/
+/*!******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_meta.js ***!
+  \******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var META     = __webpack_require__(/*! ./_uid */ 246)('meta')
@@ -37326,9 +37389,9 @@
 
 /***/ },
 /* 278 */
-/*!**************************************************!*\
-  !*** ./~/core-js/library/modules/_wks-define.js ***!
-  \**************************************************/
+/*!************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_wks-define.js ***!
+  \************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var global         = __webpack_require__(/*! ./_global */ 218)
@@ -37343,9 +37406,9 @@
 
 /***/ },
 /* 279 */
-/*!*********************************************!*\
-  !*** ./~/core-js/library/modules/_keyof.js ***!
-  \*********************************************/
+/*!*******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_keyof.js ***!
+  \*******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var getKeys   = __webpack_require__(/*! ./_object-keys */ 233)
@@ -37361,9 +37424,9 @@
 
 /***/ },
 /* 280 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_enum-keys.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_enum-keys.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
@@ -37384,9 +37447,9 @@
 
 /***/ },
 /* 281 */
-/*!************************************************!*\
-  !*** ./~/core-js/library/modules/_is-array.js ***!
-  \************************************************/
+/*!**********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_is-array.js ***!
+  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
@@ -37397,9 +37460,9 @@
 
 /***/ },
 /* 282 */
-/*!*******************************************************!*\
-  !*** ./~/core-js/library/modules/_object-gopn-ext.js ***!
-  \*******************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-gopn-ext.js ***!
+  \*****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
@@ -37425,9 +37488,9 @@
 
 /***/ },
 /* 283 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_object-gopn.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-gopn.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
@@ -37440,9 +37503,9 @@
 
 /***/ },
 /* 284 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_object-gopd.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-gopd.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var pIE            = __webpack_require__(/*! ./_object-pie */ 249)
@@ -37464,27 +37527,27 @@
 
 /***/ },
 /* 285 */
-/*!***********************************************************!*\
-  !*** ./~/core-js/library/modules/es6.object.to-string.js ***!
-  \***********************************************************/
+/*!*********************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.object.to-string.js ***!
+  \*********************************************************************************************/
 /***/ function(module, exports) {
 
 
 
 /***/ },
 /* 286 */
-/*!****************************************************************!*\
-  !*** ./~/core-js/library/modules/es7.symbol.async-iterator.js ***!
-  \****************************************************************/
+/*!**************************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es7.symbol.async-iterator.js ***!
+  \**************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ./_wks-define */ 278)('asyncIterator');
 
 /***/ },
 /* 287 */
-/*!************************************************************!*\
-  !*** ./~/core-js/library/modules/es7.symbol.observable.js ***!
-  \************************************************************/
+/*!**********************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es7.symbol.observable.js ***!
+  \**********************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ./_wks-define */ 278)('observable');
@@ -37541,9 +37604,9 @@
 
 /***/ },
 /* 290 */
-/*!*********************************************************!*\
-  !*** ./~/core-js/library/fn/object/set-prototype-of.js ***!
-  \*********************************************************/
+/*!*******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/object/set-prototype-of.js ***!
+  \*******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.object.set-prototype-of */ 291);
@@ -37551,9 +37614,9 @@
 
 /***/ },
 /* 291 */
-/*!******************************************************************!*\
-  !*** ./~/core-js/library/modules/es6.object.set-prototype-of.js ***!
-  \******************************************************************/
+/*!****************************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.object.set-prototype-of.js ***!
+  \****************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.3.19 Object.setPrototypeOf(O, proto)
@@ -37562,9 +37625,9 @@
 
 /***/ },
 /* 292 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_set-proto.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_set-proto.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -37604,9 +37667,9 @@
 
 /***/ },
 /* 294 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/fn/object/create.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/object/create.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.object.create */ 295);
@@ -37617,9 +37680,9 @@
 
 /***/ },
 /* 295 */
-/*!********************************************************!*\
-  !*** ./~/core-js/library/modules/es6.object.create.js ***!
-  \********************************************************/
+/*!******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.object.create.js ***!
+  \******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var $export = __webpack_require__(/*! ./_export */ 217)
@@ -38096,9 +38159,9 @@
 
 /***/ },
 /* 301 */
-/*!************************************************!*\
-  !*** ./~/core-js/library/fn/object/entries.js ***!
-  \************************************************/
+/*!**********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/object/entries.js ***!
+  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es7.object.entries */ 302);
@@ -38106,9 +38169,9 @@
 
 /***/ },
 /* 302 */
-/*!*********************************************************!*\
-  !*** ./~/core-js/library/modules/es7.object.entries.js ***!
-  \*********************************************************/
+/*!*******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es7.object.entries.js ***!
+  \*******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://github.com/tc39/proposal-object-values-entries
@@ -38123,9 +38186,9 @@
 
 /***/ },
 /* 303 */
-/*!*******************************************************!*\
-  !*** ./~/core-js/library/modules/_object-to-array.js ***!
-  \*******************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_object-to-array.js ***!
+  \*****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var getKeys   = __webpack_require__(/*! ./_object-keys */ 233)
@@ -38645,9 +38708,9 @@
 
 /***/ },
 /* 310 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/fn/object/values.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/object/values.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es7.object.values */ 311);
@@ -38655,9 +38718,9 @@
 
 /***/ },
 /* 311 */
-/*!********************************************************!*\
-  !*** ./~/core-js/library/modules/es7.object.values.js ***!
-  \********************************************************/
+/*!******************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es7.object.values.js ***!
+  \******************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://github.com/tc39/proposal-object-values-entries
@@ -43412,9 +43475,9 @@
 
 /***/ },
 /* 358 */
-/*!********************************************!*\
-  !*** ./~/core-js/library/fn/array/from.js ***!
-  \********************************************/
+/*!******************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/fn/array/from.js ***!
+  \******************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ../../modules/es6.string.iterator */ 256);
@@ -43423,9 +43486,9 @@
 
 /***/ },
 /* 359 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/es6.array.from.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/es6.array.from.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43469,9 +43532,9 @@
 
 /***/ },
 /* 360 */
-/*!*************************************************!*\
-  !*** ./~/core-js/library/modules/_iter-call.js ***!
-  \*************************************************/
+/*!***********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iter-call.js ***!
+  \***********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// call something on iterator step with safe closing on error
@@ -43489,9 +43552,9 @@
 
 /***/ },
 /* 361 */
-/*!*****************************************************!*\
-  !*** ./~/core-js/library/modules/_is-array-iter.js ***!
-  \*****************************************************/
+/*!***************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_is-array-iter.js ***!
+  \***************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// check on default Array iterator
@@ -43505,9 +43568,9 @@
 
 /***/ },
 /* 362 */
-/*!*******************************************************!*\
-  !*** ./~/core-js/library/modules/_create-property.js ***!
-  \*******************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_create-property.js ***!
+  \*****************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43521,9 +43584,9 @@
 
 /***/ },
 /* 363 */
-/*!***************************************************************!*\
-  !*** ./~/core-js/library/modules/core.get-iterator-method.js ***!
-  \***************************************************************/
+/*!*************************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/core.get-iterator-method.js ***!
+  \*************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var classof   = __webpack_require__(/*! ./_classof */ 364)
@@ -43537,9 +43600,9 @@
 
 /***/ },
 /* 364 */
-/*!***********************************************!*\
-  !*** ./~/core-js/library/modules/_classof.js ***!
-  \***********************************************/
+/*!*********************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_classof.js ***!
+  \*********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// getting tag from 19.1.3.6 Object.prototype.toString()
@@ -43568,9 +43631,9 @@
 
 /***/ },
 /* 365 */
-/*!***************************************************!*\
-  !*** ./~/core-js/library/modules/_iter-detect.js ***!
-  \***************************************************/
+/*!*************************************************************************************!*\
+  !*** ./~/react-bootstrap/~/babel-runtime/~/core-js/library/modules/_iter-detect.js ***!
+  \*************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var ITERATOR     = __webpack_require__(/*! ./_wks */ 267)('iterator')
@@ -56516,10 +56579,11 @@
 	
 	
 	function FieldGroup(props) {
-	  var id = props.id,
-	      label = props.label,
-	      help = props.help,
-	      props = _objectWithoutProperties(props, ['id', 'label', 'help']);
+	  var id = props.id;
+	  var label = props.label;
+	  var help = props.help;
+	
+	  var props = _objectWithoutProperties(props, ['id', 'label', 'help']);
 	
 	  return _react2.default.createElement(
 	    _lib.FormGroup,
@@ -56740,7 +56804,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nfooter .copyright{\n  background: rgba(20,0,0,0.85);\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  color: #fff;\n  font-weight: 300;\n  background-color: rgba(255,70,0,0.75);\n  padding-top: 1rem;\n}\n\nbody p {\n  font-weight: 300;\n}\n\n/*Footer Component*/\n.footer-bar .social-icon  {\n  height: 32px;\n  width: 32px;\n  background-position: 100% 40%;\n  display: inline-block;\n  padding: 2rem;\n  background-repeat: no-repeat;\n  text-align: center;\n  margin: 0 auto;\n  margin-top: .5rem;\n}\n\n.footer-bar .google_plus {\n  background-image: url(\"/../img/icons/googleplus.png\");\n}\n.footer-bar .twitter {\n  background-image: url(\"/../img/icons/twitter.png\");\n}\n\n.footer-bar .linkedin {\n  background-image: url(\"/../img/icons/linkedin.png\");\n}\n\n.footer-bar .github {\n  background-image: url(\"/../img/icons/github.png\");\n}\n\n.footer-bar {\n  text-align: center\n}\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  /*background: rgba(20,0,0,0.85);*/\n  margin: 1rem;\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #000;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.login a{\n  border-radius: 10px;\n  margin: 0.5rem;\n  padding: 5px 15px;\n  /* vertical-align: bottom; */\n  display: block;\n  vertical-align: bottom;\n  background: rgba(20,160,150,0.95);\n}\n.nav .nav-item.-contact {\n  cursor: pointer;\n}\n.nav .nav-item.active{\n  /*background:rgba(255,69,0,0.75);*/\n  border-bottom: 4px solid rgb(255, 255, 0);\n}\n.nav .nav-item.active a {\n  background:rgba(255,69,0,0.75);\n  font-weight: 300;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,69,0,0.65);\n  color: #fff;\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/vladi_puertorico.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 20px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: rgba(255, 255, 200,.55);\n  text-align: center;\n  line-height: 1rem;\n  text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);\n}\n.porfolio-jumbotron-name .last_name {\n  color: rgba(255, 255, 250,.75);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 60px;\n  font-weight: 300;\n  display: block;\n  color: rgba(255, 255, 250,.75);\n  letter-spacing: -2px;\n  text-align: center;\n  font-family: fantasy;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),\n             2px 8px 15px rgba(0,0,0,0.1),\n             2px 18px 25px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n}\n.porfolio-jumbotron-buttons .button {\n  background-color: rgba(255,69,0,0.75);\n  margin: 2rem;\n  color: #fff;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  border: 0;\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: rgba(20,0,0,0.85);\n  color:#fff;\n}\n.porfolio-buttons {\n  background: rgba(20,0,0,0.1);\n  height: 80px;\n  width: 100%;\n  margin-top: 50px;\n  box-shadow: 3px 0px 2px 0px #000;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\nbackground: rgba(0,0,0,.65);\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n  margin-top: 3rem;\n  margin-bottom: 3rem;\n  color: rgba(20,100,150,0.95);\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 2.8rem;\n  border-bottom: 1px solid orange;\n  padding-bottom: 2rem;\n  margin: 2rem 20rem;\n  font-weight: 300;\n}\n.porfolio-sub-title {\n  color: #555;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  padding-bottom: 1rem;\n  margin-bottom: 2rem;\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n  color: rgba(255,0,0,0.75);\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  margin-left: 1rem;\n  margin-right: 1rem;\n  padding:1rem;\n\n}\n.col-main-background.services {\n  background: rgba(20,160,150,0.1);\n  margin-bottom: 2rem;\n}\n.porfolio-services-description{\n  padding: 1rem;\n}\n .porfolio-about-text, .porfolio-section-text {\n  text-align: center;\n  color: #fff;\n  /*opacity: 0.95;\n  background: rgba(255, 104, 45, 0.85);*/\n  opacity: .95;\n  background: rgba(20,100,150,0.65);\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n  margin-top: 0px;\n  padding: 1rem;\n  font-size: 13px;\n  border: 1px solid rgba(0, 0, 45, 0.15);\n  border-bottom-left-radius: 2px;\n  border-bottom-right-radius: 2px;\n}\n.porfolio-services-section .col-main-background button {\n  width: 100%;\n}\np.porfolio-section-text {\n  margin-right: 1.4rem;\n  margin-left: 1.4rem;\n  cursor: pointer;\n}\ndiv.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--content {\n  height: 72%;\n  padding: 20px 15px;\n}\np.porfolio-about-text {\n  width: 87%;\n  float: right;\n  padding: 3rem;\n}\n.col-main-background button {\n  background-color: rgba(255,69,0,0.95);\n  color: #fff;\n  height: 4rem;\n}\n.porfolio-section {\n  padding: 2rem 3rem;\n  //background: #E8E8E8;\n  background: rgba(20,0,0,0.1);\n}\n\n/*About PAGE*/\n.porfolio-section.about , .porfolio-section.porfolio{\n  background-color: #fff;\n}\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 90px;\n    height: 100px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n\n}\n.porfolio-about-description {\n  margin-top: 3rem;\n}\n.col-main-background.about {\n  margin: 0rem 3rem;\n  padding: 2rem 1rem;\n}\n\n/*PORFOLIO SITE PAGE*/\n.porfolio-site-image{\n  text-align: center;\n  margin: 0 auto;\n  display: block;\n  position: relative;\n  width: 350px;\n}\n.porfolio-site-image img{\n  width: 350px;\n  height: 238px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n\n.porfolio-contact-form {\n\n}\n.porfolio-contact-form textarea{\n      height: 175px;\n}\n.porfolio-contact-form button {\n  background: rgba(255,69,0,0.75);\n  color: #fff;\n}\n#map {\n  width: 40%;\n  height: 300px;\n}\n.porfolio-site-image-overflow {\n  width: 80%;\n}\n.porfolio-site-image-navigation--content {\n  background-color: rgba(0,0,0,0.8);\n  /*background-color: transparent;*/\n  color: #cacaca;\n  height: 0%;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  right: 0;\n  top: 20px;\n  transition: all .25s ease-in-out;\n  width:72%;\n  z-index: 2;\n  zoom: 1;\n  margin-left: auto;\n  margin-right: auto;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #e4e4e4;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-text-size-adjust: none;\n  -webkit-font-smoothing: antialiased;\n}\n.container button {\n  text-transform: uppercase;\n}\n\nfooter .copyright{\n  background: rgba(25,40,73,.95);\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  color: #203476;\n  font-weight: 300;\n  background-color: #f4f4f4;\n  padding-top: 1rem;\n}\n\nbody p {\n  font-weight: 300;\n}\n\n/*Footer Component*/\n.footer-bar .social-icon  {\n  height: 32px;\n  width: 32px;\n  background-position: 100% 40%;\n  display: inline-block;\n  padding: 2rem;\n  background-repeat: no-repeat;\n  text-align: center;\n  margin: 0 auto;\n  margin-top: .5rem;\n}\n\n.footer-bar .google_plus {\n  background-image: url(\"/../img/icons/googleplus.png\");\n}\n.footer-bar .twitter {\n  background-image: url(\"/../img/icons/twitter.png\");\n}\n\n.footer-bar .linkedin {\n  background-image: url(\"/../img/icons/linkedin.png\");\n}\n\n.footer-bar .github {\n  background-image: url(\"/../img/icons/github.png\");\n}\n\n.footer-bar {\n  text-align: center\n}\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  /*background: rgba(20,0,0,0.85);*/\n  background: rgba(25,40,73,.8);\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.login a{\n  border-radius: 10px;\n  margin: 0.5rem;\n  padding: 5px 15px;\n  /* vertical-align: bottom; */\n  display: block;\n  vertical-align: bottom;\n  background: rgba(20,160,150,0.95);\n}\n.nav .nav-item.-contact {\n  cursor: pointer;\n}\n.nav .nav-item.active{\n  /*background:rgba(255,69,0,0.75);*/\n  border-bottom: 2px solid orange;\n}\n.nav .nav-item.active a {\n  background:#3c66dc;\n  font-weight: 300;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,69,0,0.65);\n  color: #fff;\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/vladi_puertorico.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 30px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: rgba(255, 255, 250,.7);\n  text-align: center;\n  line-height: 1rem;\n  /*text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);*/\n}\n.porfolio-jumbotron-name .last_name {\n  color: rgba(255, 255, 250,.75);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 70px;\n  font-weight: 300;\n  display: block;\n  color: #fff;\n  letter-spacing: -2px;\n  text-align: center;\n  font-weight: 500;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n}\n.porfolio-jumbotron-buttons .button {\n  /*background-color: rgba(255,69,0,0.75);*/\n  margin: 2rem;\n  color: #fff;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  /*border: 0;*/\n  border: 1px solid #fff;\n  color: #fff;\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: rgba(25,40,73,.75);;\n  color:#fff;\n}\n.porfolio-buttons {\n  background: #3c66dc;\n  height: 80px;\n  width: 100%;\n  margin-top: 50px;\n  box-shadow: 3px 0px 2px 0px #000;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\n  background: rgba(25,40,73,.75);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n  margin-top: 3rem;\n  margin-bottom: 3rem;\n  color: #203476;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 3.5rem;\n  border-bottom: 1px solid orange;\n  padding-bottom: 2rem;\n  margin: 2rem 20rem;\n  font-weight: 400;\n  display:inline-block;\n}\n.porfolio-sub-title {\n  color: #203476;;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  padding-bottom: 1rem;\n  margin-bottom: 2rem;\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n    color: #444444;\n    font-weight: 800;\n    font-size: 25px;\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  margin-left: 1rem;\n  margin-right: 1rem;\n  padding:1rem;\n\n}\n.col-main-background.services {\n  background: #fff;\n  margin-bottom: 2rem;\n}\n.porfolio-services-description{\n  padding: 1rem;\n}\n.porfolio-services-description button {\n      background-color: #3c66dc;\n    text-decoration: none;\n    color: #FFF;\n    font-size: 16px;\n    font-weight: 600;\n}\n .porfolio-about-text, .porfolio-section-text {\n  text-align: center;\n  color: #fff;\n  /*opacity: 0.95;\n  background: rgba(255, 104, 45, 0.85);*/\n  opacity: .95;\n  /*background: rgba(20,100,150,0.65);*/\n  background: #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n  margin-top: 0px;\n  padding: 1rem;\n  font-size: 13px;\n  border: 1px solid rgba(0, 0, 45, 0.15);\n  border-bottom-left-radius: 2px;\n  border-bottom-right-radius: 2px;\n}\n.porfolio-services-section  .row , .porfolio-section .row{\n  text-align: center;\n}\n.porfolio-services-section .col-main-background button {\n  width: 100%;\n  margin-top: 4rem;\n}\np.porfolio-section-text {\n  margin-right: 1.4rem;\n  margin-left: 1.4rem;\n  cursor: pointer;\n}\ndiv.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--content {\n  height: 72%;\n  padding: 20px 15px;\n}\np.porfolio-about-text {\n  width: 87%;\n  float: right;\n  padding: 3rem;\n}\n.col-main-background button {\n  background-color: #3c66dc;\n  color: #fff;\n  height: 5rem;\n}\n..col-main-background button:hover {\n  background: #337ab7;\n}\n.porfolio-section {\n  padding: 2rem 3rem;\n  //background: #E8E8E8;\n  background: rgba(20,0,0,0.1);\n}\n.porfolio-section.contact {\n  background: #fff;\n}\n/*About PAGE*/\n.porfolio-section.about , .porfolio-section.porfolio{\n  background-color: #fff;\n}\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 90px;\n    height: 100px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n\n}\n.porfolio-about-description {\n  margin-top: 3rem;\n}\n.col-main-background.about {\n  margin: 0rem 3rem;\n  padding: 2rem 1rem;\n}\n\n/*PORFOLIO SITE PAGE*/\n.porfolio-site-image{\n  text-align: center;\n  margin: 0 auto;\n  display: block;\n  position: relative;\n  width: 350px;\n}\n.porfolio-site-image img{\n  width: 350px;\n  height: 238px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n\n.porfolio-contact-form {\n  text-align: left;\n}\n.porfolio-contact-form textarea{\n      height: 175px;\n}\n.porfolio-contact-form button {\n  background-color: #3c66dc;\n  color: #fff;\n  padding: 8px 15px;\n  font-size: 16px;\n}\n#map {\n  width: 40%;\n  height: 300px;\n}\n.porfolio-site-image-overflow {\n  width: 80%;\n}\n.porfolio-site-image-navigation--content {\n  background-color: rgba(0,0,0,0.8);\n  /*background-color: transparent;*/\n  color: #cacaca;\n  height: 0%;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  right: 0;\n  top: 20px;\n  transition: all .25s ease-in-out;\n  width:72%;\n  z-index: 2;\n  zoom: 1;\n  margin-left: auto;\n  margin-right: auto;\n}\n", ""]);
 	
 	// exports
 

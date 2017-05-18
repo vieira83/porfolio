@@ -1,15 +1,19 @@
 body {
-  background: #fff;
+  background-color: #e4e4e4;
   color: #000;
   font-family: 'Open Sans',sans-serif;
   font-weight: 100;
   font-size: 16px;
   line-height: 1.5;
+  -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
+}
+.container button {
+  text-transform: uppercase;
 }
 
 footer .copyright{
-  background: rgba(20,0,0,0.85);
+  background: rgba(25,40,73,.95);
   color:#fff;
   text-align: center;
   font-size: 1.2rem;
@@ -17,9 +21,9 @@ footer .copyright{
   margin: 0;
 }
 footer .footer-bar {
-  color: #fff;
+  color: #203476;
   font-weight: 300;
-  background-color: rgba(255,70,0,0.75);
+  background-color: #f4f4f4;
   padding-top: 1rem;
 }
 
@@ -77,14 +81,14 @@ body p {
 }
 .nav {
   /*background: rgba(20,0,0,0.85);*/
-  margin: 1rem;
+  background: rgba(25,40,73,.8);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);
 }
 .nav .nav-item, .nav .nav-item > a {
   display: inline-block;
   text-transform: uppercase;;
   font-size: 1.5rem;
-  color: #000;
+  color: #fff;
 }
 .nav .nav-item:first-child {
   margin-left: 5rem;
@@ -107,10 +111,10 @@ body p {
 }
 .nav .nav-item.active{
   /*background:rgba(255,69,0,0.75);*/
-  border-bottom: 4px solid rgb(255, 255, 0);
+  border-bottom: 2px solid orange;
 }
 .nav .nav-item.active a {
-  background:rgba(255,69,0,0.75);
+  background:#3c66dc;
   font-weight: 300;
 }
 .nav .nav-item:hover > a {
@@ -149,35 +153,33 @@ body p {
   /*background-color:rgba(0, 0, 0, 0.6);*/
 }
 .porfolio-jumbotron-pos {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 300;
   text-align: left;
   line-height: 60px;
-  color: rgba(255, 255, 200,.55);
+  color: rgba(255, 255, 250,.7);
   text-align: center;
   line-height: 1rem;
-  text-shadow: 0px 3px 0px #000,
+  /*text-shadow: 0px 3px 0px #000,
   0px 14px 10px rgba(0,0,0,0.15),
   0px 24px 2px rgba(0,0,0,0.1),
-  0px 34px 30px rgba(0,0,0,0.1);
+  0px 34px 30px rgba(0,0,0,0.1);*/
 }
 .porfolio-jumbotron-name .last_name {
   color: rgba(255, 255, 250,.75);
 }
 
 .porfolio-jumbotron-name{
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 300;
   display: block;
-  color: rgba(255, 255, 250,.75);
+  color: #fff;
   letter-spacing: -2px;
   text-align: center;
-  font-family: fantasy;
+  font-weight: 500;
   font-variant: small-caps;
   font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.8),
-             2px 8px 15px rgba(0,0,0,0.1),
-             2px 18px 25px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px rgba(0,0,0,0.1);
 
 
 }
@@ -186,19 +188,21 @@ body p {
   text-align: center;
 }
 .porfolio-jumbotron-buttons .button {
-  background-color: rgba(255,69,0,0.75);
+  /*background-color: rgba(255,69,0,0.75);*/
   margin: 2rem;
   color: #fff;
   padding: 1rem 4rem;
   font-size: 1.6rem;
-  border: 0;
+  /*border: 0;*/
+  border: 1px solid #fff;
+  color: #fff;
 }
 .porfolio-jumbotron-buttons .button:hover {
-  background-color: rgba(20,0,0,0.85);
+  background-color: rgba(25,40,73,.75);;
   color:#fff;
 }
 .porfolio-buttons {
-  background: rgba(20,0,0,0.1);
+  background: #3c66dc;
   height: 80px;
   width: 100%;
   margin-top: 50px;
@@ -207,28 +211,29 @@ body p {
 .overlay {
   z-index: 2;
   height: 300px;
-background: rgba(0,0,0,.65);
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
+  background: rgba(25,40,73,.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .porfolio-services-title, .porfolio-about-title, .porfolio-title{
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  color: rgba(20,100,150,0.95);
+  color: #203476;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   border-bottom: 1px solid orange;
   padding-bottom: 2rem;
   margin: 2rem 20rem;
-  font-weight: 300;
+  font-weight: 400;
+  display:inline-block;
 }
 .porfolio-sub-title {
-  color: #555;
+  color: #203476;;
   display: block;
   width: 45%;
   text-align: center;
@@ -243,7 +248,9 @@ width: 100%;
   text-align: center;
 }
 .porfolio-services-col-title span {
-  color: rgba(255,0,0,0.75);
+    color: #444444;
+    font-weight: 800;
+    font-size: 25px;
 }
 .front-end-icon {
   background-image: url("~/../img/icons/tools-icons.svg");
@@ -292,11 +299,18 @@ margin-bottom: 2rem;
 
 }
 .col-main-background.services {
-  background: rgba(20,160,150,0.1);
+  background: #fff;
   margin-bottom: 2rem;
 }
 .porfolio-services-description{
   padding: 1rem;
+}
+.porfolio-services-description button {
+      background-color: #3c66dc;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
 }
  .porfolio-about-text, .porfolio-section-text {
   text-align: center;
@@ -304,7 +318,8 @@ margin-bottom: 2rem;
   /*opacity: 0.95;
   background: rgba(255, 104, 45, 0.85);*/
   opacity: .95;
-  background: rgba(20,100,150,0.65);
+  /*background: rgba(20,100,150,0.65);*/
+  background: #fff;
   box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
   margin-top: 0px;
   padding: 1rem;
@@ -313,8 +328,12 @@ margin-bottom: 2rem;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+.porfolio-services-section  .row , .porfolio-section .row{
+  text-align: center;
+}
 .porfolio-services-section .col-main-background button {
   width: 100%;
+  margin-top: 4rem;
 }
 p.porfolio-section-text {
   margin-right: 1.4rem;
@@ -331,16 +350,21 @@ p.porfolio-about-text {
   padding: 3rem;
 }
 .col-main-background button {
-  background-color: rgba(255,69,0,0.95);
+  background-color: #3c66dc;
   color: #fff;
-  height: 4rem;
+  height: 5rem;
+}
+..col-main-background button:hover {
+  background: #337ab7;
 }
 .porfolio-section {
   padding: 2rem 3rem;
   //background: #E8E8E8;
   background: rgba(20,0,0,0.1);
 }
-
+.porfolio-section.contact {
+  background: #fff;
+}
 /*About PAGE*/
 .porfolio-section.about , .porfolio-section.porfolio{
   background-color: #fff;
@@ -387,14 +411,16 @@ p.porfolio-about-text {
 }
 
 .porfolio-contact-form {
-
+  text-align: left;
 }
 .porfolio-contact-form textarea{
       height: 175px;
 }
 .porfolio-contact-form button {
-  background: rgba(255,69,0,0.75);
+  background-color: #3c66dc;
   color: #fff;
+  padding: 8px 15px;
+  font-size: 16px;
 }
 #map {
   width: 40%;
