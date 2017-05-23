@@ -66,7 +66,7 @@ class App extends Component {
            <li className={liClasses + ' '+isActive.porfolio}><Link to="/porfolio">Porfolio</Link></li>
            <li className={liClasses + ' -contact '+isActive.contact} onClick={this.navigateToContact}><a>Contact</a></li>
            <li className={liClasses + ' '+isActive.resources}><Link to="/resources">Resources</Link></li>
-           <li className={liClasses + ' last login '}><Link to="/login">Login</Link></li>
+           <li className={liClasses + ' last login '}><Link to="/login"><span class="glyphicon glyphicon-log-in"></span> Login</Link></li>
         </Nav>
         <Jumbotron/>
         { this.props.children }

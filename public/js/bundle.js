@@ -25034,7 +25034,8 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/login' },
-	              'Login'
+	              _react2.default.createElement('span', { 'class': 'glyphicon glyphicon-log-in' }),
+	              ' Login'
 	            )
 	          )
 	        ),
@@ -55116,7 +55117,7 @@
 	          null,
 	          _react2.default.createElement(
 	            _Row2.default,
-	            null,
+	            { className: 'about-content' },
 	            _react2.default.createElement(
 	              'h1',
 	              { className: 'porfolio-about-title' },
@@ -55129,12 +55130,7 @@
 	            ),
 	            _react2.default.createElement(
 	              _Col2.default,
-	              { sm: 11, className: 'col-main-background about' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'porfolio-about-image-cont' },
-	                _react2.default.createElement('span', { className: 'porfolio-about-image' })
-	              ),
+	              { sm: 12, className: 'col-main-background about' },
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'porfolio-about-description' },
@@ -55148,53 +55144,146 @@
 	          ),
 	          _react2.default.createElement(
 	            _Row2.default,
-	            null,
+	            { className: 'skills-content' },
+	            _react2.default.createElement(
+	              'h1',
+	              { className: 'porfolio-about-title' },
+	              'Skills'
+	            ),
 	            _react2.default.createElement(
 	              _Col2.default,
-	              { sm: 11, className: 'col-main-background about' },
+	              { sm: 12, className: 'col-main-background about' },
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'porfolio-about-skills' },
 	                _react2.default.createElement(
-	                  'h4',
-	                  null,
-	                  'SKILLS:'
-	                ),
-	                _react2.default.createElement(
 	                  'div',
-	                  null,
-	                  'Responsive Front-end Development',
+	                  { className: 'row' },
 	                  _react2.default.createElement(
-	                    'ul',
-	                    { 'class': 'intro__list' },
+	                    'div',
+	                    { className: 'col-sm-4' },
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      'HTML'
-	                    ),
+	                      'ul',
+	                      { className: 'intro__list' },
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'HTML/HTML5'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'CSS/CSS3'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Bootstrap'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Grunt/Gulp'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Angula.js/Backbone.js'
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-sm-4' },
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      'CSS'
-	                    ),
+	                      'ul',
+	                      { className: 'intro__list' },
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Responsive Design'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Handlebars.js'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Python/Django'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Postgres / MongoDB / MySql'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'PHP/Mysql'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Node.js'
+	                      )
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-sm-4' },
 	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      'JavaScript'
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      'Performance'
-	                    ),
-	                    _react2.default.createElement(
-	                      'li',
-	                      null,
-	                      'WordPress'
+	                      'ul',
+	                      { className: 'intro__list' },
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Pixel Perfect'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'WordPress'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Css Preprocessors(Less)'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Agile'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'PHP/Mysql'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'Node.js'
+	                      ),
+	                      _react2.default.createElement(
+	                        'li',
+	                        null,
+	                        'WordPress'
+	                      )
 	                    )
 	                  )
 	                )
 	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _Row2.default,
+	            { className: 'stats-content' },
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Experience in front-end and back-end development.'
 	            )
 	          )
 	        )
@@ -55285,27 +55374,32 @@
 	              { className: 'porfolio-jumbotron-pos' },
 	              'Full Stack Developer'
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'porfolio-buttons' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'porfolio-jumbotron-buttons' },
+	              _react2.default.createElement(
+	                'a',
+	                { className: 'btn btn-primary button -contact', onClick: this.navigateToContact },
+	                'Contact Me'
+	              ),
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { className: 'btn btn-primary button', to: '/porfolio' },
+	                'View Porfolio'
+	              )
+	            )
 	          )
 	        ),
 	        _react2.default.createElement('div', { className: 'overlay' }),
 	        _react2.default.createElement('div', { className: 'porfolio-image' }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'porfolio-buttons' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'porfolio-jumbotron-buttons' },
-	            _react2.default.createElement(
-	              'a',
-	              { className: 'btn btn-primary button -contact', onClick: this.navigateToContact },
-	              'Contact Me'
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { className: 'btn btn-primary button', to: '/porfolio' },
-	              'View Porfolio'
-	            )
-	          )
+	          { className: 'porfolio-jumbotron-intro' },
+	          _react2.default.createElement('span', { className: 'porfolio-about-image' })
 	        )
 	      );
 	    }
@@ -55634,6 +55728,15 @@
 	                  )
 	                )
 	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _lib.Row,
+	            { className: 'stats-content' },
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Experience in front-end and back-end development.'
 	            )
 	          )
 	        )
@@ -56804,7 +56907,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background-color: #e4e4e4;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-text-size-adjust: none;\n  -webkit-font-smoothing: antialiased;\n}\n.container button {\n  text-transform: uppercase;\n}\n\nfooter .copyright{\n  background: rgba(25,40,73,.95);\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  color: #203476;\n  font-weight: 300;\n  background-color: #f4f4f4;\n  padding-top: 1rem;\n}\n\nbody p {\n  font-weight: 300;\n}\n\n/*Footer Component*/\n.footer-bar .social-icon  {\n  height: 32px;\n  width: 32px;\n  background-position: 100% 40%;\n  display: inline-block;\n  padding: 2rem;\n  background-repeat: no-repeat;\n  text-align: center;\n  margin: 0 auto;\n  margin-top: .5rem;\n}\n\n.footer-bar .google_plus {\n  background-image: url(\"/../img/icons/googleplus.png\");\n}\n.footer-bar .twitter {\n  background-image: url(\"/../img/icons/twitter.png\");\n}\n\n.footer-bar .linkedin {\n  background-image: url(\"/../img/icons/linkedin.png\");\n}\n\n.footer-bar .github {\n  background-image: url(\"/../img/icons/github.png\");\n}\n\n.footer-bar {\n  text-align: center\n}\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  /*background: rgba(20,0,0,0.85);*/\n  background: rgba(25,40,73,.8);\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.login a{\n  border-radius: 10px;\n  margin: 0.5rem;\n  padding: 5px 15px;\n  /* vertical-align: bottom; */\n  display: block;\n  vertical-align: bottom;\n  background: rgba(20,160,150,0.95);\n}\n.nav .nav-item.-contact {\n  cursor: pointer;\n}\n.nav .nav-item.active{\n  /*background:rgba(255,69,0,0.75);*/\n  border-bottom: 2px solid orange;\n}\n.nav .nav-item.active a {\n  background:#3c66dc;\n  font-weight: 300;\n}\n.nav .nav-item:hover > a {\n  background:rgba(255,69,0,0.65);\n  color: #fff;\n}\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 300px;\n  width: 100%;\n  background-position: 100% 40%;\n  background-size: 100%;\n  background-image: url(\"/../img/vladi_puertorico.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 250px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 30px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: rgba(255, 255, 250,.7);\n  text-align: center;\n  line-height: 1rem;\n  /*text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);*/\n}\n.porfolio-jumbotron-name .last_name {\n  color: rgba(255, 255, 250,.75);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 70px;\n  font-weight: 300;\n  display: block;\n  color: #fff;\n  letter-spacing: -2px;\n  text-align: center;\n  font-weight: 500;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px rgba(0,0,0,0.1);\n\n\n}\n\n.porfolio-jumbotron-buttons {\n  text-align: center;\n}\n.porfolio-jumbotron-buttons .button {\n  /*background-color: rgba(255,69,0,0.75);*/\n  margin: 2rem;\n  color: #fff;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  /*border: 0;*/\n  border: 1px solid #fff;\n  color: #fff;\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: rgba(25,40,73,.75);;\n  color:#fff;\n}\n.porfolio-buttons {\n  background: #3c66dc;\n  height: 80px;\n  width: 100%;\n  margin-top: 50px;\n  box-shadow: 3px 0px 2px 0px #000;\n}\n.overlay {\n  z-index: 2;\n  height: 300px;\n  background: rgba(25,40,73,.75);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n  margin-top: 3rem;\n  margin-bottom: 3rem;\n  color: #203476;\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 3.5rem;\n  border-bottom: 1px solid orange;\n  padding-bottom: 2rem;\n  margin: 2rem 20rem;\n  font-weight: 400;\n  display:inline-block;\n}\n.porfolio-sub-title {\n  color: #203476;;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  padding-bottom: 1rem;\n  margin-bottom: 2rem;\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n    color: #444444;\n    font-weight: 800;\n    font-size: 25px;\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  margin-left: 1rem;\n  margin-right: 1rem;\n  padding:1rem;\n\n}\n.col-main-background.services {\n  background: #fff;\n  margin-bottom: 2rem;\n}\n.porfolio-services-description{\n  padding: 1rem;\n}\n.porfolio-services-description button {\n      background-color: #3c66dc;\n    text-decoration: none;\n    color: #FFF;\n    font-size: 16px;\n    font-weight: 600;\n}\n .porfolio-about-text, .porfolio-section-text {\n  text-align: center;\n  color: #fff;\n  /*opacity: 0.95;\n  background: rgba(255, 104, 45, 0.85);*/\n  opacity: .95;\n  /*background: rgba(20,100,150,0.65);*/\n  background: #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n  margin-top: 0px;\n  padding: 1rem;\n  font-size: 13px;\n  border: 1px solid rgba(0, 0, 45, 0.15);\n  border-bottom-left-radius: 2px;\n  border-bottom-right-radius: 2px;\n}\n.porfolio-services-section  .row , .porfolio-section .row{\n  text-align: center;\n}\n.porfolio-services-section .col-main-background button {\n  width: 100%;\n  margin-top: 4rem;\n}\np.porfolio-section-text {\n  margin-right: 1.4rem;\n  margin-left: 1.4rem;\n  cursor: pointer;\n}\ndiv.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--content {\n  height: 72%;\n  padding: 20px 15px;\n}\np.porfolio-about-text {\n  width: 87%;\n  float: right;\n  padding: 3rem;\n}\n.col-main-background button {\n  background-color: #3c66dc;\n  color: #fff;\n  height: 5rem;\n}\n..col-main-background button:hover {\n  background: #337ab7;\n}\n.porfolio-section {\n  padding: 2rem 3rem;\n  //background: #E8E8E8;\n  background: rgba(20,0,0,0.1);\n}\n.porfolio-section.contact {\n  background: #fff;\n}\n/*About PAGE*/\n.porfolio-section.about , .porfolio-section.porfolio{\n  background-color: #fff;\n}\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 90px;\n    height: 100px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n\n}\n.porfolio-about-description {\n  margin-top: 3rem;\n}\n.col-main-background.about {\n  margin: 0rem 3rem;\n  padding: 2rem 1rem;\n}\n\n/*PORFOLIO SITE PAGE*/\n.porfolio-site-image{\n  text-align: center;\n  margin: 0 auto;\n  display: block;\n  position: relative;\n  width: 350px;\n}\n.porfolio-site-image img{\n  width: 350px;\n  height: 238px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n\n.porfolio-contact-form {\n  text-align: left;\n}\n.porfolio-contact-form textarea{\n      height: 175px;\n}\n.porfolio-contact-form button {\n  background-color: #3c66dc;\n  color: #fff;\n  padding: 8px 15px;\n  font-size: 16px;\n}\n#map {\n  width: 40%;\n  height: 300px;\n}\n.porfolio-site-image-overflow {\n  width: 80%;\n}\n.porfolio-site-image-navigation--content {\n  background-color: rgba(0,0,0,0.8);\n  /*background-color: transparent;*/\n  color: #cacaca;\n  height: 0%;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  right: 0;\n  top: 20px;\n  transition: all .25s ease-in-out;\n  width:72%;\n  z-index: 2;\n  zoom: 1;\n  margin-left: auto;\n  margin-right: auto;\n}\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #eceff1;\n  color: #000;\n  font-family: 'Open Sans',sans-serif;\n  font-weight: 100;\n  font-size: 16px;\n  line-height: 1.5;\n  -webkit-text-size-adjust: none;\n  -webkit-font-smoothing: antialiased;\n}\n.container {\n  width: 100%!important;\n}\n.container button {\n  text-transform: uppercase;\n}\n\nfooter .copyright{\n  background: rgba(25,40,73,.95);\n  color:#fff;\n  text-align: center;\n  font-size: 1.2rem;\n  padding: 1rem;\n  margin: 0;\n}\nfooter .footer-bar {\n  color: #203476;\n  font-weight: 300;\n  background-color: #f4f4f4;\n  padding-top: 1rem;\n}\n\nbody p {\n  font-weight: 300;\n}\n\n/*Footer Component*/\n.footer-bar .social-icon  {\n  height: 32px;\n  width: 32px;\n  background-position: 100% 40%;\n  display: inline-block;\n  padding: 2rem;\n  background-repeat: no-repeat;\n  text-align: center;\n  margin: 0 auto;\n  margin-top: .5rem;\n}\n\n.footer-bar .google_plus {\n  background-image: url(\"/../img/icons/googleplus.png\");\n}\n.footer-bar .twitter {\n  background-image: url(\"/../img/icons/twitter.png\");\n}\n\n.footer-bar .linkedin {\n  background-image: url(\"/../img/icons/linkedin.png\");\n}\n\n.footer-bar .github {\n  background-image: url(\"/../img/icons/github.png\");\n}\n\n.footer-bar {\n  text-align: center\n}\n/* centered columns styles */\n.row-centered {\n    text-align:center;\n}\n.col-centered {\n    display:inline-block;\n    float:none;\n    /* reset the text-align */\n    text-align:left;\n    /* inline-block space fix */\n    margin-right:-4px;\n}\n\n\n.porfolio-link {\n  color:#fff;\n}\n.nav {\n  /*background: rgba(20,0,0,0.85);*/\n  padding: 1rem 0;\n  background: rgba(17, 96, 137,.95);\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);\n}\n.nav .nav-item, .nav .nav-item > a {\n  display: inline-block;\n  text-transform: uppercase;;\n  font-size: 1.5rem;\n  color: #fff;\n}\n.nav .nav-item:first-child {\n  margin-left: 5rem;\n}\n.nav .nav-item.last{\n  float: right;\n  margin-right: 5rem;\n}\n.nav .nav-item.login a{\n  border-radius: 10px;\n  margin: 0.5rem;\n  padding: 5px 15px;\n  /* vertical-align: bottom; */\n  display: block;\n  vertical-align: bottom;\n  background: rgb(11,179,110);\n  border: 1px solid orange;\n}\n.nav .nav-item.-contact {\n  cursor: pointer;\n}\n.nav .nav-item {\n  border-bottom: 2px solid rgba(17, 96, 137,.65);\n}\n.nav .nav-item.active{\n  /*background:rgba(255,69,0,0.75);*/\n  border-bottom: 2px solid orange;\n}\n.nav .nav-item.active a {\n  background-color: rgba(17,40,73,.75);\n  font-weight: 300;\n}\n.nav .nav-item>li>a:focus, .nav .nav-item>li>a:hover {\n  background:rgba(25,40,73,.50);\n}\n.nav .nav-item:hover > a {\n  background:rgba(25,40,73,.50);\n  color: #fff;\n}\n\n.home-jumbotron {\n  position: relative;\n  z-index: 0;\n}\n.porfolio-image {\n  height: 340px;\n  width: 100%;\n  background-position: -218px 25%;\n  background-size: 100%;\n  background-image: url(\"/../img/vladi_puertorico.jpg\");\n  position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n\n}\n.porfolio-jumbotron-container {\n  height: 290px;\n  width: 100%;\n  padding-top:4rem;\n  position: relative;\n  z-index: 5;\n  color: #fff;\n  background-repeat: no-repeat;\n}\n.porfolio-jumbotron-text {\n  width: 45%;\n  margin: 0 auto;\n  height: 105px;\n  /*background-color:rgba(0, 0, 0, 0.6);*/\n}\n.porfolio-jumbotron-pos {\n  font-size: 30px;\n  font-weight: 300;\n  text-align: left;\n  line-height: 60px;\n  color: rgba(255, 255, 250,.7);\n  text-align: center;\n  line-height: 1rem;\n  /*text-shadow: 0px 3px 0px #000,\n  0px 14px 10px rgba(0,0,0,0.15),\n  0px 24px 2px rgba(0,0,0,0.1),\n  0px 34px 30px rgba(0,0,0,0.1);*/\n}\n.porfolio-jumbotron-name .last_name {\n  color: rgba(255, 255, 250,.75);\n}\n\n.porfolio-jumbotron-name{\n  font-size: 70px;\n  font-weight: 300;\n  display: block;\n  color: #fff;\n  letter-spacing: -2px;\n  text-align: center;\n  font-weight: 500;\n  font-variant: small-caps;\n  font-family: Montserrat,Helvetica Neue,Helvetica,Arial,sans-serif;\n  text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 2px 2px 2px rgba(0,0,0,0.1), 2px 2px 2px rgba(0,0,0,0.1);\n\n\n}\n.porfolio-buttons {\n  margin-top: 40px;\n}\n.porfolio-jumbotron-buttons {\n  text-align: center;\n}\n.porfolio-jumbotron-buttons .button {\n  /*background-color: rgba(255,69,0,0.75);*/\n  margin: 2rem;\n  color: #fff;\n  text-transform: uppercase;\n  padding: 1rem 4rem;\n  font-size: 1.6rem;\n  /*border: 0;*/\n  border: 1px solid #fff;\n  color: #fff;\n    background: #42a5f5;\n    background: -moz-linear-gradient(top,#42a5f5 0,#2196f3 100%);\n    background: -webkit-linear-gradient(top,#42a5f5 0,#2196f3 100%);\n    background: linear-gradient(to bottom,#42a5f5 0,#2196f3 100%);\n}\n.porfolio-jumbotron-buttons .button:hover {\n  background-color: rgba(17,40,73,.75);\n  color:#fff;\n}\n.porfolio-jumbotron-intro {\n    background: rgba(11,179,110,.1);\n    height: 70px;\n    /* width: 95%; */\n    margin-top: 0px;\n    text-align: center;\n    margin: 0 auto;\n\n}\n.overlay {\n  z-index: 2;\n  height: 340px;\n  background: rgba(17, 96, 137,.85);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n}\n\n.porfolio-services-title, .porfolio-about-title, .porfolio-title{\n  text-align: center;\n    margin-top: 3rem;\n    margin-bottom: 3rem;\n    color: rgb(11,179,110);\n    font-weight: bold;\n    text-transform: uppercase;\n    font-size: 4.5rem;\n    border-bottom: 1px solid orange;\n    padding-bottom: 2rem;\n    margin: 2rem 20rem;\n    font-weight: 800;\n    display: inline-block;\n\n}\n.porfolio-sub-title {\n  color: #203476;\n  display: block;\n  width: 45%;\n  text-align: center;\n  margin: 0 auto;\n  padding-bottom: 1rem;\n  /*margin-bottom: 2rem;*/\n  font-size: 16px;\n}\n.porfolio-services-col-title {\n  margin-top: 1rem;\n  margin-bottom: 2rem;\n  text-align: center;\n}\n.porfolio-services-col-title span {\n    color: #444444;\n    font-weight: 800;\n    font-size: 25px;\n}\n.front-end-icon {\n  background-image: url(\"/../img/icons/tools-icons.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n.back-end-icon {\n  background-image: url(\"/../img/icons/database-cloud-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n  display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n\n  background-size: 11rem;\npadding: 5.5rem;\nmargin-bottom: 2rem;\n}\n\n.web-end-icon {\n  background-image: url(\"/../img/icons/monitor-icon.svg\");\n  background-repeat: no-repeat;\n  background-position: 0% 50%;\n\n  background-size: 11rem;\npadding: 5.5rem;\ndisplay: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40%;\nmargin-bottom: 2rem;\n}\n.col-main-background {\n  margin-left: 1rem;\n  margin-right: 1rem;\n  padding:1rem;\n\n}\n\n.col-main-background.about ul li {\n  text-align: left;\n}\n.col-main-background.services {\n  background: #fff;\n  margin-bottom: 2rem;\n}\n.porfolio-services-description{\n  padding: 1rem;\n}\n.porfolio-services-description button {\n      background-color: #3c66dc;\n    text-decoration: none;\n    color: #FFF;\n    font-size: 16px;\n    font-weight: 600;\n}\n .porfolio-about-text, .porfolio-section-text {\n      text-align: center;\n    /* color: #fff; */\n    opacity: .95;\n    /*background: rgba(20,100,150,0.65);\n    background: #fff;*/\n    /* box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1); */\n    margin-top: 0px;\n    padding: 1rem;\n    font-size: 16px;\n    /* border: 1px solid rgba(0, 0, 45, 0.15); */\n    border-bottom-left-radius: 2px;\n    border-bottom-right-radius: 2px;\n    line-height: 2;\n}\n.porfolio-services-section  .row , .porfolio-section .row{\n  text-align: center;\n  padding: 2rem 0 2rem 0;\n}\n.porfolio-services-section .col-main-background button {\n  width: 100%;\n  margin-top: 4rem;\n}\np.porfolio-section-text {\n  margin-right: 1.4rem;\n  margin-left: 1.4rem;\n  cursor: pointer;\n}\ndiv.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--content {\n  height: 72%;\n  padding: 20px 15px;\n}\np.porfolio-about-text {\n  \n}\n.col-main-background button {\n  background-color: #3c66dc;\n  color: #fff;\n  height: 5rem;\n}\n..col-main-background button:hover {\n  background: #337ab7;\n}\n.porfolio-section {\n    background: rgba(20,0,0,0.1);\n  \n}\n.porfolio-section.contact {\n  background: #fff;\n}\n/*About PAGE*/\n.porfolio-section.about , .porfolio-section.porfolio{\n  background-color: rgba(17, 96, 137,.1);\n}\n.porfolio-about-image-cont{\n  display: block;\n  float: left;\n  line-height: 3rem;\n}\n.porfolio-about-image{\n  background: url(\"/../img/vlad.png\") no-repeat 100% 0%;\n    width: 95px;\n    height: 105px;\n    display: inline-block;\n    border-radius: 60%;\n    background-size: 90px;\n    z-index:100; \n  position: relative;\n  border: 3px solid #fff;\n\n}\n.porfolio-about-description {\n  margin-top: 0rem;\n}\n.col-main-background.about {\n  margin: 0;\n  \n}\n.about-content {\n  background-color: rgba(17, 96, 137,.0);\n}\n.skills-content {\n  background: #42a5f5;\n  background: rgb(17, 96, 137);\n  color: #fff;\n}\n.stats-content {\n  background: rgba(11,179,110,.75);\n  color: #fff;\n  font-weight: 800;\n  font-size: 25px;\n  padding:2rem 0;\n}\n\n/*PORFOLIO SITE PAGE*/\n.porfolio-site-image{\n  text-align: center;\n  margin: 0 auto;\n  display: block;\n  position: relative;\n  width: 350px;\n}\n.porfolio-site-image img{\n  width: 350px;\n  height: 238px;\n  display: inline-block;\n  background-position: 0% 50%;\n  background-size: 420px;\n  background-repeat: no-repeat;\n  border: 10px solid #fff;\n  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);\n}\n\n.porfolio-contact-form {\n  text-align: left;\n}\n.porfolio-contact-form textarea{\n      height: 175px;\n}\n.porfolio-contact-form button {\n  background-color: #3c66dc;\n  color: #fff;\n  padding: 8px 15px;\n  font-size: 16px;\n}\n#map {\n  width: 40%;\n  height: 300px;\n}\n.porfolio-site-image-overflow {\n  width: 80%;\n}\n.porfolio-site-image-navigation--content {\n  background-color: rgba(0,0,0,0.8);\n  /*background-color: transparent;*/\n  color: #cacaca;\n  height: 0%;\n  left: 0;\n  overflow: hidden;\n  position: absolute;\n  right: 0;\n  top: 20px;\n  transition: all .25s ease-in-out;\n  width:72%;\n  z-index: 2;\n  zoom: 1;\n  margin-left: auto;\n  margin-right: auto;\n}\n", ""]);
 	
 	// exports
 

@@ -1,5 +1,5 @@
 body {
-  background-color: #e4e4e4;
+  background-color: #eceff1;
   color: #000;
   font-family: 'Open Sans',sans-serif;
   font-weight: 100;
@@ -7,6 +7,9 @@ body {
   line-height: 1.5;
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
+}
+.container {
+  width: 100%!important;
 }
 .container button {
   text-transform: uppercase;
@@ -81,7 +84,8 @@ body p {
 }
 .nav {
   /*background: rgba(20,0,0,0.85);*/
-  background: rgba(25,40,73,.8);
+  padding: 1rem 0;
+  background: rgba(17, 96, 137,.95);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0px 0px 3px rgba(0,0,0,0.1), 0px 0px 0px rgba(0,0,0,0.1);
 }
 .nav .nav-item, .nav .nav-item > a {
@@ -104,31 +108,39 @@ body p {
   /* vertical-align: bottom; */
   display: block;
   vertical-align: bottom;
-  background: rgba(20,160,150,0.95);
+  background: rgb(11,179,110);
+  border: 1px solid orange;
 }
 .nav .nav-item.-contact {
   cursor: pointer;
+}
+.nav .nav-item {
+  border-bottom: 2px solid rgba(17, 96, 137,.65);
 }
 .nav .nav-item.active{
   /*background:rgba(255,69,0,0.75);*/
   border-bottom: 2px solid orange;
 }
 .nav .nav-item.active a {
-  background:#3c66dc;
+  background-color: rgba(17,40,73,.75);
   font-weight: 300;
 }
+.nav .nav-item>li>a:focus, .nav .nav-item>li>a:hover {
+  background:rgba(25,40,73,.50);
+}
 .nav .nav-item:hover > a {
-  background:rgba(255,69,0,0.65);
+  background:rgba(25,40,73,.50);
   color: #fff;
 }
+
 .home-jumbotron {
   position: relative;
   z-index: 0;
 }
 .porfolio-image {
-  height: 300px;
+  height: 340px;
   width: 100%;
-  background-position: 100% 40%;
+  background-position: -218px 25%;
   background-size: 100%;
   background-image: url("~/../img/vladi_puertorico.jpg");
   position: absolute;
@@ -138,7 +150,7 @@ body p {
 
 }
 .porfolio-jumbotron-container {
-  height: 250px;
+  height: 290px;
   width: 100%;
   padding-top:4rem;
   position: relative;
@@ -183,7 +195,9 @@ body p {
 
 
 }
-
+.porfolio-buttons {
+  margin-top: 40px;
+}
 .porfolio-jumbotron-buttons {
   text-align: center;
 }
@@ -191,27 +205,34 @@ body p {
   /*background-color: rgba(255,69,0,0.75);*/
   margin: 2rem;
   color: #fff;
+  text-transform: uppercase;
   padding: 1rem 4rem;
   font-size: 1.6rem;
   /*border: 0;*/
   border: 1px solid #fff;
   color: #fff;
+    background: #42a5f5;
+    background: -moz-linear-gradient(top,#42a5f5 0,#2196f3 100%);
+    background: -webkit-linear-gradient(top,#42a5f5 0,#2196f3 100%);
+    background: linear-gradient(to bottom,#42a5f5 0,#2196f3 100%);
 }
 .porfolio-jumbotron-buttons .button:hover {
-  background-color: rgba(25,40,73,.75);;
+  background-color: rgba(17,40,73,.75);
   color:#fff;
 }
-.porfolio-buttons {
-  background: #3c66dc;
-  height: 80px;
-  width: 100%;
-  margin-top: 50px;
-  box-shadow: 3px 0px 2px 0px #000;
+.porfolio-jumbotron-intro {
+    background: rgba(11,179,110,.1);
+    height: 70px;
+    /* width: 95%; */
+    margin-top: 0px;
+    text-align: center;
+    margin: 0 auto;
+
 }
 .overlay {
   z-index: 2;
-  height: 300px;
-  background: rgba(25,40,73,.75);
+  height: 340px;
+  background: rgba(17, 96, 137,.85);
   position: absolute;
   top: 0;
   left: 0;
@@ -220,26 +241,27 @@ body p {
 
 .porfolio-services-title, .porfolio-about-title, .porfolio-title{
   text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  color: #203476;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 3.5rem;
-  border-bottom: 1px solid orange;
-  padding-bottom: 2rem;
-  margin: 2rem 20rem;
-  font-weight: 400;
-  display:inline-block;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: rgb(11,179,110);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 4.5rem;
+    border-bottom: 1px solid orange;
+    padding-bottom: 2rem;
+    margin: 2rem 20rem;
+    font-weight: 800;
+    display: inline-block;
+
 }
 .porfolio-sub-title {
-  color: #203476;;
+  color: #203476;
   display: block;
   width: 45%;
   text-align: center;
   margin: 0 auto;
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  /*margin-bottom: 2rem;*/
   font-size: 16px;
 }
 .porfolio-services-col-title {
@@ -298,6 +320,10 @@ margin-bottom: 2rem;
   padding:1rem;
 
 }
+
+.col-main-background.about ul li {
+  text-align: left;
+}
 .col-main-background.services {
   background: #fff;
   margin-bottom: 2rem;
@@ -313,23 +339,23 @@ margin-bottom: 2rem;
     font-weight: 600;
 }
  .porfolio-about-text, .porfolio-section-text {
-  text-align: center;
-  color: #fff;
-  /*opacity: 0.95;
-  background: rgba(255, 104, 45, 0.85);*/
-  opacity: .95;
-  /*background: rgba(20,100,150,0.65);*/
-  background: #fff;
-  box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1);
-  margin-top: 0px;
-  padding: 1rem;
-  font-size: 13px;
-  border: 1px solid rgba(0, 0, 45, 0.15);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+      text-align: center;
+    /* color: #fff; */
+    opacity: .95;
+    /*background: rgba(20,100,150,0.65);
+    background: #fff;*/
+    /* box-shadow: 4px 1px 5px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.1), 2px 18px 25px rgba(0,0,0,0.1); */
+    margin-top: 0px;
+    padding: 1rem;
+    font-size: 16px;
+    /* border: 1px solid rgba(0, 0, 45, 0.15); */
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    line-height: 2;
 }
 .porfolio-services-section  .row , .porfolio-section .row{
   text-align: center;
+  padding: 2rem 0 2rem 0;
 }
 .porfolio-services-section .col-main-background button {
   width: 100%;
@@ -345,9 +371,7 @@ div.porfolio-porfolio-description:hover  .porfolio-site-image-navigation--conten
   padding: 20px 15px;
 }
 p.porfolio-about-text {
-  width: 87%;
-  float: right;
-  padding: 3rem;
+  
 }
 .col-main-background button {
   background-color: #3c66dc;
@@ -358,16 +382,15 @@ p.porfolio-about-text {
   background: #337ab7;
 }
 .porfolio-section {
-  padding: 2rem 3rem;
-  //background: #E8E8E8;
-  background: rgba(20,0,0,0.1);
+    background: rgba(20,0,0,0.1);
+  
 }
 .porfolio-section.contact {
   background: #fff;
 }
 /*About PAGE*/
 .porfolio-section.about , .porfolio-section.porfolio{
-  background-color: #fff;
+  background-color: rgba(17, 96, 137,.1);
 }
 .porfolio-about-image-cont{
   display: block;
@@ -376,19 +399,37 @@ p.porfolio-about-text {
 }
 .porfolio-about-image{
   background: url("~/../img/vlad.png") no-repeat 100% 0%;
-    width: 90px;
-    height: 100px;
+    width: 95px;
+    height: 105px;
     display: inline-block;
     border-radius: 60%;
     background-size: 90px;
+    z-index:100; 
+  position: relative;
+  border: 3px solid #fff;
 
 }
 .porfolio-about-description {
-  margin-top: 3rem;
+  margin-top: 0rem;
 }
 .col-main-background.about {
-  margin: 0rem 3rem;
-  padding: 2rem 1rem;
+  margin: 0;
+  
+}
+.about-content {
+  background-color: rgba(17, 96, 137,.0);
+}
+.skills-content {
+  background: #42a5f5;
+  background: rgb(17, 96, 137);
+  color: #fff;
+}
+.stats-content {
+  background: rgba(11,179,110,.75);
+  color: #fff;
+  font-weight: 800;
+  font-size: 25px;
+  padding:2rem 0;
 }
 
 /*PORFOLIO SITE PAGE*/

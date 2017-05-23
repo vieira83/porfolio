@@ -145,6 +145,9 @@ export class Porfolio extends Component {
               </div>
             </Col>
             </Row>
+            <Row className="stats-content">
+            <p>Experience in front-end and back-end development.</p>
+          </Row>
           </Grid>
         </div>
     )

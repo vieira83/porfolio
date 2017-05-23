@@ -19,15 +19,17 @@ export class Jumbotron extends Component {
             <span className="porfolio-jumbotron-name">Vladimir <span className="last_name">Fernandes</span></span>
             <div className="porfolio-jumbotron-pos">Full Stack Developer</div>
           </div>
-
-        </div>
+          <div className="porfolio-buttons">
+              <div className="porfolio-jumbotron-buttons">
+                  <a className="btn btn-primary button -contact" onClick={this.navigateToContact}>Contact Me</a>
+                  <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link>
+              </div>
+            </div>
+          </div>
         <div className="overlay"></div>
         <div className="porfolio-image"></div>
-        <div className="porfolio-buttons">
-          <div className="porfolio-jumbotron-buttons">
-              <a className="btn btn-primary button -contact" onClick={this.navigateToContact}>Contact Me</a>
-              <Link className="btn btn-primary button" to="/porfolio">View Porfolio</Link>
-          </div>
+        <div className="porfolio-jumbotron-intro">
+            <span className="porfolio-about-image"></span>
         </div>
       </div>
 
